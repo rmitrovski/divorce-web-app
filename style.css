@@ -94,7 +94,7 @@ input[type="file"] {
 }
 .login_form input{
 	height: 40px;
-	width: 350px;
+	width: 300px;
 	padding: 0 5px;
 	font-size: 18px;
 	outline: none;
@@ -106,7 +106,7 @@ input[type="file"] {
 .login_form button{
 	margin: 45px 0 30px 0;
 	height: 45px;
-	width: 365px;
+	width: 300px;
 	font-size: 20px;
 	color: white;
 	outline: none;
@@ -123,7 +123,7 @@ input[type="file"] {
 .login_form #email_error,
 .login_form #pass_error{
 	margin-top: 5px;
-	width: 345px;
+	width: 350px;
 	font-size: 18px;
 	color: #C62828;
 	background: rgba(255,0,0,0.1);
