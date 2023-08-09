@@ -133,3 +133,42 @@ input[type="file"] {
 	border: 1px solid #EF9A9A;
 	display: none;
 }
+
+#chatLog .ChatBot {
+    background-color: #e6e6e6;
+    text-align: left;
+}
+
+#chatLog .User {
+    background-color: #66ccff;
+    text-align: right;
+}
+
+.inputArea {
+    margin-top: 20px;
+    display: flex;
+}
+
+.inputArea input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.inputArea button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    background-color: #66ccff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+#chatLog p {
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 0;
+}
