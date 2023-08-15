@@ -19,7 +19,7 @@ session_start();
 
     <!-- SIDEBAR -->
     <section id="sidebar">
-        <!-- ... rest of your sidebar HTML ... -->
+        <!-- ... rest of sidebar HTML ... -->
     </section>
     <!-- SIDEBAR -->
 <?php
