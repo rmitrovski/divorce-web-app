@@ -20,9 +20,9 @@
         <h1>Booking</h1>
     </div>
     <div class="images">
-        <img src="images/1.jpeg" alt="Image 1">
-        <img src="images/1.jpeg" alt="Image 2">
-        <img src="images/1.jpeg" alt="Image 3">
+        <img src="images/BookingImage1.jpeg" alt="Image 1">
+        <img src="images/BookingImage1.jpeg" alt="Image 2">
+        <img src="images/BookingImage1.jpeg" alt="Image 3">
         
     </div>
 
