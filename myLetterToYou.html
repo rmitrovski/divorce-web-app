@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="myLetterToYou.css">
+    
+    <title>My Letter To You</title>
+
+   
+    
+</head>
+<body>
+    <header>
+        <h1>My Letter To You</h1>
+       
+    </header>
+
+   
+    <main>
+        <label for="letter">Without sending it, write a letter to your ex-spouse including all the things you wish to get off your chest.</label>
+    </br>
+        <textarea id="letter" name="letter"  rows="10" required></textarea><br>
+        <button id="Save">Save Letter As Text</button>
+
+    </main>
+
+  
+
+    <footer>
+        
+    </footer>
+
+    <script>
+        document.getElementById("Save").addEventListener("click", function() {
+          const userLetter = document.getElementById("letter").value;
+      
+          // Create a Blob (Binary Large Object) with the user's text
+          const blob = new Blob([userLetter], { type: 'text/plain' });
+      
+          // Create a URL for the Blob
+          const url = URL.createObjectURL(blob);
+      
+          // Create a link element for downloading the file
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = 'LetterForEx.txt'; 
+          document.body.appendChild(link);
+      
+          link.click();
+      
+          document.body.removeChild(link);
+          URL.revokeObjectURL(url);
+        });
+      </script>
+</body>
+</html>
