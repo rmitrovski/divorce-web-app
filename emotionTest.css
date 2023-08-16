@@ -1,0 +1,75 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+}
+
+.card-content {
+    text-align: center;
+}
+
+.card h2 {
+    margin-top: 0;
+}
+
+.checkbox-label {
+    display: block;
+    margin: 15px 0;
+}
+
+.card-button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    border: none;
+    background-color: #ffb23f;
+    color: #ffffff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card-button:disabled {
+    background-color: #c0c0c0;
+    cursor: not-allowed;
+}
+
+.card-button:hover {
+    background-color: #fbff84;
+}
+
+.checkbox-label {
+    position: relative;
+    display: block;
+    margin: 15px 0;
+}
+
+.checkbox-label .hover-message {
+    position: absolute;
+    top: -30px;
+    left: 0;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 14px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.checkbox-label:hover .hover-message {
+    visibility: visible;
+    opacity: 1;
+}
