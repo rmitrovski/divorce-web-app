@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="emotionTest.css"> 
+    <title>Emotional Empowerment</title>
+</head>
+<body>
+    <div class="card">
+        <div class="card-content">
+            <h2>Emotional Empowerment Exercise</h2>
+            <p>Emotional empowerment enables you to harness your feelings as sources of strength and wisdom, fostering 
+                greater self-awareness and resilience in your life's journey.</p>
+            
+            <label class="checkbox-label"><input type="checkbox" id="agreeCheckbox"> 
+                You need to read <a href="https://drive.google.com/file/d/1E0b2hv6zkN32tYeKSQJX1SbjRf179k_B/view"> instructions </a>, before doing the empowerment emotional exercise.
+                <span class="hover-message">I have read the instructions</span>
+            </label>
+            <button class="card-button" id="navigateButton" disabled>Start</button>
+        </div>
+    </div>
+
+    <script>
+        const agreeCheckbox = document.getElementById("agreeCheckbox");
+        const navigateButton = document.getElementById("navigateButton");
+
+        agreeCheckbox.addEventListener("change", () => {
+            navigateButton.disabled = !agreeCheckbox.checked;
+        });
+
+        navigateButton.addEventListener("click", () => {
+           
+            window.location.href = "emotionCheck.html";
+        });
+    </script>
+</body>
+</html>
