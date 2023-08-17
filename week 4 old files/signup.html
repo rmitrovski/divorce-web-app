@@ -6,33 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>all about forms in html</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_new.css">
 </head>
 
 <body>
     <div class="container">
-        <h3 class="inpCol">Fill The Form</h3>
-        <form action="noaction.php" method="post" class="inpCol">
-            <fieldset>
-                <!-- <legend>Login Form</legend> -->
-                <label for="fname" class="inpCol">Enter Your Name<input type="text" name="fname" class="inp inpCol"
-                        required></label>
-                <label for="fname" class="inpCol">Enter Your Email</label>
-                <input type="email" name="email" class="inp inpCol" required>
-                <label for="fname" class="inpCol">Enter Your Ph. Number</label>
-                <input type="number" name="phone" minLength="10" class="inp inpCol" required>
-                <label class="inpCol">Enter your age (years)</label>
-                <input type="number" name="age" min="13" max="120" class="inp inpCol">
-                
-				<br>
-                <br>
-                <label for="fname" name="password" class="inpCol">Enter The Password</label>
-                <input type="password" class="inp inpCol" name="password">
-				<label class="inpCol">Select The Date: <input type="date" name="date" class="inp inpCol"></label>
-				
-                
-                        <input type="submit" class="btn btn-primary" />
-            </fieldset>
+        <h3 class="label">Fill The Form</h3>
+        <form class="login_form" action="noaction.php" method="post" name="form" onsubmit="return validated()">
+            <div class="font">Enter Your Name</div>
+            <input type="text" name="fname" class="inp" required>
+            <div class="font">Enter Your Email</div>
+            <input type="email" name="email" class="inp" required>
+            <div class="font">Enter Your Ph. Number</div>
+            <input type="number" name="phone" class="inp" minlength="10" required>
+            <div class="font">Enter your age (years)</div>
+            <input type="number" name="age" class="inp" min="13" max="120">
+            <br><br>
+            <div class="font">Enter The Password</div>
+            <input type="password" name="password" class="inp">
+            <label class="font">Select The Date: <input type="date" name="date" class="inp"></label>
+			<button type="submit">Login</button>
         </form>
     </div>
 </body>
