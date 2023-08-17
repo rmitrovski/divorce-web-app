@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    h1 {
+        text-align: center;
+        color: blue;
+    }
+
+    .card {
+        background-color: rgb(19, 122, 145);
+        color: rgb(255, 255, 255);
+        padding: 20px;
+        margin: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        position: relative;
+    }
+
+    .card.card-blue {
+        background-color: rgb(2, 73, 120);
+        color: white;
+    }
+
+    .card.card-blue2 {
+        background-color: rgb(62, 103, 130);
+        color: white;
+    }
+
+    .card h2 {
+        margin-top: 0;
+    }
+
+    .card p {
+        margin: 10px 0;
+    }
+
+    .card a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .card a:hover {
+        text-decoration: underline;
+    }
+
+    .extra-info {
+        display: none;
+        padding: 10px;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        color: white;
+    }
+
+    .card.show-extra .extra-info {
+        display: block;
+    }
+
+    .card .extra-info {
+        background-color: rgb(19, 122, 145);
+    }
+
+    .card.card-blue .extra-info {
+        background-color: rgb(2, 73, 120);
+    }
+    
+</style>
+</head>
+<body>
+
+<section class="card">
+  <h2>Parenting Plan Guide</h2>
+  <a href="#" class="learn-more">Learn more</a>
+  <div class="extra-info">    
+    <p>We have providing you with a parenting plan to help you and give you tips to think about and examples to assist you</p>
+    <a href="https://drive.google.com/file/d/1o16ib5r4-vIHIMztNy7AfsyttZmNNBYk/view">Click here to open link</a>
+</div>
+</section>
+
+<section class="card card-blue">
+    <h2>Exploring solution & trying them on</h2>
+  </section>
+
+  <section class="card card-blue2">
+    <h2>Drafting mediation summary report</h2>
+  </section>
+
+<script>
+    const learnMore = document.querySelectorAll('.learn-more');
+
+    learnMore.forEach(button => {
+        button.addEventListener('click', () => {
+            const card = button.parentElement;
+            card.classList.toggle('show-extra');
+        });
+    });
+</script>
+</body>
+</html>
