@@ -1,0 +1,105 @@
+.header {
+    background-color: #1f304b;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+
+
+h1 {
+    text-align: left;
+    font-family: 'Philosopher', sans-serif;
+}
+
+h2 {
+    margin-top:50px;
+    margin-left:1000px;
+    font-family: 'Cinzel', serif;
+}
+
+
+.images img {
+    margin-left:90px;
+    position: absolute;
+    margin-top: 100px;
+    width: 400px; /* Set the width for all images */
+    height: 500px; /* Set the height for all images */
+    left: 0;
+}
+
+.images img:nth-child(1) {
+    border: 2px solid #2761be;
+    z-index: 3;
+    left: 0; /* Adjust the left position for Image 1 */
+    margin-top: 200px; 
+    
+}
+
+.images img:nth-child(2) {
+    border: 2px solid #2761be;
+    z-index: 2;
+    left: 150px; /* Adjust the left position for Image 2 */
+    margin-top: 150px; 
+    opacity: 0.5;
+}
+
+.images img:nth-child(3) {
+    border: 2px solid #2761be;
+    z-index: 1;
+    left: 300px; /* Adjust the left position for Image 3 */
+    opacity: 0.3;
+    
+}
+
+form {
+    max-width: 400px;
+    margin-left:900px;
+    margin-top:20px;
+    padding-left: 20px;
+    padding-right: 40px;
+    padding-bottom:20px;
+    border: 2px solid #0b1587ad;;
+    border-radius: 5px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    font-family: 'Quicksand', sans-serif;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="date"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #2761be;
+    border-radius: 4px;
+}
+
+
+select {
+    width: 100%;
+}
+
+input[type="submit"] {
+    
+    background-color: #1f304b;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left:170px;
+}
+
+input[type="submit"]:hover {
+    background-color: #a9a9a9;
+}
