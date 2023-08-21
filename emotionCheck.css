@@ -1,0 +1,132 @@
+
+header {
+    background-color: #9f9afb; /* Light gray background */
+    padding: 20px 0; /* Padding at the top and bottom */
+    text-align: center; /* Centering the text horizontally */
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Styling the h2 element */
+header h2 {
+    font-size: 24px; /* Font size for the header */
+    color: #333; /* Dark gray color for the text */
+    font-weight: 600; /* Semi-bold weight */
+}
+
+
+.card {
+    width: 500px; 
+    height: 260px; 
+    border: 2px solid #136fb0;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Styling for the header (h3) */
+.card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Styling for the paragraph (p) */
+.card p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #333;
+    line-height: 1.5;
+    max-height: 220px;  
+    overflow-y: auto;   
+    padding-right: 5px; 
+}
+
+
+/* Radio buttons and labels */
+.card input[type="radio"] {
+    margin-right: 5px;
+}
+
+.card label {
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+
+/* Container styling */
+.card-navigation {
+    display: flex;
+    
+    align-items: center;
+  
+    
+    border-radius: 10px; /* Rounded corners for the container */
+}
+
+/* Common button styling */
+.card-navigation button {
+    padding: 10px 20px; 
+    font-size: 10px; /* Text size */
+    border: none; 
+    border-radius: 4px; /* Rounded corners for the buttons */
+    
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+}
+
+/* Previous button specific styling */
+#prevBtn {
+    background-color: #3498db; 
+    color: white; /* White text */
+}
+
+/* Next button specific styling */
+#nextBtn {
+    background-color: #3498db; 
+    color: white; /* White text */
+    margin-left: 20px;
+}
+
+/* Hover effect for both buttons */
+.card-navigation button:hover {
+    opacity: 0.8; /* Reduces opacity for a hover effect */
+}
+
+/* Styling the textarea */
+textarea#intenseFeelings {
+    width: 100%; 
+    
+    font-size: 14px; 
+    border: 2px solid #136fb0;
+    border-radius: 4px; 
+    resize: vertical; 
+    margin-bottom: 20px; 
+}
+
+/* Styling the button */
+button#nextButton {
+    padding: 10px 10px; 
+    font-size: 10px; 
+    border: none; 
+    border-radius: 4px;
+    background-color: #3498db; 
+    color: white; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+}
+
+button#nextButton:hover {
+    background-color: #2980b9; 
+}
+
+
