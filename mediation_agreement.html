@@ -7,7 +7,7 @@
 
 
 
-    body {
+body {
   font-family: Arial, sans-serif;
 }
 
@@ -20,16 +20,20 @@ h1 {
   background-color: rgb(255,255,255);
   color: rgb(0, 0, 0);
   padding: 20px;
-  margin: 20px;
+  margin: auto;
   border-radius: 10px;
   box-shadow: 6px 4px 6px rgba(0.1, 0.1, 0.1, 0.1);
-  width: 800px;
+  width: 680px;
   height: 300px;
   border-radius: 25px;
+  
 }
 
-.outer h2 {
-  margin-top: 0;
+.outer h1 {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  color: black;
+  
 }
 
 .outer p {
@@ -37,46 +41,58 @@ h1 {
 }
 
 .outer a {
+  margin-top: 20px;
   color: rgb(4, 4, 4);
   text-decoration: none;
+  font-size: 18px;
+  
 }
 
 
 
 #inner1 {
-  background-color: rgb(145, 145, 145); 
+  background-color:#CFE8FF; 
   float: left;
-  height: 150px;
-  width: 220px;
+  height: 125px;
+  width: 200px;
+  border: 1px solid #3C91E6;
   border-radius: 25px;
-   
+  margin-top: 40px;
+    
+}
 
+#inner1 a{
+  font-size: 15px;
+}
+#inner1 a:hover{
+  text-decoration: underline;
 }
 #inner2 {
-  background-color:  rgb(145, 145, 145); 
+  background-color: #CFE8FF; 
   float: left;
-  height: 150px;
-  width: 220px;
+  height: 125px;
+  width: 200px;
+  border: 1px solid #3C91E6;
   border-radius: 25px;
-  margin-left: 70px;
+  margin-left: 30px;
+  margin-top: 40px;
 
 }
-#inner3 {
-  background-color:  rgb(145, 145, 145); 
-  float: right;
-  height: 150px;
-  width: 220px;
-  border-radius: 25px;
+
+#inner2 a:hover{
+  text-decoration: underline;
   
 }
+#inner2 a{
+  font-size: 15px;
+}
+
 
 p {
   
   position: relative;
   top: 10px;
   text-align: center;
-   
-  
   
 }
 
@@ -97,24 +113,24 @@ p {
 <div class="outer">
   <h1>Forms and Contracts</h1>
       
-      <h4>Here are a couple of resources to get you started:</h4>
+      <a>Here are a couple of resources to get you started:</a>
       <br>
          
       <div id="inner1">
 				
-					<img id = "pic1" src="book.png" width="80px" height="80px" >
+					<img id = "pic1" src="book.png" width="60px" height="60px" >
          <p><a href="https://docs.google.com/forms/d/e/1FAIpQLScQxaUBVoeuf0Odfj7oFR16zL8VtmSlVkCFY0S9TJs_o3UZ5g/viewform">Client Data</a></p>
 					
       </div>
       <div id="inner2">
 				
-        <img id = "pic1" src="familypic.png" width="80px" height="80px" >
+        <img id = "pic1" src="pic.png" width="60px" height="60px" >
         <p><a href ="https://docs.google.com/forms/d/e/1FAIpQLSfWYkHB5LBfF8g0GEd5WC9UMIR5z_V2nozOfqJrAmGrxxoCOA/viewform">Contract For Family Technology</a></p>
         
     </div>
-    <div id="inner3">
+    <div id="inner2">
 				
-      <img id = "pic1" src="handshake.png" width="80px" height="80px" >
+      <img id = "pic1" src="handshake.png" width="60px" height="60px" >
   <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSftaINIt9n8lB5fAVmiyNP0r7Z2W2XYKxwgsIh0XnQ_1vwaQQ/viewform">Mediation and Coaching Agreement</a></p>
       
   </div>
