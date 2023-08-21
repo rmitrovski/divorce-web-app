@@ -1,6 +1,9 @@
 <?php
- require_once("bookingValidation.php")
+session_start(); // Start the session
 ?>
+
+<html>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,9 +32,17 @@
     <h2>Booking Consultation</h2>
 
     
+<!-- Custom Alert Modal -->
+<div id="customAlert" style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000;">
+    <div style="width: 300px; margin: 15% auto; padding: 20px; background: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+        <h2 id="alertTitle">Alert Title</h2>
+        <p id="alertMessage">Alert message</p>
+        <button onclick="document.getElementById('customAlert').style.display='none'">OK</button>
+    </div>
+</div>
 
-    <div id="alertMessage" class="alert"></div>
-    <form action="booking.php" method="post">
+  
+    <form action="index.php" method="post">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required><br>
         
@@ -59,11 +70,17 @@
             <option value="15:00">03:00 PM</option>
         </select>
         
-        
         <input type="submit" value="Book">
     </form>
 
-   
+   <script>
+        var today = new Date().toISOString().split('T')[0];
+        document.getElementById('date').setAttribute('min', today);
+   </script>
+
+  <?php
+ require_once("bookingValidation.php")
+?>
     
 </body>
 </html>
