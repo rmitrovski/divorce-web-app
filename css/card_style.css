@@ -1,0 +1,66 @@
+body {
+	font-family: Arial, sans-serif;
+}
+
+h1 {
+	text-align: center;
+	color: blue;
+}
+
+.card {
+	background-color: rgb(19, 122, 145);
+	color: rgb(255, 255, 255);
+	padding: 20px;
+	margin: 20px;
+	border-radius: 10px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	max-width: 400px;
+	position: relative;
+}
+
+.card.card-blue {
+	background-color: rgb(2, 73, 120);
+	color: white;
+}
+
+.card.card-blue2 {
+	background-color: rgb(62, 103, 130);
+	color: white;
+}
+
+.card h2 {
+	margin-top: 0;
+}
+
+.card p {
+	margin: 10px 0;
+}
+
+.card a {
+	color: white;
+	text-decoration: none;
+}
+
+.card a:hover {
+	text-decoration: underline;
+}
+
+.extra-info {
+	display: none;
+	padding: 10px;
+	border-radius: 0 0 10px 10px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	color: white;
+}
+
+.card.show-extra .extra-info {
+	display: block;
+}
+
+.card .extra-info {
+	background-color: rgb(19, 122, 145);
+}
+
+.card.card-blue .extra-info {
+	background-color: rgb(2, 73, 120);
+}
