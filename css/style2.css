@@ -627,9 +627,12 @@ body {
 
 .section__content--p30 {
     padding: 30px;
+	text-align: center;
 }
 
 .main-content {
     margin: 20px;
     font-family: Arial, sans-serif;
+	display: flex;
+	justify-content: center;
 }
