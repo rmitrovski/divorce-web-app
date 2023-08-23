@@ -34,7 +34,7 @@
     </script>
 
     <!-- Main JS-->
-    <script src="js/script.js"></script>
+    <script src="js/script2.js"></script>
     
     </body>
     </html>

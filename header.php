@@ -1,11 +1,6 @@
 <?php
 require_once('config.php');
 session_start();
-if($_SESSION['id'] ==''):
-    {
-        header('location:login.php');
-    }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,6 +32,8 @@ if($_SESSION['id'] ==''):
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
+    <link href="css/style2.css" rel="stylesheet" media="all">
+
 </head>    
 
 
