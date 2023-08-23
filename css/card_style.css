@@ -8,7 +8,7 @@ h1 {
 }
 
 .card {
-	background-color: rgb(19, 122, 145);
+	background-color: #007BFF;
 	color: rgb(255, 255, 255);
 	padding: 20px;
 	margin: 20px;
@@ -18,12 +18,12 @@ h1 {
 }
 
 .card.card-blue {
-	background-color: rgb(2, 73, 120);
+	background-color: #007BFF;
 	color: white;
 }
 
 .card.card-blue2 {
-	background-color: rgb(62, 103, 130);
+	background-color: #007BFF;
 	color: white;
 }
 
