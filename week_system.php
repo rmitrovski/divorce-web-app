@@ -80,12 +80,12 @@
 
 							  <section class="card card-blue2">
 								<h2>Identify Feelings:</h2>
-								<a href="emotionTest.html">Click here to open link</a>
+								<a href="/week5 old files/emotionTest.html">Click here to open link</a>
 							  </section>
 
 							  <section class="card card-blue2">
 								<h2>My letter to you</h2>
-								<a href="myLetterToYou.html">Click here to open link</a>
+								<a href="/week5 old files/myLetterToYou.html">Click here to open link</a>
 							  </section>
 						  
 						  <script>
