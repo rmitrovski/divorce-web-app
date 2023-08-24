@@ -146,9 +146,7 @@ session_start();
                                         <div class="image">
                                             <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="John Doe" />
                                         </div>
-                                        <div class="content">
-                                            <a class="js-acc-btn" href="#"><?php echo $_SESSION['name']?></a>
-                                        </div>
+                                       
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <div class="image">
@@ -156,12 +154,7 @@ session_start();
                                                         <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="John Doe" />
                                                     </a>
                                                 </div>
-                                                <div class="content">
-                                                    <h5 class="name">
-                                                        <a href="#"><?php echo $_SESSION['name']?></a>
-                                                    </h5>
-                                                    <span class="email"><?php echo $_SESSION['email']?></span>
-                                                </div>
+                                                
                                             </div>
                                             
                                                
