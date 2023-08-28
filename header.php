@@ -40,6 +40,8 @@ session_start();
 	<link rel="stylesheet" href="css/style2.css">
 
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+
 
 
 </head>
@@ -135,7 +137,8 @@ session_start();
                             <form class="form-header" action="" method="POST">
                                 <input class="au-input au-input--xl" type="text" name="search" placeholder="Search..." />
                                 <button class="au-btn--submit" type="submit">
-                                    <i class="zmdi zmdi-search"></i>
+                                <i class="zmdi zmdi-search"></i>
+
                                 </button>
                             </form>
                             <div class="header-button">
@@ -149,11 +152,7 @@ session_start();
                                        
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
-                                                <div class="image">
-                                                    <a href="#">
-                                                        <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="John Doe" />
-                                                    </a>
-                                                </div>
+                                                
                                                 
                                             </div>
                                             
