@@ -439,6 +439,7 @@ label {
 
 .au-btn:hover{color: #fff;  background: #3868cd; }
 .au-btn--blue{    background: #4272d7;}
+.au-btn--red{    background: #ef0101;}
 .au-btn--green{      background: #63c76a;}
 .au-btn--green:hover{      background:  #59bd60;}
 .au-btn--blue2{background: #00aced;}
