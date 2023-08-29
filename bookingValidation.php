@@ -16,8 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
 }
 
-  if (!preg_match("/[^0-9\s\-\+\(\)]/", $phone)) {
-        
+  if (!preg_match("/^[0-9]+$/", $phone)) {
+        echo "<script>alert('Invalid phone format.');</script>";
     }
 
    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
