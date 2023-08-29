@@ -32,6 +32,21 @@
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
 
+        <!-- JavaScript functions -->
+        <script>
+            function save(event) {
+                // Your save function code here
+                console.log("Save button clicked!");
+                event.preventDefault(); // Prevent form submission
+            }
+    
+            function deleteAccount(event) {
+                // Your delete function code here
+                // For example: console.log("Delete button clicked!");
+                event.preventDefault(); // Prevent form submission
+            }
+        </script>
+
 </head>
 <body class="animsition">
     <div class="page-wrapper">
