@@ -1,10 +1,10 @@
 
 <?php
 session_start();
-if(!isset($_SESSION))
-{
-    header('location:index.php');
-} 
+//if(!isset($_SESSION))
+//{
+  //  header('location:index.php');
+//} 
 ?>
 
 <!DOCTYPE html>
@@ -73,7 +73,7 @@ if(!isset($_SESSION))
                     <div class="register-link">
                           <p>
                             Don't have an account?
-                            <a href="register.php">Sighn Up Here</a>
+                            <a href="register.php">Sign Up Here</a>
                           </p>  
                      </div>
                      </div>
