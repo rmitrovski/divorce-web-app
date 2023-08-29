@@ -33,19 +33,65 @@
     <link href="css/theme.css" rel="stylesheet" media="all">
 
         <!-- JavaScript functions -->
-        <script>
-            function save(event) {
-                // Your save function code here
-                console.log("Save button clicked!");
-                event.preventDefault(); // Prevent form submission
-            }
-    
-            function deleteAccount(event) {
-                // Your delete function code here
-                // For example: console.log("Delete button clicked!");
-                event.preventDefault(); // Prevent form submission
-            }
-        </script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript">
+    function save(event) {
+        event.preventDefault(); // Prevent form submission
+
+        var fullName = $('#Full_Name').val();
+        var email = $('#email').val();
+        var oldPassword = $('#old_password').val();
+        var newPassword = $('#new_password').val();
+        var retypePassword = $('#retype_password').val();
+
+        var validEmailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        var validPasswordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+
+        if (fullName === '' || email === '' || oldPassword === '' || newPassword === '' || retypePassword === '') {
+            $('#danger').hide();
+            $('#success').hide();
+            $('#warning').show();
+            $('#warning').html('Fill up all the fields.');
+            return false;
+        }
+
+        if (!email.match(validEmailRegex)) {
+            $('#danger').hide();
+            $('#success').hide();
+            $('#warning').show();
+            $('#warning').html('Invalid email address.');
+            return false;
+        }
+
+        if (!newPassword.match(validPasswordRegex)) {
+            $('#danger').hide();
+            $('#success').hide();
+            $('#warning').show();
+            $('#warning').html('Password should be 8-15 characters with lowercase, uppercase, numeric, and special characters.');
+            return false;
+        }
+
+        if (newPassword !== retypePassword) {
+            $('#danger').hide();
+            $('#success').hide();
+            $('#warning').show();
+            $('#warning').html('New password and retype password do not match.');
+            return false;
+        }
+
+        // Your saving logic here
+        // For example: send an AJAX request to save changes
+
+        $('#danger').hide();
+        $('#warning').hide();
+        $('#success').show();
+        $('#success').html('Changes saved successfully.');
+
+        // You can use this section to automatically refresh the page or redirect
+        // after a successful save if needed.
+    }
+</script>
+
 
 </head>
 <body class="animsition">
