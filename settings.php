@@ -33,7 +33,7 @@
     <link href="css/theme.css" rel="stylesheet" media="all">
 
         <!-- JavaScript functions -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script type="text/javascript">
     function save(event) {
         event.preventDefault(); // Prevent form submission
@@ -79,16 +79,12 @@
             return false;
         }
 
-        // Your saving logic here
-        // For example: send an AJAX request to save changes
 
         $('#danger').hide();
         $('#warning').hide();
         $('#success').show();
         $('#success').html('Changes saved successfully.');
 
-        // You can use this section to automatically refresh the page or redirect
-        // after a successful save if needed.
     }
 </script>
 
@@ -146,5 +142,4 @@
 </body>
 
 </html>
-
 
