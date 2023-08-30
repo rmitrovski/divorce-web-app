@@ -12,7 +12,6 @@
         </div>
  </div>
  <!-- Jquery JS-->
- <script src="https://usual.chat/chat_extension_v1.js" id=11d111ed-674c-4cf1-b41f-4ec38d8df9d7></script>
     <script src="vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->
     <script src="vendor/bootstrap-4.1/popper.min.js"></script>
