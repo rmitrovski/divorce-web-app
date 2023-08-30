@@ -104,4 +104,5 @@
 			</div>
                             </body>
 
-</html>                            
+</html>  
+<?php require_once('footer.php');?>  
