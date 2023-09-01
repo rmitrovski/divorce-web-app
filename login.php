@@ -1,11 +1,4 @@
-
-<?php
-session_start();
-//if(!isset($_SESSION))
-//{
-  //  header('location:index.php');
-//} 
-?>
+<?php include('server.php') ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +12,7 @@ session_start();
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>User Login | Consult CRM</title>
+    <title>User Login </title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -40,7 +33,9 @@ session_start();
     <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
-    <link href="css/theme.css" rel="stylesheet" media="all">
+    <link href="css/style.css" rel="stylesheet" media="all">
+
+
 
 </head>
 <body class="animsition">
@@ -49,36 +44,33 @@ session_start();
         <div class="container">
           <div class="login-wrap">
              <div class="login-content">
-               <div class="login-logo">
-                 <a href="#">
-                   <img src="images/" alt="CoolAdmin">
-                 </a>
-                </div> 
-                <div class="login-form">
-                    <h2 style="text-align: center"> USER LOGIN</h2>
-                    <div class="alert-danger" role="alert" id="danger" style="display: none"></div>
-                    <div class="alert-warning" role="alert" id="warning" style="display: none"></div>
-                    <div class="alert-success" role="alert" id="success" style="display: none"></div>
-                    <form action="" method="post">
-                        <div class="form-group">
-                            <label>Email Address</label>
-                            <input class="au-input au-input--full" type="email" name="email" id="email" placeholder="Email">
-                        </div>
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input class="au-input au-input--full" type="password" name="password" id="password" placeholder="Password">
-                        </div>
-                        <button class="au-btn au-btn--block au-btn--green m-b-20" onclick="login(event)">sign in</button>
-                    </form>
-                    <div class="register-link">
-                          <p>
-                            Don't have an account?
-                            <a href="register.php">Sign Up Here</a>
-                          </p>  
-                     </div>
-                     </div>
-                    </div>
-                </div>
+              
+             <div class="header">
+                <h2>login</h2>
+             </div>  
+             <form method="post" action="login.php" >
+             <?php include('errors.php'); ?>
+
+                <div class="input-group">
+                     <label>Username</label>
+                     <input  type="text" name="name" placeholder="Enter Full name">
+                 </div>
+                 
+                 <div class="input-group">
+                     <label>Password</label>
+                     <input  type="text" name="password"  placeholder="Enter Password">
+                 </div>
+                
+                 <div class="input-group">
+                     
+                     <button  type="submit" class="btn" name="login__user">login</button>
+                 </div>
+                 <p>
+                 Not a member yet?
+                     <a href="register.php">Create an account</a>
+                  </p>  
+                 
+             </form>   
             </div>
         </div>
 
@@ -106,65 +98,7 @@ session_start();
     </script>
 
 
-    <!-- Main JS-->
-    <script src="js/main.js"></script>
 
-  <script type="text/javascript">
-  function login(event)
-  {
-    event.preventDefault();
-    var email=$('#email').val();
-    var password=$('#password').val();
-    if(email =='' || password==''){
-        $('#danger').hide();
-        $('#success').hide();
-        $('#warning').show();
-        $('#warning').html('Fill up the missing fields');
-        return false;
-    }
-    var fd = new FormData();
-    fd.append('action', 'login');
-    fd.append('email', email);
-    fd.append('password', password);
-
-    $('#danger').hide();
-    $('#success').hide();
-    $('#warning').show();
-    $('#danger').html('Processing please wait......');
-
-    $.ajax(
-        {
-            url: 'process.php',
-            type: 'post'
-            data: fd,
-            contentType: false,
-            processData: false,
-            success: function(reponse){
-                if(response=='success'){
-                    window.location.href="index.php"; 
-                }else{
-                    $('#danger').show();
-                    $('#success').hide();
-                    $('#warning').hide();
-                    $('#danger').html(response);
-                    window.setTimeout(function(){
-                       $('#danger').hide();
-                     }, 1500);
-
-                }
-            } 
-
-        }
-    );
-
-
-
-
-  }  
-
-
-     
-  </script>
 
 </body>
 
