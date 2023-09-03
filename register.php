@@ -24,7 +24,6 @@
     <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
     <!-- Vendor CSS-->
-    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
     <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
     <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
     <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
@@ -51,7 +50,7 @@
 
                 <div class="input-group">
                      <label>Username</label>
-                     <input  type="text" name="name" value="<?php echo $name; ?>" placeholder="Enter Full name">
+                     <input  type="text" name="username" value="<?php echo $name; ?>" placeholder="Enter Full name">
                  </div>
                  <div class="input-group">
                      <label>Email</label>
@@ -59,11 +58,11 @@
                  </div>
                  <div class="input-group">
                      <label>Password</label>
-                     <input  type="text" name="password_1"  placeholder="Enter Password">
+                     <input  type="password" name="password_1"  placeholder="Enter Password">
                  </div>
                  <div class="input-group">
   	              <label>Confirm password</label>
-  	            <input type="password" name="password_2"placeholder="Re Confirm Password">
+  	            <input type="password" name="password_2" placeholder="Re Confirm Password">
   	             </div>
                  
                  <div class="input-group">

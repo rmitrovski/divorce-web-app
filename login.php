@@ -1,8 +1,9 @@
 <?php include('server.php') ?>
 
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
+<head>
+  
 <head>
     <!-- Required meta tags-->
     <meta charset="UTF-8">
@@ -12,7 +13,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>User Login </title>
+    <title>User Login</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -24,7 +25,6 @@
     <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
     <!-- Vendor CSS-->
-    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
     <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
     <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
     <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
@@ -36,47 +36,33 @@
     <link href="css/style.css" rel="stylesheet" media="all">
 
 
+</head>
 
 </head>
-<body class="animsition">
-    <div class="page-wrapper">
-      <div class="page-content--bge5">
-        <div class="container">
-          <div class="login-wrap">
-             <div class="login-content">
-              
-             <div class="header">
-                <h2>login</h2>
-             </div>  
-             <form method="post" action="login.php" >
-             <?php include('errors.php'); ?>
+<body>
+  <div class="header">
+  	<h2>Login</h2>
+  </div>
+	 
+  <form method="post" action="login.php">
+  	<?php include('errors.php'); ?>
+  	<div class="input-group">
+  		<label>Username</label>
+  		<input type="text" name="username" >
+  	</div>
+  	<div class="input-group">
+  		<label>Password</label>
+  		<input type="password" name="password">
+  	</div>
+  	<div class="input-group">
+  		<button type="submit" class="btn" name="login_user">Login</button>
+  	</div>
+  	<p>
+  		Not yet a member? <a href="register.php">Sign up</a>
+  	</p>
+  </form>
 
-                <div class="input-group">
-                     <label>Username</label>
-                     <input  type="text" name="name" placeholder="Enter Full name">
-                 </div>
-                 
-                 <div class="input-group">
-                     <label>Password</label>
-                     <input  type="text" name="password"  placeholder="Enter Password">
-                 </div>
-                
-                 <div class="input-group">
-                     
-                     <button  type="submit" class="btn" name="login__user">login</button>
-                 </div>
-                 <p>
-                 Not a member yet?
-                     <a href="register.php">Create an account</a>
-                  </p>  
-                 
-             </form>   
-            </div>
-        </div>
-
-    </div>
-<!-- Jquery JS-->
-    
+  <!-- Jquery JS-->
 <script src="vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->
     <script src="vendor/bootstrap-4.1/popper.min.js"></script>
@@ -97,15 +83,5 @@
     <script src="vendor/select2/select2.min.js">
     </script>
 
-
-
-
 </body>
-
 </html>
-
-
-
-
-
-                 

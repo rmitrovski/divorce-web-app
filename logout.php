@@ -1,7 +1,7 @@
 <?php
-session_start();
-session_destroy();
-header('location:login.php');
-exit();
-
+  if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['username']);
+    header("location: login.php");
+}
 ?>
