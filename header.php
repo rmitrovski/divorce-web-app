@@ -1,11 +1,4 @@
-<?php
-//require_once('config.php');
-session_start();
-//if($_SESSION['id']=='')
-//{
-   // header('location:login.php');
-//}    
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +20,6 @@ session_start();
     <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
     <!-- Vendor CSS-->
-    <!-- Creates problems <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all"> -->
     <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
     <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
     <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
@@ -77,13 +69,13 @@ session_start();
 		</a>
 		<ul class="side-menu top">
 			<li class="active">
-				<a a href="dashboard2.html">
+				<a a href="index.php">
 					<i class='bx bxs-dashboard' ></i>
 					<span class="text">Dashboard</span>
 				</a>
 			</li>
 			<li>
-				<a href="week_system.html">
+				<a href="week_system.php">
 					<i class='bx bxs-shopping-bag-alt' ></i>
 					<span class="text">8 Week system </span>
 				</a>
@@ -101,7 +93,7 @@ session_start();
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="booking.php">
 					<i class='bx bxs-group' ></i>
 					<span class="text">Book Consultation</span>
 				</a>
@@ -109,13 +101,13 @@ session_start();
 		</ul>
 		<ul class="side-menu">
 			<li>
-				<a href="#">
+				<a href="settings.php">
 					<i class='bx bxs-cog' ></i>
 					<span class="text">Settings</span>
 				</a>
 			</li>
 			<li>
-				<a href="#" class="logout">
+				<a href="index.php?logout='1'" class="logout">
 					<i class='bx bxs-log-out-circle' ></i>
 					<span class="text">Logout</span>
 				</a>
