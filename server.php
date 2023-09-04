@@ -81,4 +81,45 @@ if(isset($_POST['login_user'])){
 
 }
 
+if (isset($_POST['new_details'])) {
+  echo '<script>console.log("User details updated successfully");</script>';
+  $newFullName = mysqli_real_escape_string($db, $_POST['new_full_name']);
+  $newEmail = mysqli_real_escape_string($db, $_POST['new_email']);
+
+  if (empty($newFullName)) {
+      array_push($errors, "New Full Name is required");
+  }
+  if (empty($newEmail)) {
+      array_push($errors, "New Email is required");
+  }
+
+  if (count($errors) == 0) {
+      // Get the current user's username from the session
+      $username = $_SESSION['username'];
+
+      // Retrieve the user's information from the database
+      $query = "SELECT * FROM users WHERE username='$username' LIMIT 1";
+      $result = mysqli_query($db, $query);
+      $user = mysqli_fetch_assoc($result);
+
+      if ($user) {
+		// Update the user's name and email in the database
+		$query = "UPDATE users SET username='$newFullName', email='$newEmail' WHERE username='$username'";
+		mysqli_query($db, $query);
+
+		// Update the $_SESSION variables with the new details
+		$_SESSION['username'] = $newFullName;
+		$_SESSION['email'] = $newEmail;
+
+		// You can also set a success message if needed
+		$_SESSION['success_message'] = "User details updated successfully";
+
+		header('location: settings.php');
+      } else {
+          echo 'error';
+      }
+  } 
+}
+
+
 ?>
