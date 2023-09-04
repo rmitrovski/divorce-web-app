@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -17,15 +16,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Philosopher&family=Quicksand:wght@300&display=swap"
         rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 </head>
 
 <body>
+<div id="successAlert" style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000;">
+    <div style="width: 300px; margin: 15% auto; padding: 20px; background: #d4edda; color: #155724; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+        <h2 id="successTitle">Success</h2>
+        <p id="successMessage">Your booking was successful.</p>
+        <button onclick="closeSuccessAlertAndProceed()">OK</button>
+    </div>
+</div>
 
+    <div id="customAlert" style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000;">
+            <div style="width: 300px; margin: 15% auto; padding: 20px; background: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                <h2 id="alertTitle">Alert Title</h2>
+                <p id="alertMessage">Alert message</p>
+                <button onclick="document.getElementById('customAlert').style.display='none'">OK</button>
+            </div>
+        </div> 
     <!-- Header -->
     <div class="container-fluid bg-primary text-white p-4">
         <h1>Booking</h1>
     </div>
+
+    
 
     <div class="container my-5">
 
@@ -45,10 +61,12 @@
 
             <!-- Right Column: Heart Image -->
             <div class="col-md-6">
-                <img src="images/heart.png" id="splash" class="img-fluid" alt="Heart Image">
+                <img src="heart.png" id="splash" class="img-fluid" alt="Heart Image">
             </div>
 
         </div>
+
+        
 
         <!-- Row for About Us Section -->
         <div class="row mt-4">
@@ -84,9 +102,9 @@
             <!-- Left Column: Images -->
             <div class="col-md-6">
                 <div class="images">
-                    <img src="images/1.jpeg" alt="Image 1" class="img-fluid img-1">
-                    <img src="images/1.jpeg" alt="Image 2" class="img-fluid img-2">
-                    <img src="images/1.jpeg" alt="Image 3" class="img-fluid img-3">
+                    <img src="images/BookingImage1.jpeg" alt="Image 1" class="img-fluid img-1">
+                    <img src="images/BookingImage1.jpeg" alt="Image 2" class="img-fluid img-2">
+                    <img src="images/BookingImage1.jpeg" alt="Image 3" class="img-fluid img-3">
                 </div>
             </div>
 
@@ -95,7 +113,7 @@
                 <div id="alertMessage" class="alert"></div>
 
                 <div class="border p-4 rounded">
-                    <form action="booking.php" method="post">
+                    <form action="bookingValidation.php" method="post">
                         <h2 class="text-primary">Booking Consultation</h2>
                         <div class="form-group">
                             <label for="name">Name:</label>
@@ -151,6 +169,14 @@
 
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script>
+        function closeSuccessAlertAndProceed() {
+             // Close the success alert
+             document.getElementById('successAlert').style.display = 'none';
+
+            // Navigate to the bookedSlots.php page
+            window.location.href = "bookingInformation.php";
+        }
+
         var today = new Date().toISOString().split('T')[0];
         document.getElementById('date').setAttribute('min', today);
 
@@ -163,51 +189,44 @@
             backDelay: 1500
         })
 
-        document.addEventListener("DOMContentLoaded", function () {  // Ensure the DOM is fully loaded
-            var form = document.querySelector("form");  // Get the form element
+       // Using jQuery
+    $(document).ready(function () {
+    $('form').on('submit', function (event) {
+        event.preventDefault();  // Prevent the form from submitting the traditional way
 
-            form.addEventListener("submit", function (e) {
-                e.preventDefault(); // Prevent the form from submitting normally
+        $.ajax({
+            type: "POST",
+            url: "bookingValidation.php",
+            data: $(this).serialize(),  // Serializes the form's elements to a query string
+            dataType: "json", // Expect a json response from the server
+            success: function (data) {
+                var errorMessageElement = $("#alertMessage");
+                var successMessageElement = $("#successMessage");
 
-                var formData = new FormData(form); // Create a FormData object from the form
+                if (data.success) {
+                    successMessageElement.text(data.message);
+                     $('#successAlert').show();
+                }  else {
+                    
+                    var errorMessage = data.errors.join(' ');  // Join all error messages into one string
+                    alertMessageElement.text(errorMessage).addClass("alert-danger").removeClass("alert-success");
 
-                fetch("booking.php", {
-                    method: "POST",
-                    body: formData
-                })
-                    .then(response => {
-                        if (!response.ok) {
-                            // If we get an HTTP status code that indicates an error, reject the promise
-                            throw new Error('Network response was not ok');
-                        }
-                        return response.json();  // Parse the response as JSON
-                    })
-                    .then(data => {
-                        var alertMessageElement = document.getElementById("alertMessage");
-
-                        if (data.success) {
-                            alertMessageElement.innerText = data.message;
-                            alertMessageElement.classList.add("alert-success");  // Add success class
-                            alertMessageElement.classList.remove("alert-danger");  // Remove error class
-                        } else {
-                            var errorMessage = data.errors.join(' ');  // Join all error messages into one string
-                            alertMessageElement.innerText = errorMessage;
-                            alertMessageElement.classList.add("alert-danger");  // Add error class
-                            alertMessageElement.classList.remove("alert-success");  // Remove success class
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        var alertMessageElement = document.getElementById("alertMessage");
-                        alertMessageElement.innerText = "An error occurred while booking.";
-                        alertMessageElement.classList.add("alert-danger");  // Add error class
-                        alertMessageElement.classList.remove("alert-success");  // Remove success class
-                    });
-            });
+                    // If the error is about booking time
+                    if (errorMessage.includes("Booking already exists for this date and time.")) {
+                        $('#alertTitle').text('Booking Time Alert');
+                        $('#alertMessage').text(errorMessage);
+                        $('#customAlert').show();
+                    }
+                }
+            }
         });
+    });
+});
+
 
 
     </script>
+
 
 </body>
 
