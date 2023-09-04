@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php    session_start(); 
+
+  if (!isset($_SESSION['username'])) {
+  	$_SESSION['msg'] = "You must log in first";
+  	header('location: login.php');
+  } else {
+	  $username = $_SESSION['username'];
+	  $email = $_SESSION['email'];
+
+  }
+   ?>
 <?php require_once('header.php');?>
+
+
 <head>
 
         <!-- JavaScript functions -->
@@ -80,11 +93,12 @@
                     <form action="" method="post">
                         <div class="form-group">
                             <label>Full Name</label>
-                            <input class="au-input au-input--full" type="Full_Name" name="Full_Name" id="Full_Name" placeholder="Full Name">
+							<input class="au-input au-input--full" type="text" name="Full_Name" id="Full_Name" placeholder="Full Name" value="<?php echo $username; ?>">
+
                         </div>
                         <div class="form-group">
                             <label>Email Address</label>
-                            <input class="au-input au-input--full" type="email" name="email" id="email" placeholder="Email">
+                            <input class="au-input au-input--full" type="email" name="email" id="email" placeholder="Email" value="<?php echo $email; ?>">
                         </div>
                         <br>
                         <div class="form-group">
@@ -113,4 +127,3 @@
 </body>
 
 </html>
-
