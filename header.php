@@ -1,3 +1,4 @@
+<?php $current_page = basename($_SERVER['PHP_SELF']); // gets the current filename ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -59,68 +60,8 @@
            
         </header>
         <!-- END HEADER MOBILE-->
-
-        <!-- MENU SIDEBAR-->
-        
-    <!-- SIDEBAR -->
-	<section id="sidebar">
-		<a href="#" class="brand">
-			<span class="text">Clean Divorce</span>
-		</a>
-		<ul class="side-menu top">
-			<li class="active">
-				<a a href="index.php">
-					<i class='bx bxs-dashboard' ></i>
-					<span class="text">Dashboard</span>
-				</a>
-			</li>
-			<li>
-				<a href="week_system.php">
-					<i class='bx bxs-shopping-bag-alt' ></i>
-					<span class="text">8 Week system </span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<i class='bx bxs-doughnut-chart' ></i>
-					<span class="text">MailChimp</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<i class='bx bxs-message-dots' ></i>
-					<span class="text">Message</span>
-				</a>
-			</li>
-			<li>
-				<a href="booking.php">
-					<i class='bx bxs-group' ></i>
-					<span class="text">Book Consultation</span>
-				</a>
-			</li>
-		</ul>
-		<ul class="side-menu">
-			<li>
-				<a href="settings.php">
-					<i class='bx bxs-cog' ></i>
-					<span class="text">Settings</span>
-				</a>
-			</li>
-			<li>
-				<a href="index.php?logout='1'" class="logout">
-					<i class='bx bxs-log-out-circle' ></i>
-					<span class="text">Logout</span>
-				</a>
-			</li>
-		</ul>
-	</section>
-	<!-- SIDEBAR -->
-    
-
-        <!-- END MENU SIDEBAR-->
-
-        <!-- PAGE CONTAINER-->
-        <div class="page-container">
+          <!-- PAGE CONTAINER-->
+          <div class="page-container">
             <!-- HEADER DESKTOP-->
             <header class="header-desktop">
                 <div class="section__content section__content--p30">
@@ -161,3 +102,64 @@
                 </div>
             </header>
             <!-- HEADER DESKTOP-->
+
+        <!-- MENU SIDEBAR-->
+        
+    <!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<span class="text">Clean Divorce</span>
+		</a>
+		<ul class="side-menu top">
+			<li <?php if ($current_page == 'index.php') echo 'class="active"'; ?>>
+				<a a href="index.php">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="text">Dashboard</span>
+				</a>
+			</li>
+			<li <?php if ($current_page == 'week_system.php') echo 'class="active"'; ?>>
+				<a href="week_system.php">
+					<i class='bx bxs-shopping-bag-alt' ></i>
+					<span class="text">8 Week system </span>
+				</a>
+			</li>
+			<li >
+				<a href="#">
+					<i class='bx bxs-doughnut-chart' ></i>
+					<span class="text">MailChimp</span>
+				</a>
+			</li>
+			<li >
+				<a href="#">
+					<i class='bx bxs-message-dots' ></i>
+					<span class="text">Message</span>
+				</a>
+			</li>
+			<li <?php if ($current_page == 'booking.php') echo 'class="active"'; ?>>
+				<a href="booking.php">
+					<i class='bx bxs-group' ></i>
+					<span class="text">Book Consultation</span>
+				</a>
+			</li>
+		</ul>
+		<ul class="side-menu">
+			<li <?php if ($current_page == 'settings.php') echo 'class="active"'; ?>>
+				<a href="settings.php">
+					<i class='bx bxs-cog' ></i>
+					<span class="text">Settings</span>
+				</a>
+			</li>
+			<li>
+				<a href="index.php?logout='1'" class="logout">
+					<i class='bx bxs-log-out-circle' ></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
+    
+
+        <!-- END MENU SIDEBAR-->
+
+      
