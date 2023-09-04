@@ -1,3 +1,4 @@
+<?php $current_page = basename($_SERVER['PHP_SELF']); // gets the current filename ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -110,31 +111,31 @@
 			<span class="text">Clean Divorce</span>
 		</a>
 		<ul class="side-menu top">
-			<li class="active">
+			<li <?php if ($current_page == 'index.php') echo 'class="active"'; ?>>
 				<a a href="index.php">
 					<i class='bx bxs-dashboard' ></i>
 					<span class="text">Dashboard</span>
 				</a>
 			</li>
-			<li>
+			<li <?php if ($current_page == 'week_system.php') echo 'class="active"'; ?>>
 				<a href="week_system.php">
 					<i class='bx bxs-shopping-bag-alt' ></i>
 					<span class="text">8 Week system </span>
 				</a>
 			</li>
-			<li>
+			<li >
 				<a href="#">
 					<i class='bx bxs-doughnut-chart' ></i>
 					<span class="text">MailChimp</span>
 				</a>
 			</li>
-			<li>
+			<li >
 				<a href="#">
 					<i class='bx bxs-message-dots' ></i>
 					<span class="text">Message</span>
 				</a>
 			</li>
-			<li>
+			<li <?php if ($current_page == 'booking.php') echo 'class="active"'; ?>>
 				<a href="booking.php">
 					<i class='bx bxs-group' ></i>
 					<span class="text">Book Consultation</span>
@@ -142,7 +143,7 @@
 			</li>
 		</ul>
 		<ul class="side-menu">
-			<li>
+			<li <?php if ($current_page == 'settings.php') echo 'class="active"'; ?>>
 				<a href="settings.php">
 					<i class='bx bxs-cog' ></i>
 					<span class="text">Settings</span>
