@@ -159,4 +159,39 @@ if (isset($_POST['change_password'])) {
         }
     }
 }
+
+
+if (isset($_POST['delete_account'])) {
+    $deletePassword = mysqli_real_escape_string($db, $_POST['delete_password']);
+
+    // Get the current user's username from the session
+    $username = $_SESSION['username'];
+
+    // Retrieve the user's information from the database
+    $query = "SELECT * FROM users WHERE username='$username' LIMIT 1";
+    $result = mysqli_query($db, $query);
+    $user = mysqli_fetch_assoc($result);
+
+    if ($user) {
+        // Check if the provided delete password matches the user's password
+        if (md5($deletePassword) === $user['password']) {
+            // Delete the user's row from the database
+            $deleteQuery = "DELETE FROM users WHERE username='$username'";
+            $deleteResult = mysqli_query($db, $deleteQuery);
+
+            if ($deleteResult) {
+                // User account successfully deleted
+                session_destroy(); // Destroy the session
+                header('location: login.php'); // Redirect to login page
+            } else {
+                // Display an error message if the delete query fails
+                array_push($errors, "Error deleting user account: " . mysqli_error($db));
+            }
+        } else {
+            // Delete password is incorrect
+            array_push($errors, "Incorrect delete password");
+        }
+    }
+}
+
 ?>
