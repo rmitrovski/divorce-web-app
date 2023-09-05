@@ -121,5 +121,42 @@ if (isset($_POST['new_details'])) {
   } 
 }
 
+if (isset($_POST['change_password'])) {
+    $currentPassword = mysqli_real_escape_string($db, $_POST['current_password']);
+    $newPassword = mysqli_real_escape_string($db, $_POST['new_password']);
+    $confirmPassword = mysqli_real_escape_string($db, $_POST['confirm_password']);
 
+    // Get the current user's username from the session
+    $username = $_SESSION['username'];
+    $query = "SELECT password FROM users WHERE username='$username' LIMIT 1";
+    $result = mysqli_query($db, $query);
+    $user = mysqli_fetch_assoc($result);
+
+    if ($user) {
+        // Check if the current password matches the stored hash
+        if (md5($currentPassword, $user['password'])) {
+            if ($newPassword === $confirmPassword) {
+                // Hash the new password and update it in the database
+                $newPasswordHash = md5($newPassword);
+                $updateQuery = "UPDATE users SET password='$newPasswordHash' WHERE username='$username'";
+                $updateResult = mysqli_query($db, $updateQuery);
+
+                if ($updateResult) {
+                    // Password successfully updated
+                    $_SESSION['success_message'] = "Password changed successfully";
+                    header('location: settings.php');
+                } else {
+                    // Display an error message if the update query fails
+                    array_push($errors, "Error updating password: " . mysqli_error($db));
+                }
+            } else {
+                // New password and confirmation do not match
+                array_push($errors, "New password and confirmation do not match");
+            }
+        } else {
+            // Current password is incorrect
+            array_push($errors, "Current password is incorrect");
+        }
+    }
+}
 ?>

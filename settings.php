@@ -20,47 +20,7 @@ if (!isset($_SESSION['username'])) {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
  
-        function changePassword(event) {
-            event.preventDefault(); // Prevent form submission
-
-            var oldPassword = $('#old_password').val();
-            var newPassword = $('#new_password').val();
-            var retypePassword = $('#retype_password').val();
-
-            var validPasswordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
-
-            if (oldPassword === '' || newPassword === '' || retypePassword === '') {
-                $('#danger').hide();
-                $('#success').hide();
-                $('#warning').show();
-                $('#warning').html('Fill up all the password fields.');
-                return false;
-            }
-
-            if (!newPassword.match(validPasswordRegex)) {
-                $('#danger').hide();
-                $('#success').hide();
-                $('#warning').show();
-                $('#warning').html('Password should be 8-15 characters with lowercase, uppercase, numeric, and special characters.');
-                return false;
-            }
-
-            if (newPassword !== retypePassword) {
-                $('#danger').hide();
-                $('#success').hide();
-                $('#warning').show();
-                $('#warning').html('New password and retype password do not match.');
-                return false;
-            }
-
-            // Here you can send the old and new password to the server
-            // and handle the response as needed.
-
-            $('#danger').hide();
-            $('#warning').hide();
-            $('#success').show();
-            $('#success').html('Password changed successfully.');
-        }
+   
     </script>
 </head>
 
@@ -97,12 +57,12 @@ if (!isset($_SESSION['username'])) {
                             </form>
 
                             <!-- Password Details Form -->
-                            <form action="change_password.php" method="post">
+                            <form action="" method="post">
                                 <br>
                                 <h5 style="text-align: center"> Password details</h5>
                                 <div class="form-group">
                                     <label>Old Password</label>
-                                    <input class="au-input au-input--full" type="password" name="old_password" id="old_password" placeholder="Old Password">
+                                    <input class="au-input au-input--full" type="password" name="current_password" id="old_password" placeholder="Old Password">
                                 </div>
                                 <div class="form-group">
                                     <label>New Password</label>
@@ -110,9 +70,9 @@ if (!isset($_SESSION['username'])) {
                                 </div>
                                 <div class="form-group">
                                     <label>Retype Password</label>
-                                    <input class="au-input au-input--full" type="password" name="retype_password" id="retype_password" placeholder="Retype Password">
+                                    <input class="au-input au-input--full" type="password" name="confirm_password" id="retype_password" placeholder="Retype Password">
                                 </div>
-                                <button class="au-btn au-btn--green m-b-20" onclick="changePassword(event)">Change Password</button>
+                                <button class="au-btn au-btn--green m-b-20" name="change_password">Change Password</button>
                             </form>
 
                             <button class="au-btn au-btn--red m-b-20" onclick="delete(event)">Delete Account</button>
