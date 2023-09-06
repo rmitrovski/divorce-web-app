@@ -1,5 +1,11 @@
 <?php require_once('header.php');?>
 <title>8 Week System | Consult CRM</title>
+<style>
+   body {
+            text-align: center; 
+        }
+		</style>
+		<body>
             <!-- MAIN CONTENT-->
             <div class="main-content">
 				<div class="section__content section__content--p30">
@@ -87,7 +93,7 @@
 								<h2>My letter to you</h2>
 								<a href="/week5 old files/myLetterToYou.html">Click here to open link</a>
 							  </section>
-						  
+			
 						  <script>
 							  const learnMore = document.querySelectorAll('.learn-more');
 						  
@@ -102,6 +108,5 @@
 					</div>
 				</div>
 			</div>
-                            </body>
-
+  
 </html>                            

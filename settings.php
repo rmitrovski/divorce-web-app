@@ -83,7 +83,7 @@ if (!isset($_SESSION['username'])) {
 					</div>
 					<!-- Display error message here -->
 					<?php include('errors.php'); ?>
-					<button class="au-btn au-btn--red m-b-20" name="delete_account">Delete Account</button>
+					<button class="au-btn au-btn--green m-b-20" name="delete_account">Delete Account</button>
 				</form>
 
 

@@ -33,10 +33,11 @@ if(isset($_POST['reg_user'])){
     }
    }
    if (count($errors) == 0) {
+	$registration_date = date("Y-m-d"); // Get the current date and time
   	$password = md5($password_1);
 
-  	$query = "INSERT INTO users (username, email, password) 
-  			  VALUES('$username', '$email', '$password')";
+  	$query = "INSERT INTO users (username, email, password, registration_date) 
+  			  VALUES('$username', '$email', '$password','$registration_date')";
   	mysqli_query($db, $query);
   	$_SESSION['username'] = $username;
 	$_SESSION['email'] = $email;
