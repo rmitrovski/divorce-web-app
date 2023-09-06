@@ -210,7 +210,7 @@ for (i = 0; i < coll.length; i++) {
                 <br>
                 <div class="form-group">
                     <label  style="font-size: 22px;" for="">Please enter your query:</label> <br>
-                    <textarea id="question" name="question" rows="4" cols="50" placeholder="Type a few words in here..."></textarea>
+                    <input id="question" name="question" class="form-control" placeholder="Type a few words in here..."/>
                 </div>
                      <br>
                 <div class="form-group">
