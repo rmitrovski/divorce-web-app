@@ -127,13 +127,13 @@
 			<li >
 				<a href="#">
 					<i class='bx bxs-doughnut-chart' ></i>
-					<span class="text">Documents</span>
+					<span class="text">MailChimp</span>
 				</a>
 			</li>
 			<li >
-				<a href="FAQ.php">
+				<a href="#">
 					<i class='bx bxs-message-dots' ></i>
-					<span class="text">FAQs</span>
+					<span class="text">Message</span>
 				</a>
 			</li>
 			<li <?php if ($current_page == 'booking.php') echo 'class="active"'; ?>>

@@ -90,7 +90,24 @@ h1 {
 }
 
 
+input[type=email] {
+        border: 2px solid blue;
+        border-radius: 3px;
+             }
+        input[type=password] {
+        border: 2px solid blue;
+        border-radius: 3px;
+             }
 
+             .clean-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
 .form-group {
     margin-bottom: 20px;
@@ -180,8 +197,7 @@ for (i = 0; i < coll.length; i++) {
   
     <div class="row">
         <div class="col-md-5 col-md-offset-3 well">
-        <br>
-            <h1>Send us an email!</h1> 
+            <p style="font-size: 23px;">Send us an email!</p> <br>
             <form action="send_email_code.php" method="post" >
             <div class="form-group">
                     <label style="font-size: 22px;" for="">Full Name:</label> <br>
@@ -194,7 +210,7 @@ for (i = 0; i < coll.length; i++) {
                 <br>
                 <div class="form-group">
                     <label  style="font-size: 22px;" for="">Please enter your query:</label> <br>
-                    <input type="question" name="question" class="form-control" placeholder="Type a few words in here..."/>
+                    <textarea id="question" name="question" rows="4" cols="50" placeholder="Type a few words in here..."></textarea>
                 </div>
                      <br>
                 <div class="form-group">
