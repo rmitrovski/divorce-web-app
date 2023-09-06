@@ -83,80 +83,89 @@ if(isset($_POST['login_user'])){
 }
 
 if (isset($_POST['new_details'])) {
-  echo '<script>console.log("User details updated successfully");</script>';
-  $newFullName = mysqli_real_escape_string($db, $_POST['new_full_name']);
-  $newEmail = mysqli_real_escape_string($db, $_POST['new_email']);
+    $newFullName = mysqli_real_escape_string($db, $_POST['new_full_name']);
+    $newEmail = mysqli_real_escape_string($db, $_POST['new_email']);
 
-  if (empty($newFullName)) {
-      array_push($errors, "New Full Name is required");
-  }
-  if (empty($newEmail)) {
-      array_push($errors, "New Email is required");
-  }
+    // Get the current user's username from the session
+    $username = $_SESSION['username'];
 
-  if (count($errors) == 0) {
-      // Get the current user's username from the session
-      $username = $_SESSION['username'];
+    // Retrieve the user's information from the database
+    $query = "SELECT * FROM users WHERE username='$username' LIMIT 1";
+    $result = mysqli_query($db, $query);
+    $user = mysqli_fetch_assoc($result);
 
-      // Retrieve the user's information from the database
-      $query = "SELECT * FROM users WHERE username='$username' LIMIT 1";
-      $result = mysqli_query($db, $query);
-      $user = mysqli_fetch_assoc($result);
+    if ($user) {
+        // Check if the new details are different from the existing ones
+        if ($newFullName === $user['username'] && $newEmail === $user['email']) {
+			array_push($errors, "No changes were made to user details");
+        } else {
+            // Check for empty fields
+            if (empty($newFullName)) {
+                array_push($errors, "New Full Name is required");
+            }
+            if (empty($newEmail)) {
+                array_push($errors, "New Email is required");
+            }
 
-      if ($user) {
-		// Update the user's name and email in the database
-		$query = "UPDATE users SET username='$newFullName', email='$newEmail' WHERE username='$username'";
-		mysqli_query($db, $query);
+            if (count($errors) == 0) {
+                // Update the user's name and email in the database
+                $query = "UPDATE users SET username='$newFullName', email='$newEmail' WHERE username='$username'";
+                mysqli_query($db, $query);
 
-		// Update the $_SESSION variables with the new details
-		$_SESSION['username'] = $newFullName;
-		$_SESSION['email'] = $newEmail;
+                // Update the $_SESSION variables with the new details
+                $_SESSION['username'] = $newFullName;
+                $_SESSION['email'] = $newEmail;
 
-		// You can also set a success message if needed
-		$_SESSION['success_message'] = "User details updated successfully";
-
-		header('location: settings.php');
-      } else {
-          echo 'error';
-      }
-  } 
+                $_SESSION['success_message'] = "User details updated successfully";
+                header('location: settings.php');
+            }
+        }
+    } else {
+        echo 'error';
+    }
 }
+
 
 if (isset($_POST['change_password'])) {
     $currentPassword = mysqli_real_escape_string($db, $_POST['current_password']);
     $newPassword = mysqli_real_escape_string($db, $_POST['new_password']);
     $confirmPassword = mysqli_real_escape_string($db, $_POST['confirm_password']);
 
-    // Get the current user's username from the session
-    $username = $_SESSION['username'];
-    $query = "SELECT password FROM users WHERE username='$username' LIMIT 1";
-    $result = mysqli_query($db, $query);
-    $user = mysqli_fetch_assoc($result);
+    // Check if any of the fields are empty
+    if (empty($currentPassword) || empty($newPassword) || empty($confirmPassword)) {
+        array_push($errors, "All fields are required");
+    } else {
+        // Get the current user's username from the session
+        $username = $_SESSION['username'];
+        $query = "SELECT password FROM users WHERE username='$username' LIMIT 1";
+        $result = mysqli_query($db, $query);
+        $user = mysqli_fetch_assoc($result);
 
-    if ($user) {
-        // Check if the current password matches the stored hash
-        if (md5($currentPassword, $user['password'])) {
-            if ($newPassword === $confirmPassword) {
-                // Hash the new password and update it in the database
-                $newPasswordHash = md5($newPassword);
-                $updateQuery = "UPDATE users SET password='$newPasswordHash' WHERE username='$username'";
-                $updateResult = mysqli_query($db, $updateQuery);
+        if ($user) {
+            // Check if the current password matches the stored hash
+            if (md5($currentPassword) === $user['password']) {
+                if ($newPassword === $confirmPassword) {
+                    // Hash the new password and update it in the database
+                    $newPasswordHash = md5($newPassword);
+                    $updateQuery = "UPDATE users SET password='$newPasswordHash' WHERE username='$username'";
+                    $updateResult = mysqli_query($db, $updateQuery);
 
-                if ($updateResult) {
-                    // Password successfully updated
-                    $_SESSION['success_message'] = "Password changed successfully";
-                    header('location: settings.php');
+                    if ($updateResult) {
+                        // Password successfully updated
+                        $_SESSION['success_message'] = "Password changed successfully";
+                        header('location: settings.php');
+                    } else {
+                        // Display an error message if the update query fails
+                        array_push($errors, "Error updating password: " . mysqli_error($db));
+                    }
                 } else {
-                    // Display an error message if the update query fails
-                    array_push($errors, "Error updating password: " . mysqli_error($db));
+                    // New password and confirmation do not match
+                    array_push($errors, "New password and confirmation do not match");
                 }
             } else {
-                // New password and confirmation do not match
-                array_push($errors, "New password and confirmation do not match");
+                // Current password is incorrect
+                array_push($errors, "Current password is incorrect");
             }
-        } else {
-            // Current password is incorrect
-            array_push($errors, "Current password is incorrect");
         }
     }
 }
@@ -174,25 +183,28 @@ if (isset($_POST['delete_account'])) {
     $user = mysqli_fetch_assoc($result);
 
     if ($user) {
-        // Check if the provided delete password matches the user's password
-        if (md5($deletePassword) === $user['password']) {
-            // Delete the user's row from the database
-            $deleteQuery = "DELETE FROM users WHERE username='$username'";
-            $deleteResult = mysqli_query($db, $deleteQuery);
-
-            if ($deleteResult) {
-                // User account successfully deleted
-                session_destroy(); // Destroy the session
-                header('location: login.php'); // Redirect to login page
-            } else {
-                // Display an error message if the delete query fails
-                array_push($errors, "Error deleting user account: " . mysqli_error($db));
-            }
+        // Check if the provided delete password is empty
+        if (empty($deletePassword)) {
+            array_push($errors, "Please enter your password");
         } else {
-            // Delete password is incorrect
-            array_push($errors, "Incorrect delete password");
+            // Check if the provided delete password matches the user's password
+            if (md5($deletePassword) === $user['password']) {
+                // Delete the user's row from the database
+                $deleteQuery = "DELETE FROM users WHERE username='$username'";
+                $deleteResult = mysqli_query($db, $deleteQuery);
+
+                if ($deleteResult) {
+                    // User account successfully deleted
+                    session_destroy(); // Destroy the session
+                    header('location: login.php'); // Redirect to login page
+                } else {
+                    // Display an error message if the delete query fails
+                    array_push($errors, "Error deleting user account: " . mysqli_error($db));
+                }
+            } else {
+                // Delete password is incorrect
+                array_push($errors, "Incorrect delete password");
+            }
         }
     }
 }
-
-?>

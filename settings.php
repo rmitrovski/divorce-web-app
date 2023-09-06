@@ -14,6 +14,9 @@ if (!isset($_SESSION['username'])) {
 
 <?php require_once('header.php'); ?>
 
+<!-- Main CSS-->
+<link href="css/style_settings.css" rel="stylesheet" media="all">
+
 <head>
     <!-- JavaScript functions -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -51,12 +54,12 @@ if (!isset($_SESSION['username'])) {
                                 <label>Email Address</label>
                                 <input class="au-input au-input--full" type="email" name="new_email" id="email" placeholder="Email" value="<?php echo $email; ?>">
                             </div>
+							<br>
                             <button name="new_details" class="au-btn au-btn--blue m-b-20">Save</button>
                         </form>
 
                         <!-- Password Details Form -->
                         <form action="" method="post">
-						  	<?php include('errors.php'); ?>
                             <br>
                             <h5 style="text-align: center"> Password details</h5>
                             <div class="form-group">
@@ -71,6 +74,7 @@ if (!isset($_SESSION['username'])) {
                                 <label>Retype Password</label>
                                 <input class="au-input au-input--full" type="password" name="confirm_password" id="retype_password" placeholder="Retype Password">
                             </div>
+							<br>
                             <button class="au-btn au-btn--blue m-b-20" name="change_password">Change Password</button>
                         </form>
 
@@ -79,10 +83,9 @@ if (!isset($_SESSION['username'])) {
 					<h5 style="text-align: center"> Delete Account</h5>
 					<div class="form-group">
 						<label>Enter Delete Password</label>
-						<input class="au-input au-input--full" type="password" name="delete_password" id="delete_password" placeholder="Enter Delete Password">
+						<input class="au-input au-input--full" type="password" name="delete_password" id="delete_password" placeholder="Enter Password">
 					</div>
-					<!-- Display error message here -->
-					<?php include('errors.php'); ?>
+					<br>
 					<button class="au-btn au-btn--green m-b-20" name="delete_account">Delete Account</button>
 				</form>
 
