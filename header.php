@@ -127,7 +127,7 @@
 			<li >
 				<a href="#">
 					<i class='bx bxs-doughnut-chart' ></i>
-					<span class="text">MailChimp</span>
+					<span class="text">Profile</span>
 				</a>
 			</li>
 			<li >
