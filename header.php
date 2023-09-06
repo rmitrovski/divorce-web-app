@@ -131,9 +131,9 @@
 				</a>
 			</li>
 			<li >
-				<a href="#">
+				<a href="FAQ.php">
 					<i class='bx bxs-message-dots' ></i>
-					<span class="text">Message</span>
+					<span class="text">FAQ</span>
 				</a>
 			</li>
 			<li <?php if ($current_page == 'booking.php') echo 'class="active"'; ?>>
