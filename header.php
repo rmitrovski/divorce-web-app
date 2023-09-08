@@ -118,6 +118,12 @@
 					<span class="text">Dashboard</span>
 				</a>
 			</li>
+			<li >>
+				<a a href="https://chatbot-cleandivorce.streamlit.app/">
+					<i class='bx bxs-chatbot' ></i>
+					<span class="text">Chatbot</span>
+				</a>
+			</li>
 			<li <?php if ($current_page == 'week_system.php') echo 'class="active"'; ?>>
 				<a href="week_system.php">
 					<i class='bx bxs-shopping-bag-alt' ></i>
