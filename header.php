@@ -118,7 +118,7 @@
 					<span class="text">Dashboard</span>
 				</a>
 			</li>
-			<li >>
+			<li >
 				<a a href="https://chatbot-cleandivorce.streamlit.app/">
 					<i class='bx bxs-chatbot' ></i>
 					<span class="text">Chatbot</span>
