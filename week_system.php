@@ -186,5 +186,3 @@ for ($week = 1; $week <= 8; $week++) {
 </body>
 
 </html>
-
-                      
