@@ -24,7 +24,7 @@
 <div id="successAlert" style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000;">
     <div style="width: 300px; margin: 15% auto; padding: 20px; background: #d4edda; color: #155724; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
         <h2 id="successTitle">Success</h2>
-        <p id="successMessage">Your booking was successful.</p>
+        <p id="successMessage">Your booking was successful. Click "OK" to see your appointment details.</p>
         <button onclick="closeSuccessAlertAndProceed()">OK</button>
     </div>
 </div>
@@ -126,8 +126,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="email">Email Address:</label>
-                            <input type="email" id="email" name="email" class="form-control" required>
+                            <label for="text">Email Address:</label>
+                            <input type="text" id="email" name="email" class="form-control" required>
                         </div>
 
                         <div class="form-group">
@@ -173,7 +173,7 @@
              // Close the success alert
              document.getElementById('successAlert').style.display = 'none';
 
-            // Navigate to the bookingInformation.php page
+            // Navigate to the bookedSlots.php page
             window.location.href = "bookingInformation.php";
         }
 
@@ -190,39 +190,63 @@
         })
 
        // Using jQuery
-    $(document).ready(function () {
+       $(document).ready(function () {
     $('form').on('submit', function (event) {
-        event.preventDefault();  // Prevent the form from submitting the traditional way
+        event.preventDefault();
 
         $.ajax({
             type: "POST",
             url: "bookingValidation.php",
-            data: $(this).serialize(),  // Serializes the form's elements to a query string
-            dataType: "json", // Expect a json response from the server
+            data: $(this).serialize(),
+            dataType: "json",
             success: function (data) {
-                var errorMessageElement = $("#alertMessage");
+                var alertMessageElement = $("#alertMessage");
                 var successMessageElement = $("#successMessage");
 
                 if (data.success) {
                     successMessageElement.text(data.message);
-                     $('#successAlert').show();
-                }  else {
+                    $('#successAlert').show();
+                } else {
                     
-                    var errorMessage = data.errors.join(' ');  // Join all error messages into one string
-                    alertMessageElement.text(errorMessage).addClass("alert-danger").removeClass("alert-success");
+                    var errorMessages = [];
 
-                    // If the error is about booking time
-                    if (errorMessage.includes("Booking already exists for this date and time.")) {
-                        $('#alertTitle').text('Booking Time Alert');
-                        $('#alertMessage').text(errorMessage);
-                        $('#customAlert').show();
-                    }
+                    
+                    var alertTitles = '';
+
+                   
+                    data.errors.forEach(function(error) {
+                        errorMessages.push(error.message);  
+
+                       
+                        switch(error.code) {
+                            case 'invalid_name':
+                                alertTitles += 'Name Error; ';
+                                break;
+                            case 'invalid_phone':
+                                alertTitles += 'Phone Error; ';
+                                break;
+                            case 'invalid_email':
+                                alertTitles += 'Email Error; ';
+                                break;
+                            case 'slot_already_booked':
+                                alertTitles += 'Booking Time Error; ';
+                                break;
+                            default:
+                                alertTitles += 'Unknown Error; ';
+                        }
+                    });
+
+                    
+                    alertMessageElement.text(errorMessages.join(' ')).addClass("alert-danger").removeClass("alert-success");
+                    $('#alertTitle').text(alertTitles);
+
+                    
+                    $('#customAlert').show();
                 }
             }
         });
     });
 });
-
 
 
     </script>
