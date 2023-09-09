@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 
@@ -43,15 +42,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
 
     if (!preg_match("/^[a-zA-Z\s]*$/", $name)) {
-        $response['errors'][] = 'Name can only contain letters and spaces.';
+        $response['errors'][] = ['code' => 'invalid_name', 'message' => 'Name can only contain letters and spaces.'];
     }
 
     if (!preg_match("/^[0-9]+$/", $phone)) {
-        $response['errors'][] = 'Invalid phone format.';
+        $response['errors'][] = ['code' => 'invalid_phone', 'message' => 'Invalid phone format.'];
     }
 
+
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $response['errors'][] = 'Invalid email format.';
+        $response['errors'][] = ['code' => 'invalid_email', 'message' => 'Invalid email format.'];
     }
 
     // Check if the selected date and time are already booked
@@ -59,6 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     foreach ($_SESSION['bookedSlots'] as $slot) {
         if ($slot['date'] === $selectedDate && $slot['time'] === $selectedTime) {
             $isAlreadyBooked = true;
+            $response['errors'][] = ['code' => 'slot_already_booked', 'message' => 'Booking already exists for this date and time. Please choose another time.'];
             break;
         }
     }
@@ -73,9 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['bookedSlots'][] = ['date' => $selectedDate, 'time' => $selectedTime];
             $response['success'] = true;
             $response['message'] = 'Booking successful';
-        } else {
-            $response['errors'][] = 'Booking already exists for this date and time. Please choose another time.';
-        }
+        } 
     }
 
    
@@ -83,6 +82,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $response['bookedSlots'] = $_SESSION['bookedSlots'];  
 }
 
-
+echo json_encode($response);
 ?>
 
