@@ -3,6 +3,12 @@
 <html>
 
 <head>
+       <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Multi Step Progress</title>
+        <link rel="stylesheet" href="css/progress.css" />
+        <script src="js/progress.js" defer></script>
     <title>8 Week System | Consult CRM</title>
     <style>
         body {
@@ -182,9 +188,35 @@
                     <a href="/week5 old files/myLetterToYou.html">Click here to open link</a>
                 </div>
             </div>
+              <!--Progress Bar -->
+             <div class="container">
+        <div class="steps">
+            <span class="circle active">1</span>
+            <span class="circle">2</span>
+            <span class="circle">3</span>
+            <span class="circle">4</span>
+            <span class="circle">5</span>
+            <span class="circle">6</span>
+            <span class="circle">7</span>
+            <span class="circle">8</span>
+            <span class="circle">9</span>
+            <span class="circle">10</span>
+            <span class="circle">11</span>
+            <div class="progress-bar">
+                <span class="indicator"></span>
+      
+            </div>
+            
+        </div>
+       
+        <div class="buttons">
+            <button id="prev" disabled>Prev</button>
+            <button id="next" >Next</button>
 
+        </div>
+    </div>        
 
-
+  <!--progress bar -->
             
 
 
