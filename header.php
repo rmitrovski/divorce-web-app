@@ -125,7 +125,7 @@
 				</a>
 			</li>
             <li >
-				<a a href="chatbotgbt.php">
+				<a href="chatbotgbt.php">
 					<i class='bx bxs-dashboard' ></i>
 					<span class="text">ChatbotGBT</span>
 				</a>
