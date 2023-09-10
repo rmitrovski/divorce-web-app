@@ -124,8 +124,8 @@
 					<span class="text">Chatbot</span>
 				</a>
 			</li>
-            <li >
-				<a href="chatbotgbt.php">
+            <li>
+				<a href="chatbotgpt.php">
 					<i class='bx bxs-dashboard' ></i>
 					<span class="text">ChatbotGBT</span>
 				</a>
