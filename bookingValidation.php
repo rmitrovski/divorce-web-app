@@ -5,14 +5,8 @@ $response = array(
     'success' => false,
     'message' => '',
     'errors' => [],
-    'bookedSlots' => []
+    
 );
-
-
-if (!isset($_SESSION['bookedSlots'])) {
-    $_SESSION['bookedSlots'] = [];
-}
-
 
 
 
@@ -32,14 +26,32 @@ if (!isset($_SESSION['reason'])) {
     $_SESSION['reason'] = [];
 }
 
+
+// Initialize the date and time session variables
+if (!isset($_SESSION['date'])) {
+    $_SESSION['date'] = [];
+}
+
+if (!isset($_SESSION['time'])) {
+    $_SESSION['time'] = [];
+}
+
+
+if (!isset($_SESSION['type'])) {
+    $_SESSION['type'] = [];
+}
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    $selectedDate = $_POST["date"];
-    $selectedTime = $_POST["time"];
+    
     $name = $_POST['name'];
     $phone = $_POST['phone'];
     $reason = $_POST['reason'];
     $email = $_POST['email'];
+    $date = $_POST['date'];
+    $time = $_POST['time'];
+    $type = $_POST['type'];
 
     if (!preg_match("/^[a-zA-Z\s]*$/", $name)) {
         $response['errors'][] = ['code' => 'invalid_name', 'message' => 'Name can only contain letters and spaces.'];
@@ -54,34 +66,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $response['errors'][] = ['code' => 'invalid_email', 'message' => 'Invalid email format.'];
     }
 
-    // Check if the selected date and time are already booked
-    $isAlreadyBooked = false;
-    foreach ($_SESSION['bookedSlots'] as $slot) {
-        if ($slot['date'] === $selectedDate && $slot['time'] === $selectedTime) {
-            $isAlreadyBooked = true;
-            $response['errors'][] = ['code' => 'slot_already_booked', 'message' => 'Booking already exists for this date and time. Please choose another time.'];
-            break;
-        }
-    }
+    
 
     if (empty($response['errors'])) {
         $_SESSION['name'][] = $name;
         $_SESSION['phone'][] = $phone;
         $_SESSION['email'][] = $email;
         $_SESSION['reason'][] = $reason;
-        if (!$isAlreadyBooked) {
-            // Store the booked slot in the session
-            $_SESSION['bookedSlots'][] = ['date' => $selectedDate, 'time' => $selectedTime];
-            $response['success'] = true;
-            $response['message'] = 'Booking successful';
-        } 
+        $_SESSION['date'][] = $date;  
+        $_SESSION['time'][] = $time;  
+        $_SESSION['type'][] = $type;  
+        
+        $response['success'] = true;
+        $response['message'] = 'Booking successful';
     }
 
    
-
-    $response['bookedSlots'] = $_SESSION['bookedSlots'];  
 }
 
 echo json_encode($response);
 ?>
+
 
