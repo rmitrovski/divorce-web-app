@@ -1,2 +1,5 @@
 Download the DB from github to ur local machine 
 You will need to install the CRM DB on http://localhost/phpmyadmin/ to connect to db 
+
+Unit Testing requirements:
+You need to install JEST 
