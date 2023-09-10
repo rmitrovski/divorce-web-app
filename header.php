@@ -119,8 +119,8 @@
 				</a>
 			</li>
 			<li >
-				<a a href="https://chatbot-cleandivorce.streamlit.app/">
-					<i class='bx bxs-chatbot' ></i>
+				<a a href="https://chatbot-divorce.streamlit.app/">
+					<i class='bx bxs-dashboard' ></i>
 					<span class="text">Chatbot</span>
 				</a>
 			</li>
@@ -136,7 +136,7 @@
 					<span class="text">Profile</span>
 				</a>
 			</li>
-			<li >
+			<li <?php if ($current_page == 'FAQ.php') echo 'class="active"'; ?>>
 				<a href="FAQ.php">
 					<i class='bx bxs-message-dots' ></i>
 					<span class="text">FAQ</span>
