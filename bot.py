@@ -4,14 +4,34 @@ import streamlit as st
 from streamlit_chat import message
 
 
-os.environ["_BARD_API_KEY"]="awjMBiBXfQvOq_5NZ6evqpdY4NlVDSo0-8pHJHU1g63XahWjG1h3BmRQFIXPSusmWpqf1g."
 
+import requests
+from bardapi import Bard, SESSION_HEADERS
+from bardapi import BardCookies
+
+
+session = requests.Session()
+token = os.environ.get("_BARD_API_KEY")
+
+token = "awjMBrhiuQVpsByRiqhOTZl1toqRaiUbcjj04yzOIkO2xL5u2JnsgEFsmgwxnEHhb6kjpw."
+session.cookies.set("__Secure-1PSID", "awjMBrhiuQVpsByRiqhOTZl1toqRaiUbcjj04yzOIkO2xL5u2JnsgEFsmgwxnEHhb6kjpw.")
+session.cookies.set( "__Secure-1PSIDCC", "APoG2W_hFvAOp3woJfExtiwcWCVUoepUtFFYDBM9Ggaxf4gFypcEYJmeEsbzMG-s_D4dUBWxPw")
+session.cookies.set("__Secure-1PSIDTS", "sidts-CjEBSAxbGRlRs_fEY9HQS6mQlh4qpmdegkYqcq5sr4feSe7RDjXh-jsUG6ArK7yaslrKEAA")
+session.headers = SESSION_HEADERS
+
+bard = Bard(token=token, session=session)
 
 
 st.title("Clean Divorce Chatbot")
+
 def response_api(prompt):
-    message=Bard().get_answer(str(prompt))['content']
-    return message
+    try:
+        message = bard.get_answer(str(prompt))['content']
+        return message
+    except Exception as e:
+        st.warning(f"Error fetching response: {e}")
+        return "Sorry, I couldn't fetch a response."
+
 
 def user_input():
     input_text=st.text_input("Enter Your Prompt:")
