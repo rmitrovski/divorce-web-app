@@ -21,9 +21,10 @@ if (!isset($_SESSION['username'])) {
     <!-- JavaScript functions -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-        /* Added Padding for the form */
         .container {
-            padding-top: 80px; /* Add additional top padding to push content down */
+            padding-top: 80px; 
+			position: relative !important; 
+			left: 20%;
         }
     </style>
 </head>
