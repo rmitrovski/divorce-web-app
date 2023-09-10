@@ -124,6 +124,12 @@
 					<span class="text">Chatbot</span>
 				</a>
 			</li>
+            <li >
+				<a a href="chatbotgbt.php">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="text">ChatbotGBT</span>
+				</a>
+			</li>
 			<li <?php if ($current_page == 'week_system.php') echo 'class="active"'; ?>>
 				<a href="week_system.php">
 					<i class='bx bxs-shopping-bag-alt' ></i>
