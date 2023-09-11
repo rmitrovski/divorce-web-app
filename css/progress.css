@@ -1,12 +1,6 @@
 /* Import Google font - Poppins */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
 body{
     height: 100vh;
     display: flex;
@@ -27,7 +21,7 @@ body{
   width: 100%;
   align-items: center;
   justify-content: space-between ;
-  position:relative
+  position:relative;
 
 }
 
@@ -81,7 +75,7 @@ body{
 
 }
 
-.steps .progress-bar {
+.steps .progressbar {
     position: absolute;
     height: 4px;
     width: 100%;
@@ -94,7 +88,7 @@ body{
     color: #4070f4;
   }
 
-.progress-bar .indicator{
+.progressbar .indicator{
     position: absolute;
     height: 100%;
     width: 0%;
