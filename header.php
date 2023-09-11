@@ -79,22 +79,10 @@
                                 <div class="noti-wrap">
                                 </div>
                                 <div class="account-wrap">
-                                    <div class="account-item clearfix js-item-menu">
-                                        <div class="image">
-                                            <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="John Doe" />
-                                        </div>
-                                       
-                                        <div class="account-dropdown js-dropdown">
-                                            <div class="info clearfix">
-                                                
-                                                
-                                            </div>
-                                            
-                                               
-                                            
-    
-                                            </div>
-                                        </div>
+                                <?php  if (isset($_SESSION['username'])) : ?>
+    	<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
+    	
+    <?php endif ?>
                                     </div>
                                 </div>
                             </div>
@@ -118,33 +106,28 @@
 					<span class="text">Dashboard</span>
 				</a>
 			</li>
-			<li >
-				<a a href="https://chatbot-divorce.streamlit.app/">
-					<i class='bx bxs-dashboard' ></i>
-					<span class="text">Chatbot</span>
-				</a>
-			</li>
+		
             <li>
 				<a href="chatbotgpt.php">
-					<i class='bx bxs-dashboard' ></i>
+					<i class='bx bxl-android' ></i>
 					<span class="text">ChatbotGBT</span>
 				</a>
 			</li>
 			<li <?php if ($current_page == 'week_system.php') echo 'class="active"'; ?>>
 				<a href="week_system.php">
-					<i class='bx bxs-shopping-bag-alt' ></i>
+					<i class='bx bxs-donate-blood' ></i>
 					<span class="text">8 Week system </span>
 				</a>
 			</li>
 			<li >
 				<a href="#">
-					<i class='bx bxs-doughnut-chart' ></i>
+					<i class='bx bxs-face' ></i>
 					<span class="text">Profile</span>
 				</a>
 			</li>
 			<li <?php if ($current_page == 'FAQ.php') echo 'class="active"'; ?>>
 				<a href="FAQ.php">
-					<i class='bx bxs-message-dots' ></i>
+					<i class='bx bxs-conversation' ></i>
 					<span class="text">FAQ</span>
 				</a>
 			</li>
