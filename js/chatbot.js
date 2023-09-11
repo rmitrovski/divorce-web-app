@@ -4,14 +4,17 @@ const chatContainer= document.querySelector(".chat-container");
 const themeButton= document.querySelector("#theme-btn");
 const deleteButton= document.querySelector("#delete-btn");
 let userText=null;
-const API_KEY="";
+const API_KEY="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";
 
 const loadDataFromLocalstorage=()=>{
     const themeColor= localStorage.getItem("themeColor");
     document.body.classList.toggle("light_mode", themeColor === "light_mode");
     themeButton.innerText= document.body.classList.contains("light_mode") ? "dark_mode":"light_mode";
 
-    const defaultText= ''
+    const defaultText= `<div class="default-text">
+    <h1>The Clean Divorce chatbot</h1>
+    <p>Start a conversation and explore the power of AI.<br> Your chat history will be displayed here.</p>
+</div>`
     chatContainer.innerHTML=localStorage.getItem("all-chats") || defaultText;
     chatContainer.scrollTo(0,chatContainer.scrollHeight);
 
@@ -21,12 +24,12 @@ const loadDataFromLocalstorage=()=>{
 const createChatElement=(content, className)=>{
     const chatDiv=document.createElement("div");
     chatDiv.classList.add("chat", className);
-    chatDiv.innerHTML=connect;
+    chatDiv.innerHTML=content;
     return chatDiv;
 }
 
 const getChatResponse = async (incomingChatDiv) => {
-    const API_URL="";
+    const API_URL= "https://api.openai.com/v1/completions";
     const pElement= document.createElemnet("p");
 
     const requestOptions={
@@ -35,7 +38,7 @@ const getChatResponse = async (incomingChatDiv) => {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${API_KEY}`
         }, 
-        BODY: JSON.stringify({
+        body: JSON.stringify({
             model:"text-davinci-003",
             prompt: userText, 
             max_tokens:2048, 
@@ -134,8 +137,8 @@ chatInput.addEventListener("input",()=>{
 
 });
 
-chatInput.addEventListener("Keydown", (e)=>{
-    if (e.key == "Enter" && !e.shiftKey && window.innerWidth >800){
+chatInput.addEventListener("keydown", (e)=>{
+    if (e.key === "Enter" && !e.shiftKey && window.innerWidth >800){
         e.preventDefault();
         handleOutgoingChat();
     }
