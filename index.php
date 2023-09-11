@@ -15,15 +15,17 @@
     header("location: login.php");
   }
 ?>
- <?php include('week_difference.php'); ?>
+
+
+<?php include('week_difference.php'); ?>
 
 <?php require_once('header.php');?>
 
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css/dashboard.css" rel="stylesheet" media="all">
 <style>
 .card {
   width: 350px;
@@ -65,6 +67,7 @@
 </style>
 </head>
 <body>
+
   <div class="card">
     <?php if ($weeks_difference == 0) {
       echo "Welcome to the 8 week system,";
