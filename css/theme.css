@@ -717,7 +717,21 @@ background:  #3868cd;}
     color: #4c4c4c;
 font-size: 20px;
 }
-.account-wrap{position: relative;}
+.account-wrap
+{position: relative; 
+    font-size: 24px;
+    font-weight: 700;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    color: var(--blue);
+    position: sticky;
+    top: 0;
+    left: 0;
+    background: var(--light);
+    z-index: 500;
+    padding-bottom: 20px;
+    box-sizing: content-box;}
 .account-item{cursor: pointer;}
 .account-item .image
 {width: 45px;
