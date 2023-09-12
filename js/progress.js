@@ -4,11 +4,11 @@ const circles=document.querySelectorAll(".circle"),
 let currentStep=1; 
 
 const updateSteps=(e)=>{
-    currentStep = e.target.id === "next" ? ++currentStep : -- currentStep;
-    circles.forEach((circle,index)=>{
-        circle.classList[`${index < currentStep ? "add" : "remove"}`]("active");
+    circles[currentStep - 1].classList.remove("active");
 
-    });
+    currentStep = e.target.id === "next" ? ++currentStep : -- currentStep;
+    circles[currentStep - 1].classList.add("active");
+
     progressBar.style.width = `${((currentStep-1)/ (circles.length -1))* 100}%`;
 
 
@@ -22,6 +22,7 @@ const updateSteps=(e)=>{
         buttons.forEach((button)=> ( button.disabled = false));
 
     }
+    
 
 
 
@@ -34,6 +35,8 @@ buttons.forEach((button)=>{
     button.addEventListener("click", updateSteps);
 
 });
+
+circles[0].classList.add("active");
 
 
 
