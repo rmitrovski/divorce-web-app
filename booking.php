@@ -1,5 +1,6 @@
 <?php
-session_start(); // Start the session
+include('server.php')
+//session_start(); // Start the session
 ?>
 
 <!DOCTYPE html>
