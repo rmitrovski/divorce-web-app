@@ -5,7 +5,76 @@ $email="";
 $errors=array();
 $db= mysqli_connect('localhost', 'root','','project');
 
+$response = array(
+    'success' => false,
+    'message' => '',
+    'errors' => [],
+);
 
+if (!isset($_SESSION['name'])) {
+    $_SESSION['name'] = [];
+}
+
+if (!isset($_SESSION['phone'])) {
+    $_SESSION['phone'] = [];
+}
+
+if (!isset($_SESSION['email'])) {
+    $_SESSION['email'] = [];
+}
+
+if (!isset($_SESSION['reason'])) {
+    $_SESSION['reason'] = [];
+}
+
+if (!isset($_SESSION['date'])) {
+    $_SESSION['date'] = [];
+}
+
+if (!isset($_SESSION['time'])) {
+    $_SESSION['time'] = [];
+}
+
+if (!isset($_SESSION['type'])) {
+    $_SESSION['type'] = [];
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+    $name = $_POST['name'];
+    $phone = $_POST['phone'];
+    $reason = $_POST['reason'];
+    $email = $_POST['email'];
+    $date = $_POST['date'];
+    $time = $_POST['time'];
+    $type = $_POST['type'];
+
+    if (!preg_match("/^[a-zA-Z\s]*$/", $name)) {
+        $response['errors'][] = ['code' => 'invalid_name', 'message' => 'Name can only contain letters and spaces.'];
+    }
+
+    if (!preg_match("/^[0-9]+$/", $phone)) {
+        $response['errors'][] = ['code' => 'invalid_phone', 'message' => 'Invalid phone format.'];
+    }
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $response['errors'][] = ['code' => 'invalid_email', 'message' => 'Invalid email format.'];
+    }
+
+    if (empty($response['errors'])) {
+        $_SESSION['name'][] = $name;
+        $_SESSION['phone'][] = $phone;
+        $_SESSION['email'][] = $email;
+        $_SESSION['reason'][] = $reason;
+        $_SESSION['date'][] = $date;  
+        $_SESSION['time'][] = $time;  
+        $_SESSION['type'][] = $type;  
+        
+        $response['success'] = true;
+        $response['message'] = 'Booking successful';
+    }
+
+	
 if(isset($_POST['reg_user'])){
   $username= mysqli_real_escape_string($db, $_POST['username']);
   $email= mysqli_real_escape_string($db, $_POST['email']);
