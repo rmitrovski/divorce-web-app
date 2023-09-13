@@ -30,6 +30,7 @@ if (!isset($_SESSION['username'])) {
 
 </head>
 <body>
+ <?php include('week_difference.php'); ?>
     <section id="play">
         <div class="container">
           
@@ -38,7 +39,7 @@ if (!isset($_SESSION['username'])) {
         <div class="container">
             <div class="swiper play-slider">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide play-slide">
+				<div class="swiper-slide play-slide">
                         <div class="play-slide-img">
                             <img src="images/week-1.jpeg" alt="emotion">
                         </div>
@@ -50,7 +51,12 @@ if (!isset($_SESSION['username'])) {
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide play-slide">
+				<?php
+				for ($week = 1; $week <= 8; $week++ ) {
+					if ($weeks_difference >= $week) {
+					 if ($week == 1) {
+							?>
+							<div class="swiper-slide play-slide">
                         <div class="play-slide-img">
                             <img src="images/week-2.png" alt="emotion">
                         </div>
@@ -61,8 +67,9 @@ if (!isset($_SESSION['username'])) {
                                 </h2>
                             </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide play-slide">
+                    </div>	
+				<?php	} if ($week == 2) { ?>
+					                    <div class="swiper-slide play-slide">
                         <div class="play-slide-img">
                             <img src="images/week-3.png" alt="emotion">
                         </div>
@@ -73,8 +80,9 @@ if (!isset($_SESSION['username'])) {
                                 </h2>
                             </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide play-slide">
+                    </div> <?php
+				} if ($week == 3) { ?>
+				 <div class="swiper-slide play-slide">
                         <div class="play-slide-img">
                             <img src="images/week-4.jpeg" alt="emotion">
                         </div>
@@ -86,7 +94,9 @@ if (!isset($_SESSION['username'])) {
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide play-slide">
+					<?php
+				} if ($week == 4) { ?>
+				<div class="swiper-slide play-slide">
                         <div class="play-slide-img">
                             <img src="images/week-5.jpeg" alt="emotion">
                         </div>
@@ -98,7 +108,9 @@ if (!isset($_SESSION['username'])) {
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide play-slide">
+					<?php
+				} if ($week == 5) { ?>
+		   <div class="swiper-slide play-slide">
                         <div class="play-slide-img">
                             <img src="images/week-6.jpeg" alt="emotion">
                         </div>
@@ -110,6 +122,8 @@ if (!isset($_SESSION['username'])) {
                             </div>
                         </div>
                     </div>
+					<?php
+				} if ($week == 6) { ?>
                     <div class="swiper-slide play-slide">
                         <div class="play-slide-img">
                             <img src="images/week-7.png" alt="emotion">
@@ -122,6 +136,8 @@ if (!isset($_SESSION['username'])) {
                             </div>
                         </div>
                     </div>
+					<?php
+				} if ($week == 7) { ?>
                     <div class="swiper-slide play-slide">
                         <div class="play-slide-img">
                             <img src="images/week-8.jpeg" alt="emotion">
@@ -134,7 +150,13 @@ if (!isset($_SESSION['username'])) {
                             </div>
                         </div>
                     </div>
-                </div>
+          
+					<?php
+				}
+					}
+			
+				} ?>
+				      </div>
                 <div class="play-slider-control">
                     <div class="swiper-button-prev slider-arrow">
                         <ion-icon name="arrow-back-outline"></ion-icon>
