@@ -210,3 +210,27 @@ if (isset($_POST['delete_account'])) {
         }
     }
 }
+
+if (isset($_POST['book_appointment'])) {
+    $name= mysqli_real_escape_string($db, $_POST['name']);
+    $phone= mysqli_real_escape_string($db, $_POST['phone']);
+    $email= mysqli_real_escape_string($db, $_POST['email']);
+    $type= mysqli_real_escape_string($db, $_POST['type']);
+    $date= mysqli_real_escape_string($db, $_POST['date']);
+    $time= mysqli_real_escape_string($db, $_POST['time']);
+    $reason= mysqli_real_escape_string($db, $_POST['reason']);
+    // Get the current user's username from the session
+    $username = $_SESSION['username'];
+    // Retrieve the user's information from the database
+    $query = "SELECT * FROM users WHERE username='$username' LIMIT 1";
+    $result = mysqli_query($db, $query);
+    $user = mysqli_fetch_assoc($result);
+    if ($user) {
+        $user_id = $user['id'];
+
+        $sql = "INSERT INTO bookings (name, phone, email, type, date, time, reason, user_id) 
+            VALUES ('$name', '$phone', '$email', '$type', '$date', '$time', '$reason', '$user_id')";
+        mysqli_query($db, $sql);
+    }
+
+}
