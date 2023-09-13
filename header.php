@@ -110,7 +110,7 @@
             <li>
 				<a href="chatbotgpt.php">
 					<i class='bx bxl-android' ></i>
-					<span class="text">ChatbotGBT</span>
+					<span class="text">Chatbot</span>
 				</a>
 			</li>
 			<li <?php if ($current_page == 'week_system.php') echo 'class="active"'; ?>>
