@@ -1,7 +1,3 @@
-<?php
-include('server.php')
-//session_start(); // Start the session
-?>
 
 <!DOCTYPE html>
 <html>
