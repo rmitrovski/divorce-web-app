@@ -12,7 +12,7 @@ var PlaySlider= new Swiper('.play-slider', {
 
  },
  folio:{
-    el: '.swiper-pagnition', 
+    el: '.swiper-folio', 
     clickable: true,
  }, 
  navigation:{
