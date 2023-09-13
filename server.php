@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $response['success'] = true;
         $response['message'] = 'Booking successful';
     }
-
+}
 	
 if(isset($_POST['reg_user'])){
   $username= mysqli_real_escape_string($db, $_POST['username']);
