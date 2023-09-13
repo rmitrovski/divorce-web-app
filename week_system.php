@@ -9,11 +9,11 @@ if (!isset($_SESSION['username'])) {
 	$registration_date = $_SESSION['registration_date'];
 }
 ?>
-  <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
+    <!-- Required meta tags 9.30-11 12.30-1.40-->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,13 +24,12 @@ if (!isset($_SESSION['username'])) {
     
 	<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
  
-    <link rel="stylesheet" href="css/dimension.css">
+    <link rel="stylesheet" href="style.css">
 
 
 
 </head>
 <body>
- <?php include('week_difference.php'); ?>
     <section id="play">
         <div class="container">
           
@@ -39,7 +38,7 @@ if (!isset($_SESSION['username'])) {
         <div class="container">
             <div class="swiper play-slider">
                 <div class="swiper-wrapper">
-				<div class="swiper-slide play-slide">
+                    <div class="swiper-slide play-slide">
                         <div class="play-slide-img">
                             <img src="images/week-1.jpeg" alt="emotion">
                         </div>
@@ -51,12 +50,7 @@ if (!isset($_SESSION['username'])) {
                             </div>
                         </div>
                     </div>
-				<?php
-				for ($week = 1; $week <= 8; $week++ ) {
-					if ($weeks_difference >= $week) {
-					 if ($week == 1) {
-							?>
-							<div class="swiper-slide play-slide">
+                    <div class="swiper-slide play-slide">
                         <div class="play-slide-img">
                             <img src="images/week-2.png" alt="emotion">
                         </div>
@@ -67,9 +61,8 @@ if (!isset($_SESSION['username'])) {
                                 </h2>
                             </div>
                         </div>
-                    </div>	
-				<?php	} if ($week == 2) { ?>
-					                    <div class="swiper-slide play-slide">
+                    </div>
+                    <div class="swiper-slide play-slide">
                         <div class="play-slide-img">
                             <img src="images/week-3.png" alt="emotion">
                         </div>
@@ -80,9 +73,8 @@ if (!isset($_SESSION['username'])) {
                                 </h2>
                             </div>
                         </div>
-                    </div> <?php
-				} if ($week == 3) { ?>
-				 <div class="swiper-slide play-slide">
+                    </div>
+                    <div class="swiper-slide play-slide">
                         <div class="play-slide-img">
                             <img src="images/week-4.jpeg" alt="emotion">
                         </div>
@@ -94,9 +86,7 @@ if (!isset($_SESSION['username'])) {
                             </div>
                         </div>
                     </div>
-					<?php
-				} if ($week == 4) { ?>
-				<div class="swiper-slide play-slide">
+                    <div class="swiper-slide play-slide">
                         <div class="play-slide-img">
                             <img src="images/week-5.jpeg" alt="emotion">
                         </div>
@@ -108,9 +98,7 @@ if (!isset($_SESSION['username'])) {
                             </div>
                         </div>
                     </div>
-					<?php
-				} if ($week == 5) { ?>
-		   <div class="swiper-slide play-slide">
+                    <div class="swiper-slide play-slide">
                         <div class="play-slide-img">
                             <img src="images/week-6.jpeg" alt="emotion">
                         </div>
@@ -122,8 +110,6 @@ if (!isset($_SESSION['username'])) {
                             </div>
                         </div>
                     </div>
-					<?php
-				} if ($week == 6) { ?>
                     <div class="swiper-slide play-slide">
                         <div class="play-slide-img">
                             <img src="images/week-7.png" alt="emotion">
@@ -136,8 +122,6 @@ if (!isset($_SESSION['username'])) {
                             </div>
                         </div>
                     </div>
-					<?php
-				} if ($week == 7) { ?>
                     <div class="swiper-slide play-slide">
                         <div class="play-slide-img">
                             <img src="images/week-8.jpeg" alt="emotion">
@@ -150,13 +134,7 @@ if (!isset($_SESSION['username'])) {
                             </div>
                         </div>
                     </div>
-          
-					<?php
-				}
-					}
-			
-				} ?>
-				      </div>
+                </div>
                 <div class="play-slider-control">
                     <div class="swiper-button-prev slider-arrow">
                         <ion-icon name="arrow-back-outline"></ion-icon>
@@ -172,7 +150,7 @@ if (!isset($_SESSION['username'])) {
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-    <script src="js/dimension.js"></script>
+    <script src="script.js"></script>
 
 
 </body>
