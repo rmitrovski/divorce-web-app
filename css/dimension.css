@@ -1,0 +1,271 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+*, 
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+:root{
+    --primary:#5e7af7;
+     --white: #ffffff;
+    --bg: #f5f5f5;
+
+
+}
+
+html{
+    font-size: 62.5%;
+    font-family: "Montserrat", sans-serif;
+    scroll-behavior: smooth;
+
+}
+
+body{
+    font-size: 1.6rem;  background: var(--bg);
+
+}
+
+  
+
+@media(min-width: 1440px)
+{
+html{
+    zoom:1.5 ;
+}
+}
+
+@media(min-width: 2560px)
+{
+html{
+    zoom:1.7 ;
+}
+}
+
+
+@media(min-width: 3860px)
+{
+html{
+    zoom:2.5 ;
+}
+}
+
+::-webkit-scrollbar{ width:1.3rem}
+::-webkit-scrollbar-thumb{ 
+  border-radius: 1rem;   background: #797979;
+  transition: all 0.5s ease-in-out;
+
+}
+::-webkit-scrollbar-thumb:hover{ background: #222224;}
+::-webkit-scrollbar-track{ background: #f9f9f9;}
+
+.container{
+    max-width: 124rem;
+    padding: 0 1rem;
+    margin: 0 auto ;
+}
+
+
+.text-center{text-align: center;}
+.section-heading{
+    font-size: 3rem;
+    color: var(--primary);
+   padding: 2rem 0;
+
+}
+
+#play{padding: 4rem 0 ;}
+
+@media(max-width: 1440px)
+{
+    #play{padding: 7rem 0 ;}
+}
+
+#play .play-slider
+{padding: 2rem 0 ;
+    height: 52rem;
+    position: relative;
+}
+
+@media(max-width: 500px)
+{
+    #play .play-slider
+    {
+        height: 45rem;
+        
+    }
+}
+
+
+.play-slide{
+    height: 42rem;
+    width: 37rem;
+    position: relative;
+}
+
+.play-slide .play-slide-img img{
+    height: 43rem ;
+    width: 37rem ;
+    border-radius: 2rem;
+    object-fit: cover;
+
+    
+}
+
+
+@media(max-width: 500px)
+{
+    .play-slide{
+        height: 36rem !important;
+        width: 28rem !important;
+        
+    }
+    .play-slide .play-slide-img img{
+        height: 36rem !important;
+        width: 28rem !important;
+        
+    }
+
+
+}
+
+
+.play-slide .play-slide-content{
+ position: absolute;
+ left: 0;
+ right: 0;
+ top: 0;
+ bottom: 0;
+
+    
+}
+
+.play-slide .play-slide-content-bottom{
+    position: absolute;
+    left: 2rem;
+    color: rgb(29, 28, 28);
+    bottom: 2rem;
+   
+       
+}
+
+
+.swiper-slide-shadow-left,.swiper-slide-shadow-left{display: none;}
+
+
+.play-slider-control{
+    position: relative;
+    bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.play-slider-control   .swiper-button-next{
+    transform: translateX(-58%) !important;
+    left: 58% !important;
+
+}
+
+@media(max-width: 990px)
+{
+    .play-slider-control   .swiper-button-next{
+        transform: translateX(-70%) !important;
+        left: 70% !important;
+    
+    }
+
+
+}
+
+
+@media(max-width: 450px)
+{
+    .play-slider-control   .swiper-button-next{
+        transform: translateX(-80%) !important;
+        left: 80% !important;
+    
+    }
+
+
+}
+
+@media(max-width: 990px)
+{
+    .play-slider-control   .swiper-button-prev{
+        transform: translateX(-30%) !important;
+        left: 30% !important;
+    
+    }
+
+
+}
+
+
+@media(max-width: 450px)
+{
+    .play-slider-control   .swiper-button-prev{
+        transform: translateX(-20%) !important;
+        left: 20% !important;
+    
+    }
+
+
+}
+
+
+
+.play-slider-control   .slider-arrow{
+    transform: translateX(-42%);
+    background: var(--white);
+    filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    left: 42%;
+
+}
+
+
+.play-slider-control   .slider-arrow ion-icon{ font-size: 2rem;  color: #222224; }
+
+.play-slider-control   .slider-arrow::after{ content: ''; }
+
+.play-slider-control .swiper-folio{
+    position: relative;
+    width: 15rem ;
+    bottom: 1rem;
+}
+
+.play-slider-control .swiper-folio .swiper-folio-bullet{filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));}
+
+
+
+
+
+.play-slider-control .swiper-folio .swiper-folio-bullet-active {
+  background: var(--primary);
+}
+
+.custom-button {
+    font-size: 3rem; 
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    padding: 2rem 0; 
+    text-align: center; 
+    background: transparent; 
+    border: none; 
+    cursor: pointer; 
+    align-items: center;
+    display: block;
+  }
+  
+  .custom-button:hover {
+    background: var(--primary); 
+    color: var(--white); 
+  }
+  
