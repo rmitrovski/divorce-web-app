@@ -24,7 +24,7 @@ if (!isset($_SESSION['username'])) {
     
 	<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
  
-    <link rel="stylesheet" href="css/dimention.css">
+    <link rel="stylesheet" href="css/dimension.css">
 
 
 
