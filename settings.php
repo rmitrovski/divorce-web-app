@@ -23,8 +23,44 @@ if (!isset($_SESSION['username'])) {
     <style>
         .container {
             padding-top: 80px; 
-			position: relative !important; 
-			left: 20%;
+            position: relative !important; 
+            left: 20%;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+        }
+
+        #deleteAccountForm {
+            position: fixed;
+            z-index: 999;
+            background: #fff;
+            max-width: 600px; 
+            width: 90%; 
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .closeBtn {
+            cursor: pointer;
+            font-size: 24px; 
+            position: absolute;
+            right: 10px;
+            top: 10px;
         }
     </style>
 </head>
@@ -44,7 +80,7 @@ if (!isset($_SESSION['username'])) {
 
                         <!-- User Details Form -->
                         <form action="" method="post">
-						  	<?php include('errors.php'); ?>
+                            <?php include('errors.php'); ?>
                             <br>
                             <h5 style="text-align: center"> USER DETAILS</h5>
                             <div class="form-group">
@@ -55,7 +91,7 @@ if (!isset($_SESSION['username'])) {
                                 <label>Email Address</label>
                                 <input class="au-input au-input--full" type="email" name="new_email" id="email" placeholder="Email" value="<?php echo $email; ?>">
                             </div>
-							<br>
+                            <br>
                             <button name="new_details" class="au-btn au-btn--blue m-b-20">Save</button>
                         </form>
 
@@ -75,26 +111,50 @@ if (!isset($_SESSION['username'])) {
                                 <label>Retype Password</label>
                                 <input class="au-input au-input--full" type="password" name="confirm_password" id="retype_password" placeholder="Retype Password">
                             </div>
-							<br>
+                            <br>
                             <button class="au-btn au-btn--blue m-b-20" name="change_password">Change Password</button>
                         </form>
 
-                       <form action="" method="post">
-					<br>
-					<h5 style="text-align: center"> Delete Account</h5>
-					<div class="form-group">
-						<label>Enter Delete Password</label>
-						<input class="au-input au-input--full" type="password" name="delete_password" id="delete_password" placeholder="Enter Password">
-					</div>
-					<br>
-					<button class="au-btn au-btn--green m-b-20" name="delete_account">Delete Account</button>
-				</form>
-
-
+                        <br>
+                        <h5 style="text-align: center"> Delete Account</h5>
+                        <br>
+                        <div id="deleteButton">
+                            <button class="au-btn au-btn--green m-b-20">Delete Account</button>
+                        </div>
+                        <br>
+                        <form id="deleteAccountForm" action="" method="post" style="display: none;">
+                            <span class="closeBtn" onclick="closeDeleteForm()">&times;</span>
+                            <br>
+                            <h5 style="text-align: center"> Enter your password</h5>
+                            <div class="form-group">
+                                <label>Warning! This action is irreversible.</label>
+                                <input class="au-input au-input--full" type="password" name="delete_password" id="delete_password" placeholder="Enter Password">
+                            </div>
+                            <br>
+                            <button class="au-btn au-btn--green m-b-20" name="delete_account">Delete Account</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <script>
+        function closeDeleteForm() {
+            var deleteForm = document.getElementById('deleteAccountForm');
+            var overlay = document.getElementById('overlay');
+            overlay.style.display = 'none';
+            deleteForm.style.display = 'none';
+        }
+
+        document.getElementById('deleteButton').addEventListener('click', function() {
+            var deleteForm = document.getElementById('deleteAccountForm');
+            var overlay = document.getElementById('overlay');
+            overlay.style.display = 'block';
+            deleteForm.style.display = 'block';
+        });
+    </script>
 </body>
 </html>
