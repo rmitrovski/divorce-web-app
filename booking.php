@@ -535,13 +535,13 @@ session_start(); // Start the session
             });
         });
 
-        function closeSuccessAlertAndProceed() {
+        //function closeSuccessAlertAndProceed() {
             // Close the success alert
-            document.getElementById('successAlert').style.display = 'none';
+           // document.getElementById('successAlert').style.display = 'none';
 
             // Navigate to the bookedSlots.php page
-            window.location.href = "bookingInformation.php";
-        }
+          //  window.location.href = "bookingInformation.php";
+       /// }
 
         var today = new Date().toISOString().split('T')[0];
         document.getElementById('date').setAttribute('min', today);
@@ -570,8 +570,12 @@ session_start(); // Start the session
                         var successMessageElement = $("#successMessage");
 
                         if (data.success) {
-                            successMessageElement.text(data.message);
-                            $('#successAlert').show();
+                            window.location.href = "bookingInformation.php"; /*replace this one to the php file which will be connected to database.
+                                                                            or just modify thie bookingInformation.php to make this one connect to db,
+                                                                            and display information fetched from db
+                            //successMessageElement.text(data.message);     */
+                           // $('#successAlert').show();
+                            
                         } else {
 
                             var errorMessages = [];
