@@ -623,7 +623,7 @@ include('server.php')
     </script>
 
     <?php
-    require_once("bookingValidation.php");
+    require_once("server.php");
     ?>
 
 </body>
