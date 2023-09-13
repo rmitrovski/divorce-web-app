@@ -4,7 +4,7 @@ const chatContainer= document.querySelector(".chat-container");
 const themeButton= document.querySelector("#theme-btn");
 const deleteButton= document.querySelector("#delete-btn");
 let userText=null;
-const API_KEY="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";
+const API_KEY="";
 
 const loadDataFromLocalstorage=()=>{
     const themeColor= localStorage.getItem("themeColor");
