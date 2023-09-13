@@ -338,7 +338,7 @@ session_start(); // Start the session
 
 
 
-                        <button type="submit" class="btn btn-primary btn-block">Book</button>
+                        <button type="submit" class="btn btn-primary btn-block" name="book_appointment">Book</button>
                     </form>
                 </div>
             </div>
