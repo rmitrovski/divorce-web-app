@@ -44,8 +44,7 @@ if (!isset($_SESSION['username'])) {
                         </div>
                         <div class="play-slide-content">
                             <div class="play-slide-content-bottom">
-                                <h2 class="week-name">
-                                    Week 1
+                                <h2 class="week-name"><a href = "week1.php">Week 1</a>
                                 </h2>
                             </div>
                         </div>
@@ -56,8 +55,7 @@ if (!isset($_SESSION['username'])) {
                         </div>
                         <div class="play-slide-content">
                             <div class="play-slide-content-bottom">
-                                <h2 class="week-name">
-                                    Week 2
+                                <h2 class="week-name"><a href = "week2.php">Week 2</a>
                                 </h2>
                             </div>
                         </div>
@@ -68,8 +66,7 @@ if (!isset($_SESSION['username'])) {
                         </div>
                         <div class="play-slide-content">
                             <div class="play-slide-content-bottom">
-                                <h2 class="week-name">
-                                    Week 3
+                                <h2 class="week-name"><a href = "week3.php">Week 3</a>
                                 </h2>
                             </div>
                         </div>
@@ -80,8 +77,7 @@ if (!isset($_SESSION['username'])) {
                         </div>
                         <div class="play-slide-content">
                             <div class="play-slide-content-bottom">
-                                <h2 class="week-name">
-                                    Week 4
+                                <h2 class="week-name"><a href = "week4.php">Week 4</a>
                                 </h2>
                             </div>
                         </div>
@@ -92,8 +88,7 @@ if (!isset($_SESSION['username'])) {
                         </div>
                         <div class="play-slide-content">
                             <div class="play-slide-content-bottom">
-                                <h2 class="week-name">
-                                    Week 5
+                                <h2 class="week-name"><a href = "week5.php">Week 5</a>
                                 </h2>
                             </div>
                         </div>
@@ -104,8 +99,7 @@ if (!isset($_SESSION['username'])) {
                         </div>
                         <div class="play-slide-content">
                             <div class="play-slide-content-bottom">
-                                <h2 class="week-name">
-                                    Week 6
+                                <h2 class="week-name"><a href = "week6.php">Week 6</a>
                                 </h2>
                             </div>
                         </div>
@@ -116,8 +110,7 @@ if (!isset($_SESSION['username'])) {
                         </div>
                         <div class="play-slide-content">
                             <div class="play-slide-content-bottom">
-                                <h2 class="week-name">
-                                    Week 7
+                                <h2 class="week-name"><a href = "week7.php">Week 7</a>
                                 </h2>
                             </div>
                         </div>
@@ -128,8 +121,7 @@ if (!isset($_SESSION['username'])) {
                         </div>
                         <div class="play-slide-content">
                             <div class="play-slide-content-bottom">
-                                <h2 class="week-name">
-                                    Week 8
+                                <h2 class="week-name"><a href = "week8.php">Week 8</a>
                                 </h2>
                             </div>
                         </div>
