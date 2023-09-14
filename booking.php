@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -277,7 +276,7 @@
                 <div id="alertMessage" class="alert"></div>
 
                 <div class="border p-4 rounded">
-                    <form action="bookingValidation.php" method="post">
+                    <form action="bookingDatabase.php" method="post">
                         <h2 class="text-primary">Booking Consultation</h2>
                         <div class="form-group">
                             <label for="name">Name:</label>
@@ -335,7 +334,7 @@
 
 
 
-                        <button type="submit" class="btn btn-primary btn-block" name="book_appointment">Book</button>
+                        <button type="submit" class="btn btn-primary btn-block">Book</button>
                     </form>
                 </div>
             </div>
@@ -389,19 +388,25 @@
                 events: [],
 
                 dayClick: function (date, jsEvent, view) {
+                    const today = moment().startOf('day'); 
+                    if (date.isBefore(today)) {
+                        alert('Cannot select a date before today');
+                        return;
+                    }
+
                     if (selectedDateElement) {
-                        selectedDateElement.removeClass('selected-column'); // Reset the previous selected date's background color
+                        selectedDateElement.removeClass('selected-column'); 
                     }
 
                     const cell = $(this);
-                    selectedDateElement = cell; // Directly select the clicked cell
-                    selectedDateElement.addClass('selected-column'); // Set the background color for the selected date
+                    selectedDateElement = cell;
+                    selectedDateElement.addClass('selected-column'); 
 
                     const selectedDate = date.format();
                     displayTimeSlots(selectedDate);
                 }
-
             });
+
 
 
             function renderCalendar() {
@@ -472,8 +477,8 @@
                             // Add a click event listener to the "Confirm" button
                             confirmButton.addEventListener('click', () => {
                                 $('#type').val(selectedConsultationText);
-                                $('#date').val(selectedDate); // Set the date field
-                                $('#time').val(slot); // Set the time field directly using the slot variable from the closure
+                                $('#date').val(selectedDate);
+                                $('#time').val(slot);
                             });
 
                             timeSlotContainer.appendChild(confirmButton);
@@ -491,18 +496,18 @@
 
 
         document.addEventListener('DOMContentLoaded', (event) => {
-        function selectConsultationTypeAndNavigate(typeValue) {
-            $('#consultation-type-checker').val(typeValue).change();
-            document.querySelector('#consultation-type-checker').value = typeValue;
-            document.querySelector('#booking-section').scrollIntoView({ behavior: 'smooth' });
-        }
+            function selectConsultationTypeAndNavigate(typeValue) {
+                $('#consultation-type-checker').val(typeValue).change();
+                document.querySelector('#consultation-type-checker').value = typeValue;
+                document.querySelector('#booking-section').scrollIntoView({ behavior: 'smooth' });
+            }
 
-        document.querySelector('#type1').addEventListener('click', () => selectConsultationTypeAndNavigate('type1'));
-        document.querySelector('#type2').addEventListener('click', () => selectConsultationTypeAndNavigate('type2'));
-        document.querySelector('#type3').addEventListener('click', () => selectConsultationTypeAndNavigate('type3'));
-        document.querySelector('#type4').addEventListener('click', () => selectConsultationTypeAndNavigate('type4'));
-        document.querySelector('#type5').addEventListener('click', () => selectConsultationTypeAndNavigate('type5'));
-    });
+            document.querySelector('#type1').addEventListener('click', () => selectConsultationTypeAndNavigate('type1'));
+            document.querySelector('#type2').addEventListener('click', () => selectConsultationTypeAndNavigate('type2'));
+            document.querySelector('#type3').addEventListener('click', () => selectConsultationTypeAndNavigate('type3'));
+            document.querySelector('#type4').addEventListener('click', () => selectConsultationTypeAndNavigate('type4'));
+            document.querySelector('#type5').addEventListener('click', () => selectConsultationTypeAndNavigate('type5'));
+        });
 
 
 
@@ -532,13 +537,11 @@
             });
         });
 
-        //function closeSuccessAlertAndProceed() {
-            // Close the success alert
-           // document.getElementById('successAlert').style.display = 'none';
+        function closeSuccessAlertAndProceed() {
 
-            // Navigate to the bookedSlots.php page
-          //  window.location.href = "bookingInformation.php";
-       // }
+            document.getElementById('successAlert').style.display = 'none';
+
+        }
 
         var today = new Date().toISOString().split('T')[0];
         document.getElementById('date').setAttribute('min', today);
@@ -559,7 +562,7 @@
 
                 $.ajax({
                     type: "POST",
-                    url: "bookingValidation.php",
+                    url: "bookingDatabase.php",
                     data: $(this).serialize(),
                     dataType: "json",
                     success: function (data) {
@@ -567,12 +570,9 @@
                         var successMessageElement = $("#successMessage");
 
                         if (data.success) {
-                            window.location.href = "bookingInformation.php"; /*replace this one to the php file which will be connected to database.
-                                                                            or just modify thie bookingInformation.php to make this one connect to db,
-                                                                            and display information fetched from db
-                            //successMessageElement.text(data.message);     */
-                           // $('#successAlert').show();
-                            
+                            window.location.href = "bookingValidation.php";
+                            successMessageElement.text(data.message);
+                            $('#successAlert').show();
                         } else {
 
                             var errorMessages = [];
@@ -606,8 +606,6 @@
 
                             alertMessageElement.text(errorMessages.join(' ')).addClass("alert-danger").removeClass("alert-success");
                             $('#alertTitle').text(alertTitles);
-
-
                             $('#customAlert').show();
                         }
                     }
@@ -617,10 +615,6 @@
 
 
     </script>
-
-    <?php
-    require_once("server.php");
-    ?>
 
 </body>
 
