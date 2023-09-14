@@ -26,7 +26,7 @@ if (!isset($_SESSION['username'])) {
  
     <link rel="stylesheet" href="css/dimension.css">
 
-
+	<?php include('week_difference.php'); ?>
 
 </head>
 <body>
@@ -34,6 +34,12 @@ if (!isset($_SESSION['username'])) {
         <div class="container">
           
             <h3 class="text-center section-heading">8 Week System</h3>
+			<?php if ($weeks_difference < 8) { ?>
+				<h6 class="text-center">You are currently up to week <?php echo $weeks_difference + 1 ?></h6>
+			<?php } else { ?>
+				<h6 class="text-center">Congratulations you have gone through all the weeks! Feel free to review anytime!</h6>
+	<?php	} ?>
+	
         </div>
         <div class="container">
             <div class="swiper play-slider">
