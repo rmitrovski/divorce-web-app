@@ -538,7 +538,7 @@
         });
 
         function closeSuccessAlertAndProceed() {
-
+             window.location.href = "bookingInformation.php"; 
             document.getElementById('successAlert').style.display = 'none';
 
         }
@@ -570,7 +570,6 @@
                         var successMessageElement = $("#successMessage");
 
                         if (data.success) {
-                            window.location.href = "bookingInformation.php";
                             successMessageElement.text(data.message);
                             $('#successAlert').show();
                         } else {
