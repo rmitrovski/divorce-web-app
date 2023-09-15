@@ -10,7 +10,6 @@
 
 /* ----- Header ----- */
 
-
 .header-desktop{
     background: #F9F9F9;
     position: fixed;
@@ -227,7 +226,8 @@ body{
     color: #666;
     font-size: 16px;
     line-height: 1.625;
-    
+    overflow-x: hidden;
+
 }
 h1,h2,h3,h4,h5,h6{
     color: #333333;
