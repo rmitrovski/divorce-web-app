@@ -570,7 +570,7 @@
                         var successMessageElement = $("#successMessage");
 
                         if (data.success) {
-                            window.location.href = "bookingValidation.php";
+                            window.location.href = "bookingInformation.php";
                             successMessageElement.text(data.message);
                             $('#successAlert').show();
                         } else {
