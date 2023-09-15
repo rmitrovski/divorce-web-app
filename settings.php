@@ -24,7 +24,10 @@ if (!isset($_SESSION['username'])) {
         .container {
             padding-top: 80px; 
             position: relative !important; 
-            left: 20%;
+            margin-left: 500px;
+  margin-right: 500px;
+  max-width: 1000px;
+  width: 50%;
         }
 
         .overlay {

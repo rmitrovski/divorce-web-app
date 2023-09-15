@@ -11,6 +11,14 @@
 body {
   font-family: Arial, sans-serif;
   padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+  max-width: 1000px;
+  width: 50%;
+  margin-left: 400px;
+  margin-right: 400px;
 }
 
 h1 {
