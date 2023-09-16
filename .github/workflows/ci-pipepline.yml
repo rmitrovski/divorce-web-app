@@ -1,4 +1,5 @@
-name: crm website
+name: CRM Website Unit Tests
+
 on:
   push:
     branches:
@@ -6,30 +7,34 @@ on:
   pull_request:
     branches:
       - main
+
 jobs:
   unit-tests:
     runs-on: ubuntu-latest
+
     steps:
-      - name: actions version
-        uses: actions/checkout@v3
-      - name: Use Node.js
-        uses: actions/setup-node@v3
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 18
+        uses: actions/setup-node@v2
         with:
           node-version: "18"
-      - name: install dependencies
-        run: npm run test-unit
-        working-directory: main
-      - name: run jest
-        run: npm run test- unit
-        working-directory: main
-      - if: github.ref == 'refs/heads/main' && (success() || failure())
-        uses: actions/upload-artifact@v3
+
+      - name: Install Dependencies
+        run: |
+          npm install
+        working-directory: tests/unit
+
+      - name: Run Jest Unit Tests
+        run: |
+          npm run test-unit
+        working-directory: tests/unit
+
+      - name: Upload Test Results
+        if: success() || failure()
+        uses: actions/upload-artifact@v2
         with:
-          name: unit-test-${{ github.sha }}
-          path: src/junit.xml  
-        
-        
-
-
-
+          name: unit-test-results-${{ github.sha }}
+          path: tests/unit/src/junit.xml
 
