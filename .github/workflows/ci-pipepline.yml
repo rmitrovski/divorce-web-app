@@ -31,10 +31,14 @@ jobs:
           npm run test-unit
         working-directory: tests/unit
 
+      - name: ESLint
+        run: |
+          npm run lint
+        working-directory: tests/unit  # Assuming your ESLint config is in tests/unit
+
       - name: Upload Test Results
         if: success() || failure()
         uses: actions/upload-artifact@v2
         with:
           name: unit-test-results-${{ github.sha }}
           path: tests/unit/src/junit.xml
-
