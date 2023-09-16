@@ -24,11 +24,12 @@ jobs:
       - name: Install Dependencies
         run: |
           npm install
+          npm install eslint --save-dev
         working-directory: tests/unit
 
       - name: ESLint
         run: |
-          npm run eslint WeekDifferent.js
+          npx eslint WeekDifferent.js
         working-directory: tests/unit  # Assuming your ESLint config is in tests/unit
 
       - name: Run Jest Unit Tests
