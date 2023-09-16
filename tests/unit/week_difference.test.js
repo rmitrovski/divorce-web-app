@@ -1,4 +1,4 @@
-const calculateWeekDifference = require('../WeekDifferentCalculator.js');
+const calculateWeekDifference = require('../../WeekDifferentCalculator.js');
 
 test('calculates week difference correctly', () => {
   const registrationDate = new Date();
