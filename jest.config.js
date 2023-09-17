@@ -6,7 +6,7 @@ module.exports = {
     coverageDirectory: "coverage/",
     coveragePathIgnorePatterns: ["/node_modules/"],
     coverageReporters: ["json", "text", "lcov"],
-    testEnvironment: 'node',
+    testEnvironment: 'jsdom',
     reporters: [
     'default',
     ['jest-junit', { outputDirectory: 'reports',

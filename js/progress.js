@@ -1,46 +1,32 @@
-const circles=document.querySelectorAll(".circle"), 
- progressBar=document.querySelector(".indicator"), 
- buttons=document.querySelectorAll("button");
-let currentStep=1; 
+const initializeProgress = require('../../js/progress.js');
 
-const updateSteps=(e)=>{
-    circles[currentStep - 1].classList.remove("active");
+describe('Testing progress', () => {
+  let circles, progressBar, buttons;
 
-    currentStep = e.target.id === "next" ? ++currentStep : -- currentStep;
-    circles[currentStep - 1].classList.add("active");
+  beforeAll(() => {
+    document.body.innerHTML = `
+      <div class="steps">
+        <span class="circle active">1</span>
+        <span class="circle">2</span>
+        <div class="progressbar">
+          <span class="indicator"></span>
+        </div>
+      </div>
+      <div class="buttons">
+        <button id="prev" disabled>Prev</button>
+        <button id="next">Next</button>
+      </div>
+    `;
 
-    progressBar.style.width = `${((currentStep-1)/ (circles.length -1))* 100}%`;
+    initializeProgress(document);
 
+    circles = document.querySelectorAll(".circle"); 
+    progressBar = document.querySelector(".indicator");
+    buttons = document.querySelectorAll("button");
+  });
 
-    if (currentStep === circles.length){
-        buttons[1].disabled = true;
-
-    }else if(currentStep === 1){
-        buttons[0].disabled = true;
-
-    }else{
-        buttons.forEach((button)=> ( button.disabled = false));
-
-    }
-    
-
-
-
-
-
-};
-
-
-buttons.forEach((button)=>{
-    button.addEventListener("click", updateSteps);
+  test('initial state is set correctly', () => {
+    expect(circles[0].classList.contains("active")).toBe(true);
+  });
 
 });
-
-circles[0].classList.add("active");
-
-
-
-
-
-
-
