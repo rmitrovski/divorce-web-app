@@ -144,7 +144,7 @@ h2.text-primary {
 
 .img-3 {
     z-index: 1;
-    left: 20%; /* Adjusting left property with percentages */
+    left: 20%; 
     top: 250px;
     opacity: 0.2;
 }
@@ -172,7 +172,7 @@ label {
     width:100%;
     font-size: 4em;
     font-weight: 900;
-    color: #0056b3;
+    color: #57a8ff;
     
    
 }
@@ -236,7 +236,7 @@ label {
 .about-us h2 {
     text-align: center;
     font-size: 2em;           
-    color: #0056b3;           
+    color: #57a8ff;           
     margin-bottom: 20px;      
     border-bottom: 2px solid #0056b3; 
     display: inline-block;     
@@ -336,7 +336,7 @@ label {
 
 #imageSlider .carousel-caption {
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -393,17 +393,24 @@ label {
     margin-bottom: 20px; 
 }
 
+.carousel-caption {
+    display: flex;
+    flex-direction: column;
+}
 
 .btn-primary {
     background-color: #57a8ff !important; 
     border: none !important;
-    margin-right: 5px; 
+    order: 2;
 }
 
 .btn-secondary {
     background-color: #f8ca40 !important; 
     border: none !important;
-    margin-left: 5px; 
+    margin-bottom: 10px;
+    margin-top:20px;
+    font-size: 25px !important;
+    order: 1;
 }
 
 #consultation-type {
