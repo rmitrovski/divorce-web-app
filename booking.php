@@ -1,3 +1,11 @@
+<?php include('server.php');
+$url = $_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+$port = $_SERVER['SERVER_PORT'];
+if($port != 80){
+	$url = $_SERVER['SERVER_NAME'].':'.$port.$_SERVER['REQUEST_URI'];
+}
+$baseurl = 'http://'. dirname($url);
+?>
 <!DOCTYPE html>
 <html>
 
@@ -287,25 +295,25 @@
             </div>
 
             <!-- Right Column: Form -->
-            <div class="col-md-6" id="bookingSection">
-                <div id="alertMessage" class="alert"></div>
+            <div class="col-md-6">
+                <div id="alertMessage" class="alert" style="color:red"><?php include('errors.php');?></div>
 
                 <div class="border p-4 rounded">
-                    <form action="bookingDatabase.php" method="post">
-                        <h2 class="text-primary">Book Consultation</h2>
+                    <form action="" method="post" onsubmit="return checkForm()">
+                        <h2 class="text-primary">Booking Consultation</h2>
                         <div class="form-group">
                             <label for="name">Name:</label>
-                            <input type="text" id="name" name="name" class="form-control" required>
+                            <input type="text" id="name" name="name" class="form-control" required pattern="[a-zA-Z\s]*"/>
                         </div>
 
                         <div class="form-group">
                             <label for="phone">Phone Number:</label>
-                            <input type="tel" id="phone" name="phone" class="form-control" required>
+                            <input type="tel" id="phone" name="phone" class="form-control" required pattern="[0-9]+">
                         </div>
 
                         <div class="form-group">
                             <label for="email">Email Address:</label>
-                            <input type="text" id="email" name="email" class="form-control" required>
+                            <input type="email" id="email" name="email" class="form-control" required>
                         </div>
 
                         <div class="form-group">
@@ -316,7 +324,7 @@
                                         the consultation type field will be filled in automatically.</span>
                                 </i>
                             </label>
-                            <input type="text" id="type" name="type" class="form-control" required readonly>
+                            <input type="text" id="type" name="type" class="form-control" required="true" readonly>
                         </div>
 
                         <div class="form-group">
@@ -349,7 +357,7 @@
 
 
 
-                        <button type="submit" class="btn btn-primary btn-block">Book</button>
+                        <button name="book_appointment" type="submit" class="btn btn-primary btn-block">Book</button>
                     </form>
                 </div>
             </div>
@@ -590,58 +598,58 @@
         })
 
         // Using jQuery
-        $(document).ready(function () {
-            $('form').on('submit', function (event) {
-                event.preventDefault();
-                $.ajax({
-                    type: "POST",
-                    url: "bookingDatabase.php",
-                    data: $(this).serialize(),
-                    dataType: "json",
-                    success: function (data) {
-                        var alertMessageElement = $("#alertMessage");
-                        var successMessageElement = $("#successMessage");
+        // $(document).ready(function () {
+        //     $('form').on('submit', function (event) {
+        //         event.preventDefault();
+        //         $.ajax({
+        //             type: "POST",
+        //             url: "bookingDatabase.php",
+        //             data: $(this).serialize(),
+        //             dataType: "json",
+        //             success: function (data) {
+        //                 var alertMessageElement = $("#alertMessage");
+        //                 var successMessageElement = $("#successMessage");
 
-                        if (data.success) {
-                            successMessageElement.text(data.message);
-                            $('#successAlert').show();
-                        } else {
+        //                 if (data.success) {
+        //                     successMessageElement.text(data.message);
+        //                     $('#successAlert').show();
+        //                 } else {
 
-                            var errorMessages = [];
-
-
-                            var alertTitles = '';
+        //                     var errorMessages = [];
 
 
-                            data.errors.forEach(function (error) {
-                                errorMessages.push(error.message);
+        //                     var alertTitles = '';
 
 
-                                switch (error.code) {
-                                    case 'invalid_name':
-                                        alertTitles += 'Name Error; ';
-                                        break;
-                                    case 'invalid_phone':
-                                        alertTitles += 'Phone Error; ';
-                                        break;
-                                    case 'invalid_email':
-                                        alertTitles += 'Email Error; ';
-                                        break;
-                                    case 'slot_already_booked':
-                                        alertTitles += 'Booking Time Error; ';
-                                        break;
-                                    default:
-                                        alertTitles += 'Unknown Error; ';
-                                }
-                            });
-                            alertMessageElement.text(errorMessages.join(' ')).addClass("alert-danger").removeClass("alert-success");
-                            $('#alertTitle').text(alertTitles);
-                            $('#customAlert').show();
-                        }
-                    }
-                });
-            });
-        });
+        //                     data.errors.forEach(function (error) {
+        //                         errorMessages.push(error.message);
+
+
+        //                         switch (error.code) {
+        //                             case 'invalid_name':
+        //                                 alertTitles += 'Name Error; ';
+        //                                 break;
+        //                             case 'invalid_phone':
+        //                                 alertTitles += 'Phone Error; ';
+        //                                 break;
+        //                             case 'invalid_email':
+        //                                 alertTitles += 'Email Error; ';
+        //                                 break;
+        //                             case 'slot_already_booked':
+        //                                 alertTitles += 'Booking Time Error; ';
+        //                                 break;
+        //                             default:
+        //                                 alertTitles += 'Unknown Error; ';
+        //                         }
+        //                     });
+        //                     alertMessageElement.text(errorMessages.join(' ')).addClass("alert-danger").removeClass("alert-success");
+        //                     $('#alertTitle').text(alertTitles);
+        //                     $('#customAlert').show();
+        //                 }
+        //             }
+        //         });
+        //     });
+        // });
 
 
     </script>
@@ -649,5 +657,7 @@
     <?php require 'footer.php'; ?>
 
 </body>
-
+<?php 
+include('success_alert.php');
+?>
 </html>

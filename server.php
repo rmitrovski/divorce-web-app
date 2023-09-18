@@ -231,6 +231,18 @@ if (isset($_POST['book_appointment'])) {
         $sql = "INSERT INTO bookings (name, phone, email, type, date, time, reason, user_id) 
             VALUES ('$name', '$phone', '$email', '$type', '$date', '$time', '$reason', '$user_id')";
         mysqli_query($db, $sql);
+        $alert = "Booking successfully!";
+			$bookflag = true;
+			$jump = 'index.php';
     }
 
+}
+function booklist($db){
+    $query = "SELECT * FROM bookings order by booking_id";
+    $results = mysqli_query($db, $query);
+    $data = [];
+    while($row = mysqli_fetch_object($results)){
+        array_push($data,$row);
+    }
+    return $data;
 }
