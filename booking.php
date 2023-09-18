@@ -581,8 +581,12 @@ $baseurl = 'http://'. dirname($url);
         });
 
         function closeSuccessAlertAndProceed() {
-            window.location.href = "bookingInformation.php";
+            // window.location.href = "bookingInformation.php";
             document.getElementById('successAlert').style.display = 'none';
+            var jump = $("#jumpIn").val();
+            if(jump != ''){
+                window.location.href=jump;
+            }
         }
 
         var today = new Date().toISOString().split('T')[0];
@@ -596,68 +600,64 @@ $baseurl = 'http://'. dirname($url);
             backSpeed: 80,
             backDelay: 1500
         })
-
-        // Using jQuery
-        // $(document).ready(function () {
-        //     $('form').on('submit', function (event) {
-        //         event.preventDefault();
-        //         $.ajax({
-        //             type: "POST",
-        //             url: "bookingDatabase.php",
-        //             data: $(this).serialize(),
-        //             dataType: "json",
-        //             success: function (data) {
-        //                 var alertMessageElement = $("#alertMessage");
-        //                 var successMessageElement = $("#successMessage");
-
-        //                 if (data.success) {
-        //                     successMessageElement.text(data.message);
-        //                     $('#successAlert').show();
-        //                 } else {
-
-        //                     var errorMessages = [];
-
-
-        //                     var alertTitles = '';
-
-
-        //                     data.errors.forEach(function (error) {
-        //                         errorMessages.push(error.message);
-
-
-        //                         switch (error.code) {
-        //                             case 'invalid_name':
-        //                                 alertTitles += 'Name Error; ';
-        //                                 break;
-        //                             case 'invalid_phone':
-        //                                 alertTitles += 'Phone Error; ';
-        //                                 break;
-        //                             case 'invalid_email':
-        //                                 alertTitles += 'Email Error; ';
-        //                                 break;
-        //                             case 'slot_already_booked':
-        //                                 alertTitles += 'Booking Time Error; ';
-        //                                 break;
-        //                             default:
-        //                                 alertTitles += 'Unknown Error; ';
-        //                         }
-        //                     });
-        //                     alertMessageElement.text(errorMessages.join(' ')).addClass("alert-danger").removeClass("alert-success");
-        //                     $('#alertTitle').text(alertTitles);
-        //                     $('#customAlert').show();
-        //                 }
-        //             }
-        //         });
-        //     });
-        // });
-
+        function checkForm(){
+            // in this case I just valide whether type input is empty to determine because once the user
+            // confirm the type, date and time, these three input will all be filled.            
+            var type = document.querySelector('#type');            
+            var typeVal = type.value;            
+            if(typeVal == ''){                
+                $('#alertTitle').text('fail');                
+                $('#alertMessage').text('Please choose Consultation Type, Date and Time!');                
+                $('#customAlert').show();    
+                return false;            
+            }            
+            // var date = document.querySelector('#date');   
+            // var dateVal = date.value;            
+            // if(dateVal == ''){                
+            //     $('#alertTitle').text('fail');                
+            //     $('#alertMessage').text('Please choose Date!');                
+            //     $('#customAlert').show();                   
+            //     return false;            
+            // }            
+            // var time = document.querySelector('#time');   
+            // var timeVal = time.value;            
+            // if(timeVal == ''){                
+            //     $('#alertTitle').text('fail');                
+            //     $('#alertMessage').text('Please choose Time!');                
+            //     $('#customAlert').show();                    
+            //     return false;            
+            // }   
+            var reqdata = {"type":typeVal,"date":dateVal,"time":timeVal,'book_check_data':'chk'};   
+            var flag = false;   
+            $.ajax({    
+                type: "POST",                
+                url: "checkFormData.php",    
+                async: false,                
+                data: reqdata,                
+                dataType: "json",                
+                success: function (data) {      
+                    if(data.code == 0){       
+                        flag = true;      
+                    }else{                            
+                        $('#alertTitle').text('fail');                            
+                        $('#alertMessage').text(data.msg);                            
+                        $('#customAlert').show();      
+                    }    
+                },   
+            });             
+            return flag;        
+        }
+        
 
     </script>
-
+    <input type='hidden' id="jumpIn" value='<?php if(isset($jump)) echo $jump;?>' /> 
     <?php require 'footer.php'; ?>
 
 </body>
-<?php 
-include('success_alert.php');
-?>
+<?php if(isset($alert) && !empty($alert)):?>
+    <script>
+        $('#successMessage').text('<?php echo $alert;?>');
+        $('#successAlert').show();
+    </script>
+<?php endif; ?>     
 </html>
