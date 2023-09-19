@@ -7,6 +7,7 @@ include('server.php');
     $username = $_SESSION['username'];
     $email = $_SESSION['email'];
     $registration_date = $_SESSION['registration_date'];
+    $userid = $_SESSION['userid'];
   }
 
   if (isset($_GET['logout'])) {
@@ -15,7 +16,7 @@ include('server.php');
     header("location: login.php");
   }
 
-  $data = booklist($db);
+  $data = booklist($db,$userid);
   
 ?>
 
