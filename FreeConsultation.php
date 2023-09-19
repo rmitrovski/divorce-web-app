@@ -27,7 +27,7 @@
         </div>
 
         <div class="mt-3">
-            <a href="bookingPage.php?type=type1#booking-section" class="btn btn-primary">Book Now</a>
+            <a href="booking.php?type=type1#booking-section" class="btn btn-primary">Book Now</a>
         </div>
 
         <hr class="custom-divide-line">
