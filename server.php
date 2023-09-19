@@ -74,7 +74,7 @@ if(isset($_POST['login_user'])){
         $_SESSION['username'] = $username;
         $_SESSION['email'] = $email;
         $_SESSION['registration_date'] = $registration_date;
-  
+        $_SESSION['userid'] = $row['id'];
         $_SESSION['success'] = "You are now logged in";
         header('location: index.php');
       } else {
@@ -237,8 +237,8 @@ if (isset($_POST['book_appointment'])) {
     }
 
 }
-function booklist($db){
-    $query = "SELECT * FROM bookings order by booking_id";
+function booklist($db, $userid){
+    $query = "SELECT * FROM bookings where user_id = $userid order by booking_id";
     $results = mysqli_query($db, $query);
     $data = [];
     while($row = mysqli_fetch_object($results)){
@@ -246,3 +246,4 @@ function booklist($db){
     }
     return $data;
 }
+
