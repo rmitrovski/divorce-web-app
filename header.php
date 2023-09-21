@@ -119,8 +119,8 @@
 					<span class="text">8 Week system </span>
 				</a>
 			</li>
-			<li >
-				<a href="#">
+			<li <?php if ($current_page == 'profile.php') echo 'class="active"'; ?>>
+				<a href="profile.php">
 					<i class='bx bxs-face' ></i>
 					<span class="text">Profile</span>
 				</a>
