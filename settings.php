@@ -9,6 +9,7 @@ if (!isset($_SESSION['username'])) {
 } else {
     $username = $_SESSION['username'];
     $email = $_SESSION['email'];
+    $userid = $_SESSION['userid'];
 }
 ?>
 
@@ -81,11 +82,27 @@ if (!isset($_SESSION['username'])) {
                         <div class="alert-warning" role="alert" id="warning" style="display: none"></div>
                         <div class="alert-success" role="alert" id="success" style="display: none"></div>
 
+
+                        <?php
+                            $userid = $_SESSION['userid'];
+                            $select = mysqli_query($db, "SELECT * FROM users WHERE id = $userid");
+                            if(mysqli_num_rows($select) >0){
+                                $fetch = mysqli_fetch_assoc($select);
+                            }
+                        ?>
                         <!-- User Details Form -->
-                        <form action="" method="post">
+                        <form action="" method="post" enctype="multipart/form-data">
                             <?php include('errors.php'); ?>
+                            
                             <br>
                             <h5 style="text-align: center"> USER DETAILS</h5>
+                            <?php
+                                if($fetch['image'] == ''){
+                                    echo '<img src="./images/default.png" alt="Profile Image">';
+                                }else{
+                                    echo '<img src="uploaded_img/'.$fetch['image'].'">';
+                                }
+                            ?>
                             <div class="form-group">
                                 <label>Full Name</label>
                                 <input class="au-input au-input--full" type="text" name="new_full_name" id="Full_Name" placeholder="Full Name" value="<?php echo $username; ?>">
@@ -93,6 +110,10 @@ if (!isset($_SESSION['username'])) {
                             <div class="form-group">
                                 <label>Email Address</label>
                                 <input class="au-input au-input--full" type="email" name="new_email" id="email" placeholder="Email" value="<?php echo $email; ?>">
+                            </div>
+                            <div>
+                                <label>Update Profile Image<label>
+                                <input type="file" name="update_image" accept="image/jpg, image/jpeg, image/png"> 
                             </div>
                             <br>
                             <button name="new_details" class="au-btn au-btn--blue m-b-20">Save</button>

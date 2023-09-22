@@ -87,16 +87,32 @@ if(isset($_POST['login_user'])){
 if (isset($_POST['new_details'])) {
     $newFullName = mysqli_real_escape_string($db, $_POST['new_full_name']);
     $newEmail = mysqli_real_escape_string($db, $_POST['new_email']);
-
+    $update_image = $_FILES['update_image']['name'];
+    $update_image_size = $_FILES['update_image']['size'];
+    $update_image_tmp_name = $_FILES['update_image']['tmp_name'];
+    $update_image_folder = 'uploaded_img/'.$update_image;
     // Get the current user's username from the session
     $username = $_SESSION['username'];
-
+    $userid = $_SESSION['userid'];
     // Retrieve the user's information from the database
     $query = "SELECT * FROM users WHERE username='$username' LIMIT 1";
     $result = mysqli_query($db, $query);
     $user = mysqli_fetch_assoc($result);
 
     if ($user) {
+
+        if(!empty($update_image)){
+            if($update_image_size>2000000){
+            array_push($errors, "Image is too large");
+            }else{
+                $image_update_query = mysqli_query($db, "UPDATE users SET image = '$update_image' WHERE id = $userid");
+                if($image_update_query){
+                    move_uploaded_file($update_image_tmp_name, $update_image_folder); 
+                }else{
+                    array_push($errors, "Upload image failed");
+                }
+            }
+        }
         // Check if the new details are different from the existing ones
         if ($newFullName === $user['username'] && $newEmail === $user['email']) {
 			array_push($errors, "No changes were made to user details");
@@ -108,7 +124,7 @@ if (isset($_POST['new_details'])) {
             if (empty($newEmail)) {
                 array_push($errors, "New Email is required");
             }
-
+           
             if (count($errors) == 0) {
                 // Update the user's name and email in the database
                 $query = "UPDATE users SET username='$newFullName', email='$newEmail' WHERE username='$username'";
@@ -246,4 +262,6 @@ function booklist($db, $userid){
     }
     return $data;
 }
+
+
 
