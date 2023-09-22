@@ -17,13 +17,25 @@
     } else {
         $username = $_SESSION['username'];
         $email = $_SESSION['email'];
+        $userid =$_SESSION['userid'];
     }
     ?>
 
     <?php require_once('header.php'); ?>
 	<link href="css/profile_page.css" rel="stylesheet" media="all">
     <div class="profile-card">
-        <img src="./images/default.png" alt="Profile Image">
+        <?php
+        $userid = $_SESSION['userid'];
+        $select = mysqli_query($db, "SELECT * FROM users WHERE id = $userid");
+        if($select){
+            $fetch = mysqli_fetch_assoc($select);
+        }
+        if($fetch['image'] == ''){
+            echo '<img src="./images/default.png" alt="Profile Image">';
+        }else{
+            echo '<img src="uploaded_img/'.$fetch['image'].'">';
+        }
+        ?>
         <div class="profile-info">
             <h2><?php echo $username; ?></h2>
             <p><?php echo $email; ?></p>
