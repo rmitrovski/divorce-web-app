@@ -39,7 +39,9 @@ include('server.php');
            
          
         </section>
+        <div id="result">
         <section class="table__body">
+        <table class="table table-striped">
             <table>
                 <thead>
                     <tr>
@@ -54,8 +56,8 @@ include('server.php');
                 </thead>
 
 
-                <div id="result">
-		<table class="table table-striped">
+             
+		
        
           <tbody>
           <?php  
