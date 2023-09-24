@@ -79,42 +79,7 @@ h1 {
   <h1>Book List</h1>
 <div class="container">
 <main>
-    <div id="result">
-		<table class="table table-striped">
-          <thead>
-          <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Phone Number</th>
-            <th scope="col"> Email Address</th>
-			      <th scope="col"> Consultation Type</th>
-			      <th scope="col">Date</th>
-            <th scope="col">Time</th>
-            <th scope="col"> Purpose Of Consultation</th>
-          </tr>
-          </thead>
-          <tbody>
-          <?php  
-          if(!empty($data)):
-          $i = 1;
-            foreach($data as $row):	
-          ?>
-          <tr>
-            <td><?php echo $row->name;?></td>
-            <td><?php echo $row->phone;?></td>
-            <td><?php echo $row->email;?></td>
-            <td><?php echo $row->type;?></td>
-            <td><?php echo $row->date;?></td>
-			      <td><?php echo $row->time;?></td>
-			      <td><?php echo $row->reason;?></td>
-          </tr>
-          <?php 
-					$i++;
-				endforeach;
-				endif;
-			?>
-          </tbody>
-        </table>	
-    </div>
+   
 	
   </main>
 </div>
