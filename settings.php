@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <?php include('server.php') ?>
 <?php
 
@@ -23,12 +24,12 @@ if (!isset($_SESSION['username'])) {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         .container {
-            padding-top: 80px; 
-            position: relative !important; 
+            padding-top: 80px;
+            position: relative !important;
             margin-left: 500px;
-  margin-right: 500px;
-  max-width: 1000px;
-  width: 50%;
+            margin-right: 500px;
+            max-width: 1000px;
+            width: 50%;
         }
 
         .overlay {
@@ -46,13 +47,12 @@ if (!isset($_SESSION['username'])) {
             position: fixed;
             z-index: 999;
             background: #fff;
-            max-width: 600px; 
-            width: 90%; 
+            max-width: 600px;
+            width: 90%;
             padding: 20px;
             border-radius: 8px;
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
 
             top: 50%;
             left: 50%;
@@ -61,10 +61,37 @@ if (!isset($_SESSION['username'])) {
 
         .closeBtn {
             cursor: pointer;
-            font-size: 24px; 
+            font-size: 24px;
             position: absolute;
             right: 10px;
             top: 10px;
+        }
+
+        .profile-image {
+            max-width: 200px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .preview-image-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px; /* Set a fixed height */
+        }
+
+        .preview-image {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .close-preview {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -82,27 +109,30 @@ if (!isset($_SESSION['username'])) {
                         <div class="alert-warning" role="alert" id="warning" style="display: none"></div>
                         <div class="alert-success" role="alert" id="success" style="display: none"></div>
 
-
                         <?php
-                            $userid = $_SESSION['userid'];
-                            $select = mysqli_query($db, "SELECT * FROM users WHERE id = $userid");
-                            if(mysqli_num_rows($select) >0){
-                                $fetch = mysqli_fetch_assoc($select);
-                            }
+                        $userid = $_SESSION['userid'];
+                        $select = mysqli_query($db, "SELECT * FROM users WHERE id = $userid");
+                        if (mysqli_num_rows($select) > 0) {
+                            $fetch = mysqli_fetch_assoc($select);
+                        }
                         ?>
+
                         <!-- User Details Form -->
                         <form action="" method="post" enctype="multipart/form-data">
                             <?php include('errors.php'); ?>
-                            
+
                             <br>
                             <h5 style="text-align: center"> USER DETAILS</h5>
+                            <br>
+
                             <?php
-                                if($fetch['image'] == ''){
-                                    echo '<img src="./images/default.png" alt="Profile Image">';
-                                }else{
-                                    echo '<img src="uploaded_img/'.$fetch['image'].'">';
-                                }
+                            if ($fetch['image'] == '') {
+                                echo '<img src="./images/default.png" alt="Profile Image" class="profile-image">';
+                            } else {
+                                echo '<img src="uploaded_img/' . $fetch['image'] . '" class="profile-image">';
+                            }
                             ?>
+
                             <div class="form-group">
                                 <label>Full Name</label>
                                 <input class="au-input au-input--full" type="text" name="new_full_name" id="Full_Name" placeholder="Full Name" value="<?php echo $username; ?>">
@@ -111,13 +141,26 @@ if (!isset($_SESSION['username'])) {
                                 <label>Email Address</label>
                                 <input class="au-input au-input--full" type="email" name="new_email" id="email" placeholder="Email" value="<?php echo $email; ?>">
                             </div>
-                            <div>
-                                <label>Update Profile Image<label>
-                                <input type="file" name="update_image" accept="image/jpg, image/jpeg, image/png"> 
-                            </div>
-                            <br>
-                            <button name="new_details" class="au-btn au-btn--blue m-b-20">Save</button>
+							<br>
+							<button name="new_details" class="au-btn au-btn--blue m-b-20">Save</button>
                         </form>
+						
+						<form action="" method="post" enctype="multipart/form-data">
+                            <div>
+                                <label>Upload new profile image: <label> <br>
+                                <input type="file" name="update_image" accept="image/jpg, image/jpeg, image/png" id="imageInput">
+                            </div>
+ 
+                            <!-- Preview Image Container -->
+                            <div class="preview-image-container">
+                                <img id="previewImage" class="preview-image" src="#" alt="Preview">
+                                <span class="close-preview" id="closePreview" onclick="clearImage()">&times;</span>
+                            </div>
+
+                            <br>
+							<button name="new_image" class="au-btn au-btn--blue m-b-20">Upload</button>
+                        </form>
+         
 
                         <!-- Password Details Form -->
                         <form action="" method="post">
@@ -165,20 +208,71 @@ if (!isset($_SESSION['username'])) {
 
     <div class="overlay" id="overlay"></div>
 
-    <script>
-        function closeDeleteForm() {
-            var deleteForm = document.getElementById('deleteAccountForm');
-            var overlay = document.getElementById('overlay');
-            overlay.style.display = 'none';
-            deleteForm.style.display = 'none';
-        }
+<script>
+	document.getElementById('imageInput').addEventListener('change', function () {
+		var preview = document.getElementById('previewImage');
+		var file = document.getElementById('imageInput').files[0];
+		var reader = new FileReader();
+		var closePreview = document.getElementById('closePreview');
+		var previewContainer = document.querySelector('.preview-image-container');
 
-        document.getElementById('deleteButton').addEventListener('click', function() {
-            var deleteForm = document.getElementById('deleteAccountForm');
-            var overlay = document.getElementById('overlay');
-            overlay.style.display = 'block';
-            deleteForm.style.display = 'block';
-        });
-    </script>
+		reader.onload = function () {
+			preview.src = reader.result;
+			preview.style.display = 'block';
+			closePreview.style.display = 'block';
+			previewContainer.style.height = '200px'; // Set height to 200px when image is selected
+		}
+
+		if (file) {
+			reader.readAsDataURL(file);
+		} else {
+			preview.style.display = 'none'; // Hide the preview image
+			closePreview.style.display = 'none'; // Hide the close preview button
+			previewContainer.style.height = '0'; // Set height to 0 when no image is selected
+		}
+	});
+
+
+	function clearImage() {
+		var preview = document.getElementById('previewImage');
+		var fileInput = document.getElementById('imageInput');
+		var closePreview = document.getElementById('closePreview');
+		var previewContainer = document.querySelector('.preview-image-container');
+
+		preview.src = '';
+		fileInput.value = '';
+		preview.style.display = 'none';
+		closePreview.style.display = 'none';
+		previewContainer.style.height = '0'; // Set height to 0 when image is cleared
+	}
+
+
+    function closeDeleteForm() {
+        var deleteForm = document.getElementById('deleteAccountForm');
+        var overlay = document.getElementById('overlay');
+        overlay.style.display = 'none';
+        deleteForm.style.display = 'none';
+    }
+
+    document.getElementById('deleteButton').addEventListener('click', function () {
+        var deleteForm = document.getElementById('deleteAccountForm');
+        var overlay = document.getElementById('overlay');
+        overlay.style.display = 'block';
+        deleteForm.style.display = 'block';
+    });
+
+    window.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('closePreview').style.display = 'none';
+        document.getElementById('previewImage').style.display = 'none'; // Add this line
+		            var previewContainer = document.querySelector('.preview-image-container');
+            previewContainer.style.height = '0';
+    });
+	
+</script>
+
+
 </body>
+
 </html>
+
+
