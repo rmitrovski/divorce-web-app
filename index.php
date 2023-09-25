@@ -1,108 +1,135 @@
-<?php 
+<?php
 include('server.php');
-  if (!isset($_SESSION['username'])) {
+if (!isset($_SESSION['username'])) {
     $_SESSION['msg'] = "You must log in first";
     header('location: login.php');
-  } else {
+} else {
     $username = $_SESSION['username'];
     $email = $_SESSION['email'];
     $registration_date = $_SESSION['registration_date'];
     $userid = $_SESSION['userid'];
-  }
+}
 
-  if (isset($_GET['logout'])) {
+if (isset($_GET['logout'])) {
     session_destroy();
     unset($_SESSION['username']);
     header("location: login.php");
-  }
+}
 
-  $data = booklist($db,$userid);
-  
+$data = booklist($db, $userid);
 ?>
 
 <?php include('header.php'); ?>
-<link rel="stylesheet" type="text/css" href="css/week_difference.css">
 
-<script src="WeekDifferentCalculator.js"></script>
-<style>
-body {
-  font-family: Arial, sans-serif;
-  padding-top: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 1000px;
-  width: 50%;
-  margin-left: 300px;
-  margin-right: 400px;
-}
+<!DOCTYPE html>
+<html lang="en" title="Coding design">
 
-h1 {
-  text-align: center;
-  
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Booking List</title>
+    <link rel="stylesheet" href="css/booking_list.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Philosopher&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" type="text/css" href="css/week_difference.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
 
-.outer {
-  background-color: rgb(255,255,255);
-  color: rgb(0, 0, 0);
-  padding: 30px;
-  margin: auto;
-  border-radius: 10px;
-  box-shadow: 0 0 5px 1px lightgrey;
-  width: 800px;
-  height: 1800px;
-  
-  
-}
+<body>
 
-.outer h1 {
-  margin-top: 10px;
-  margin-bottom: 40px;
-  color: black;
- 
-  
-}
+<img src="images/html_table.jpeg" id="bgImage">
 
-.outer p {
-  margin: 10px 0;
-}
-
-.outer a {
-  margin-top: 20px;
-  color: rgb(4, 4, 4);
-  text-decoration: none;
-  font-size: 18px;
-  
-}
-</style>
-<div class="outer" style="width:900px;">
-  <h1>Book List</h1>
-<div class="container">
-<main>
+<div class="container my-custom-margin">
    
-	
-  </main>
+    <div class="container mt-5">
+      <hr id="hr1">
+        <div id="week-system-content" class="mb-4"></div>
+        <hr id="hr2">
+        <div class="container-fluid mt-5">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th>Phone Number</th>
+                        <th>Email Address</th>
+                        <th>Consultation Type</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Purpose Of Consultation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    if (!empty($data)):
+                        foreach ($data as $row):
+                    ?>
+                    <tr>
+                        <td><?php echo $row->name; ?></td>
+                        <td><?php echo $row->phone; ?></td>
+                        <td><?php echo $row->email; ?></td>
+                        <td><?php echo $row->type; ?></td>
+                        <td><?php echo $row->date; ?></td>
+                        <td><?php echo $row->time; ?></td>
+                        <td><?php echo $row->reason; ?></td>
+                    </tr>
+                    <?php
+                        endforeach;
+                    else:
+                    ?>
+                    <tr>
+                        <td colspan="7">No bookings found.</td>
+                    </tr>
+                    <?php
+                    endif;
+                    ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
-<div class="custom-box">
-  <script>
-    var registrationDate = "<?php echo $registration_date; ?>";
-    var weeksDifference = calculateWeeksDifference(registrationDate);
 
-    if (weeksDifference < 8) {
-      document.write('<p>Welcome to the 8 week system,</p>');
-      document.write('<p>You are currently on week: ' + (weeksDifference + 1) + '</p>');
-      document.write('<p>Click the button below to view your progress!</p>');
-      document.write('<div class="button">');
-      document.write('<a href="./week_system.php"><button>View Progress</button></a>');
-      document.write('</div>');
-    } else {
-      document.write('<p>Congratulations!</p>');
-      document.write('<p>You have completed the 8-week system. Well done!</p>');
-      document.write('<p>Click the button below to review it!</p>');
-      document.write('<div class="button">');
-      document.write('<a href="./week_system.php"><button>Review</button></a>');
-      document.write('</div>');
-    }
-  </script>
-</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="WeekDifferentCalculator.js"></script>
+
+<script>
+  var registrationDate = "<?php echo $registration_date; ?>";
+  var weeksDifference = calculateWeeksDifference(registrationDate);
+  var weekSystemContent = document.getElementById('week-system-content');
+
+  if (weeksDifference < 8) {
+    weekSystemContent.innerHTML = `
+    <div class="custom-border">
+        <p class="custom-text">Welcome to the 8 week system,</p>
+        <p>You are currently on week: ${weeksDifference + 1}</p>
+        <p>Click the button below to view your progress!</p>
+        <div class="btn-group">
+            <a href="./week_system.php" class="btn btn-primary btn-view-progress">View Progress</a>
+        </div>
+    </div>
+`;
+  } else {
+    weekSystemContent.innerHTML = `
+        <div class="custom-border">
+            <p>Congratulations!</p>
+            <p>You have completed the 8-week system. Well done!</p>
+            <p>Click the button below to review it!</p>
+            <div class="btn-group">
+                <a href="./week_system.php" class="btn btn-primary">Review</a>
+            </div>
+        </div>
+    `;
+  }
+</script>
+
+</body>
+</html>
 
