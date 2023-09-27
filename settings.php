@@ -124,10 +124,12 @@ if (!isset($_SESSION['username'])) {
                             <br>
 
                             <?php
-                            if ($fetch['image'] == '') {
-                                echo '<img src="./images/default.png" alt="Profile Image" class="profile-image">';
+                            if (!empty($fetch['image'])) {
+                                $imageData = base64_encode($fetch['image']);
+                                $imageSrc = "data:image/jpeg;base64,{$imageData}";
+                                echo '<img src="' . $imageSrc . '" class="profile-image" alt="Profile Image">';
                             } else {
-                                echo '<img src="uploaded_img/' . $fetch['image'] . '" class="profile-image">';
+                                echo '<img src="./images/default.png" class="profile-image" alt="Profile Image">';
                             }
                             ?>
 

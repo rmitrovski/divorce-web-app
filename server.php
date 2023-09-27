@@ -127,28 +127,52 @@ if (isset($_POST['new_details'])) {
     }
 }
 
+// if (isset($_POST['new_image'])) {
+//     $update_image = $_FILES['update_image']['name'];
+//     $update_image_size = $_FILES['update_image']['size'];
+//     $update_image_tmp_name = $_FILES['update_image']['tmp_name'];
+//     $update_image_folder = 'uploaded_img/' . $update_image;
+
+//     // Get the current user's username from the session
+//     $username = $_SESSION['username'];
+
+//     if (!empty($update_image)) {
+//         if ($update_image_size > 2000000) {
+//             array_push($errors, "Image is too large");
+//         } else {
+//             $image_update_query = mysqli_query($db, "UPDATE users SET image = '$update_image' WHERE username = '$username'");
+//             if ($image_update_query) {
+//                 move_uploaded_file($update_image_tmp_name, $update_image_folder);
+//                 $_SESSION['success_message'] = "Profile image updated successfully";
+//                 header('location: settings.php');
+//             } else {
+//                 array_push($errors, "Upload image failed");
+//             }
+//         }
+//     }
+// }
 if (isset($_POST['new_image'])) {
-    $update_image = $_FILES['update_image']['name'];
-    $update_image_size = $_FILES['update_image']['size'];
     $update_image_tmp_name = $_FILES['update_image']['tmp_name'];
-    $update_image_folder = 'uploaded_img/' . $update_image;
+    $update_image_folder = 'uploaded_img/';
 
     // Get the current user's username from the session
     $username = $_SESSION['username'];
 
-    if (!empty($update_image)) {
-        if ($update_image_size > 2000000) {
-            array_push($errors, "Image is too large");
+    if (!empty($update_image_tmp_name)) {
+        $image_data = file_get_contents($update_image_tmp_name); 
+
+        $stmt = $db->prepare("UPDATE users SET image = ? WHERE username = ?");
+        $stmt->bind_param("ss", $image_data, $username);
+
+        if ($stmt->execute()) {
+            move_uploaded_file($update_image_tmp_name, $update_image_folder);
+            $_SESSION['success_message'] = "Profile image updated successfully";
+            header('location: settings.php');
         } else {
-            $image_update_query = mysqli_query($db, "UPDATE users SET image = '$update_image' WHERE username = '$username'");
-            if ($image_update_query) {
-                move_uploaded_file($update_image_tmp_name, $update_image_folder);
-                $_SESSION['success_message'] = "Profile image updated successfully";
-                header('location: settings.php');
-            } else {
-                array_push($errors, "Upload image failed");
-            }
+            array_push($errors, "Upload image failed");
         }
+
+        $stmt->close();
     }
 }
 
@@ -281,5 +305,6 @@ function booklist($db, $username){
         return []; 
     }
 }
+
 
 
