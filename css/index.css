@@ -7,6 +7,8 @@
 }
 
 #hr1 {
+    position: relative;
+    top: -30px; 
     margin-top: 200px;
     counter-increment: hr;
     text-align: center;
@@ -14,7 +16,6 @@
     background: none;
     margin: 5em 1em;
     border: none;
-    border-top: dashed 1px #dddddd;
   
     &:before {
       content: '8-Week System';
@@ -43,6 +44,8 @@
 
 
 .custom-border {
+    width: 700px; 
+    height: 300px; 
     border: 1px solid #e0e0e0; 
     border-radius: 5px;  
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
@@ -215,13 +218,14 @@
 }
 
 #hr2 {
+    position: relative;
+    top: -30px; 
     counter-increment: hr;
     text-align: center;
     position: relative;
     background: none;
     margin: 5em 1em;
     border: none;
-    border-top: dashed 1px #dddddd;
   
     &:before {
       content: 'Booking list';
