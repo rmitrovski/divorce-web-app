@@ -263,8 +263,8 @@ if (isset($_POST['book_appointment'])) {
     }
 
 }
-function booklist($db, $userid){
-    $query = "SELECT * FROM bookings where user_id = $userid order by booking_id";
+function booklist($db){
+    $query = "SELECT * FROM bookings order by booking_id";
     $results = mysqli_query($db, $query);
     $data = [];
     while($row = mysqli_fetch_object($results)){
