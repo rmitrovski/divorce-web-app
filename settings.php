@@ -10,7 +10,6 @@ if (!isset($_SESSION['username'])) {
 } else {
     $username = $_SESSION['username'];
     $email = $_SESSION['email'];
-    $userid = $_SESSION['userid'];
 }
 ?>
 
@@ -110,8 +109,7 @@ if (!isset($_SESSION['username'])) {
                         <div class="alert-success" role="alert" id="success" style="display: none"></div>
 
                         <?php
-                        $userid = $_SESSION['userid'];
-                        $select = mysqli_query($db, "SELECT * FROM users WHERE id = $userid");
+                        $select = mysqli_query($db, "SELECT * FROM users WHERE username = '$username'");
                         if (mysqli_num_rows($select) > 0) {
                             $fetch = mysqli_fetch_assoc($select);
                         }
