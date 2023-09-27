@@ -16,7 +16,7 @@ if (isset($_GET['logout'])) {
     header("location: login.php");
 }
 
-$data = booklist($db, $userid);
+$data = booklist($db);
 ?>
 
 <?php include('header.php'); ?>
