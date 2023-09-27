@@ -69,7 +69,7 @@
                     <div class="container-fluid">
                         <div class="header-wrap">
                             <form class="form-header" action="" method="POST">
-                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search..." />
+                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search..." id="searchBox"/>
                                 <button class="au-btn--submit" type="submit">
                                 <i class="zmdi zmdi-search"></i>
 
@@ -157,5 +157,32 @@
     
 
         <!-- END MENU SIDEBAR-->
+       <script>
+        document.getElementById('searchBox').addEventListener('keyup', function(){
+            let filter = this.value.toLowerCase();
+            let sidebarLinks = document.querySelectorAll("#sidebar .side-menu .text");
+            sidebarLinks.forEach(link =>{
+                let linkText = link.textContent || link.innerText;
+                if(linkText.toLowerCase().indexOf(filter) > -1){
+                    link.parentElement.style.display= "";
 
-      
+                }else{
+                    link.parentElement.style.display = "none";
+
+                }
+
+            });
+
+
+        });
+
+
+
+
+        </script>
+
+
+      <!-- END MENU SIDEBAR-->
+  
+
+
