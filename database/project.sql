@@ -4,7 +4,7 @@ CREATE TABLE `users` (
     `email` varchar(100) NOT NULL,
     `password` varchar(100) NOT NULL,
     `registration_date` DATE NOT NULL,
-    `image` varchar(255) NOT NULL
+    `image` BLOB NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `bookings` (
