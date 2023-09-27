@@ -264,11 +264,15 @@ if (isset($_POST['book_appointment'])) {
 
 }
 function booklist($db, $username){
-    $query = "SELECT * FROM bookings WHERE username = '$username' ORDER BY booking_id";
-    $results = mysqli_query($db, $query);
-    if ($results) {
+    $find_userid_query = "SELECT id FROM users WHERE username = '$username'";
+    $results1 = mysqli_query($db, $find_userid_query);
+    $row = mysqli_fetch_assoc($results1);
+    $userid = $row['id'];
+    $query = "SELECT * FROM bookings WHERE user_id = '$userid' ORDER BY booking_id";
+    $results2 = mysqli_query($db, $query);
+    if ($results2) {
         $data = [];
-        while ($row = mysqli_fetch_object($results)) {
+        while ($row = mysqli_fetch_object($results2)) {
             array_push($data, $row);
         }
         return $data;
@@ -277,7 +281,5 @@ function booklist($db, $username){
         return []; 
     }
 }
-
-
 
 
