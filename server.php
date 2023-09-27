@@ -133,14 +133,14 @@ if (isset($_POST['new_image'])) {
     $update_image_tmp_name = $_FILES['update_image']['tmp_name'];
     $update_image_folder = 'uploaded_img/' . $update_image;
 
-    // Get the current user's ID from the session
-    $userid = $_SESSION['userid'];
+    // Get the current user's username from the session
+    $username = $_SESSION['username'];
 
     if (!empty($update_image)) {
         if ($update_image_size > 2000000) {
             array_push($errors, "Image is too large");
         } else {
-            $image_update_query = mysqli_query($db, "UPDATE users SET image = '$update_image' WHERE id = $userid");
+            $image_update_query = mysqli_query($db, "UPDATE users SET image = '$update_image' WHERE username = '$username'");
             if ($image_update_query) {
                 move_uploaded_file($update_image_tmp_name, $update_image_folder);
                 $_SESSION['success_message'] = "Profile image updated successfully";
@@ -263,15 +263,21 @@ if (isset($_POST['book_appointment'])) {
     }
 
 }
-function booklist($db){
-    $query = "SELECT * FROM bookings order by booking_id";
+function booklist($db, $username){
+    $query = "SELECT * FROM bookings WHERE username = '$username' ORDER BY booking_id";
     $results = mysqli_query($db, $query);
-    $data = [];
-    while($row = mysqli_fetch_object($results)){
-        array_push($data,$row);
+    if ($results) {
+        $data = [];
+        while ($row = mysqli_fetch_object($results)) {
+            array_push($data, $row);
+        }
+        return $data;
+    } else {
+        echo "error：" . mysqli_error($db);
+        return []; 
     }
-    return $data;
 }
+
 
 
 
