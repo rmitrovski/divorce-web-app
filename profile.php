@@ -17,7 +17,6 @@
     } else {
         $username = $_SESSION['username'];
         $email = $_SESSION['email'];
-        $userid =$_SESSION['userid'];
     }
     ?>
 
@@ -25,8 +24,7 @@
 	<link href="css/profile_page.css" rel="stylesheet" media="all">
     <div class="profile-card">
         <?php
-        $userid = $_SESSION['userid'];
-        $select = mysqli_query($db, "SELECT * FROM users WHERE id = $userid");
+        $select = mysqli_query($db, "SELECT * FROM users WHERE username = '$username'");
         if($select){
             $fetch = mysqli_fetch_assoc($select);
         }
