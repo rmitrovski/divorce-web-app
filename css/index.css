@@ -1,9 +1,6 @@
 .my-custom-margin {
     margin-top: 200px; 
-     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    margin-left:100px;
 }
 
 #hr1 {
