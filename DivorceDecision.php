@@ -22,7 +22,7 @@
             <span class="ms-2">1 hr</span>
         </div>
         <div class="d-flex align-items-center mt-2">
-            <i class="fas fa-user fa-lg"></i>
+            <i class="fas fa-dollar-sign fa-lg"></i>
             <span class="ms-2">CA$200</span>
         </div>
         <div class="d-flex align-items-center mt-2">
