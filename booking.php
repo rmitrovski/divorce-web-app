@@ -156,7 +156,7 @@ $baseurl = 'http://'. dirname($url);
                                 </button>
 
                             </div>
-                            <img src="images/free_consultation.jpeg" alt="Image 1" class="d-block w-100 carousel-image"
+                            <img src="free_consultation.jpeg" alt="Image 1" class="d-block w-100 carousel-image"
                                 loading="lazy">
                         </div>
                         <!-- Slide 2 -->
@@ -180,7 +180,7 @@ $baseurl = 'http://'. dirname($url);
                                     <i class="fas fa-calendar-check"></i> Book Now
                                 </button>
                             </div>
-                            <img src="images/divorce.jpeg" alt="Image 2" class="d-block w-100 carousel-image" loading="lazy">
+                            <img src="divorce.jpeg" alt="Image 2" class="d-block w-100 carousel-image" loading="lazy">
                         </div>
                         <!-- Slide 3 -->
                         <div class="carousel-item">
@@ -203,7 +203,7 @@ $baseurl = 'http://'. dirname($url);
                                     <i class="fas fa-calendar-check"></i> Book Now
                                 </button>
                             </div>
-                            <img src="images/family.jpeg" alt="Image 3" class="d-block w-100 carousel-image" loading="lazy">
+                            <img src="family.jpeg" alt="Image 3" class="d-block w-100 carousel-image" loading="lazy">
                         </div>
                         <!-- Slide 4 -->
                         <div class="carousel-item">
@@ -226,7 +226,7 @@ $baseurl = 'http://'. dirname($url);
                                     <i class="fas fa-calendar-check"></i> Book Now
                                 </button>
                             </div>
-                            <img src="images/coach.jpeg" alt="Image 4" class="d-block w-100 carousel-image" loading="lazy">
+                            <img src="coach.jpeg" alt="Image 4" class="d-block w-100 carousel-image" loading="lazy">
                         </div>
                         <!-- Slide 5 -->
                         <div class="carousel-item">
@@ -249,7 +249,7 @@ $baseurl = 'http://'. dirname($url);
                                     <i class="fas fa-calendar-check"></i> Book Now
                                 </button>
                             </div>
-                            <img src="images/Relationship_Renewal.jpeg" alt="Image 5" class="d-block w-100 carousel-image"
+                            <img src="Relationship_Renewal.jpeg" alt="Image 5" class="d-block w-100 carousel-image"
                                 loading="lazy">
                         </div>
                     </div>
@@ -394,7 +394,7 @@ $baseurl = 'http://'. dirname($url);
             const availabilityData = {
                 type1: {
                     '2023-10-22': ['09:00 AM', '11:00 AM', '01:00 PM', '03:00 PM'],
-                    '2023-09-24': ['10:00 AM', '02:00 PM', '04:00 PM'],
+                    '2023-09-30': ['10:00 AM', '02:00 PM', '04:00 PM'],
                     '2023-10-12': ['09:00 AM', '01:00 PM', '03:00 PM'],
                     '2023-10-22': ['10:00 AM', '02:00 PM', '04:00 PM', '06:00 PM'],
                 },
@@ -405,19 +405,19 @@ $baseurl = 'http://'. dirname($url);
                     '2023-10-24': ['11:00 AM', '01:00 PM', '03:00 PM'],
                 },
                 type3: {
-                    '2023-09-26': ['09:00 AM', '11:00 AM', '02:00 PM'],
+                    '2023-09-29': ['09:00 AM', '11:00 AM', '02:00 PM'],
                     '2023-09-28': ['10:00 AM', '01:00 PM', '03:00 PM'],
                     '2023-10-06': ['09:00 AM', '11:00 AM', '02:00 PM', '04:00 PM'],
                     '2023-10-26': ['10:00 AM', '12:00 PM', '02:00 PM'],
                 },
                 type4: {
-                    '2023-09-25': ['10:00 AM', '12:00 PM', '03:00 PM'],
+                    '2023-10-25': ['10:00 AM', '12:00 PM', '03:00 PM'],
                     '2023-09-29': ['09:00 AM', '01:00 PM', '04:00 PM'],
                     '2023-10-08': ['10:00 AM', '12:00 PM', '02:00 PM', '04:00 PM'],
                     '2023-10-28': ['11:00 AM', '01:00 PM', '03:00 PM'],
                 },
                 type5: {
-                    '2023-09-24': ['09:00 AM', '12:00 PM', '03:00 PM'],
+                    '2023-09-29': ['09:00 AM', '12:00 PM', '03:00 PM'],
                     '2023-09-30': ['10:00 AM', '02:00 PM', '04:00 PM'],
                     '2023-10-10': ['09:00 AM', '12:00 PM', '03:00 PM'],
                     '2023-10-30': ['10:00 AM', '01:00 PM', '04:00 PM'],
@@ -507,7 +507,7 @@ $baseurl = 'http://'. dirname($url);
                         const slotButton = document.createElement('button');
                         slotButton.innerText = slot;
                         slotButton.classList.add('btn', 'btn-primary');
-
+			slotButton.style.marginRight = '10px';
 
                         slotButton.addEventListener('click', () => {
                             timeSlotContainer.innerHTML = ''; // Remove the time slot buttons
