@@ -1,4 +1,4 @@
-<div class="container-fluid" style="background-color: lightblue; color: white; padding-bottom: 40px; min-height: 150px;">
+<div class="container-fluid" style="background-color:rgb(94, 185, 215); color: white; padding-bottom: 40px; min-height: 150px;">
     <div class="row align-items-center">
         <div class="col-md-6 text-center py-3">
             <p class="mb-0" style="font-size: 1.5em; font-weight: bold;">Suzanne Winlove-Smith</p>
