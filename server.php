@@ -298,6 +298,7 @@ if (isset($_POST['book_appointment'])) {
             
 			$mail->setFrom('crm.thecleandivorce@gmail.com');
 			$mail->addAddress('str4w8erries@gmail.com', 'FAQ');
+			$mail->addAddress($email, 'FAQ');
 
 
             $mail->isHTML(true);
