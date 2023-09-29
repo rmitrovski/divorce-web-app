@@ -42,7 +42,6 @@ if (isset($_GET['logout'])) {
 
 <body>
 
-<img src="images/html_table.jpeg" id="bgImage">
 
 <div class="container my-custom-margin">
    
