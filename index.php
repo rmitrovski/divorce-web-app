@@ -15,7 +15,7 @@ if (isset($_GET['logout'])) {
     header("location: login.php");
 }
 
-$data = booklist($db, $username);
+
 ?>
 
 <?php include('header.php'); ?>
@@ -27,7 +27,6 @@ $data = booklist($db, $username);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Booking List</title>
     <link rel="stylesheet" href="css/booking_list.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -50,46 +49,9 @@ $data = booklist($db, $username);
     <div class="container mt-5">
       <hr id="hr1">
         <div id="week-system-content" class="mb-4"></div>
-        <hr id="hr2">
+        
         <div class="container-fluid mt-5">
-            <table class="table table-striped">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>Name</th>
-                        <th>Phone Number</th>
-                        <th>Email Address</th>
-                        <th>Consultation Type</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Purpose Of Consultation</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    if (!empty($data)):
-                        foreach ($data as $row):
-                    ?>
-                    <tr>
-                        <td><?php echo $row->name; ?></td>
-                        <td><?php echo $row->phone; ?></td>
-                        <td><?php echo $row->email; ?></td>
-                        <td><?php echo $row->type; ?></td>
-                        <td><?php echo $row->date; ?></td>
-                        <td><?php echo $row->time; ?></td>
-                        <td><?php echo $row->reason; ?></td>
-                    </tr>
-                    <?php
-                        endforeach;
-                    else:
-                    ?>
-                    <tr>
-                        <td colspan="7">No bookings found.</td>
-                    </tr>
-                    <?php
-                    endif;
-                    ?>
-                </tbody>
-            </table>
+
         </div>
     </div>
 </div>
