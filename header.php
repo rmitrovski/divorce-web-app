@@ -137,6 +137,12 @@
 					<span class="text">Book Consultation</span>
 				</a>
 			</li>
+            <li <?php if ($current_page == 'booking_list.php') echo 'class="active"'; ?>>
+				<a href="booking_list.php">
+					<i class='bx bxs-book' ></i>
+					<span class="text">Booking List</span>
+				</a>
+			</li>
 		</ul>
 		<ul class="side-menu">
 			<li <?php if ($current_page == 'settings.php') echo 'class="active"'; ?>>
