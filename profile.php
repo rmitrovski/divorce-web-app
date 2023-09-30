@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Page</title>
+    <link rel="stylesheet" href="css/booking_list.css">
+
 
 </head>
 <body>
+<img src="images/html_profile.jpeg" id="bgImage">
 
     <?php include('server.php') ?>
     <?php
