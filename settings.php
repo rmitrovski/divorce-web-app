@@ -21,6 +21,8 @@ if (!isset($_SESSION['username'])) {
 <head>
     <!-- JavaScript functions -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="css/booking_list.css">
+
     <style>
         .container {
             padding-top: 80px;
@@ -94,6 +96,7 @@ if (!isset($_SESSION['username'])) {
         }
     </style>
 </head>
+<img src="images/html_settings.jpeg" id="bgImage">
 
 <body class="animsition">
     <div class="page-wrapper">
