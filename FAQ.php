@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <?php require_once('header.php'); ?>
+<link rel="stylesheet" href="css/booking_list.css">
+
 <head>
   
   <title>FAQs</title>
@@ -10,15 +12,15 @@
 
 body {
   font-family: Arial, sans-serif;
-  padding-top: 100px;
+  padding-top: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
  
-  max-width: 1000px;
-  width: 50%;
+  max-width: 400px;
+  width: 20%;
   margin-left: 400px;
-  margin-right: 400px;
+  margin-right: 200px;
 }
 
 h1 {
@@ -33,7 +35,7 @@ h1 {
   margin: auto;
   border-radius: 10px;
   box-shadow: 0 0 5px 1px lightgrey;
-  width: 800px;
+  width: 650px;
   height: 1800px;
   
   
@@ -137,6 +139,7 @@ h1 {
 </head>
 <body>
 
+<img src="images/faq.png" id="bgImage">
 
 
 <div class="outer">
