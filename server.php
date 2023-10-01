@@ -4,10 +4,7 @@ $username="";
 $email="";
 $errors=array();
 $db= mysqli_connect('localhost', 'root','','project');
-require 'vendor/autoload.php';
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-$mail = new PHPMailer(true);
+
 	
 if(isset($_POST['reg_user'])){
   $username= mysqli_real_escape_string($db, $_POST['username']);
@@ -284,52 +281,9 @@ if (isset($_POST['book_appointment'])) {
         $sql = "INSERT INTO bookings (name, phone, email, type, date, time, reason, user_id) 
             VALUES ('$name', '$phone', '$email', '$type', '$date', '$time', '$reason', '$user_id')";
         mysqli_query($db, $sql);
-	
-		   // Send email
-        try {
-			$mail->isSMTP();
-			$mail->Host = 'smtp.gmail.com';
-			$mail->SMTPAuth = true;
-			$mail->Username = 'crm.thecleandivorce@gmail.com';
-			$mail->Password = 'ssrioyggxzxpchca'; // App password
-			$mail->SMTPSecure = 'tls';
-			$mail->Port = 587;
-
-            
-			$mail->setFrom('crm.thecleandivorce@gmail.com');
-			$mail->addAddress('str4w8erries@gmail.com', 'FAQ');
-			$mail->addAddress($email, 'FAQ');
-
-
-            $mail->isHTML(true);
-            $mail->Subject = 'Appointment Confirmation';
-
-            $messageBody = <<<EOT
-                <html>
-                <body>
-                    <p>$name, has booked an appointment</p>
-                    <p>Here are the details:</p>
-                    <ul>
-                        <li>Name: $name</li>
-                        <li>Phone: $phone</li>
-                        <li>Email: $email</li>
-                        <li>Appointment Type: $type</li>
-                        <li>Date: $date</li>
-                        <li>Time: $time</li>
-                        <li>Reason: $reason</li>
-                    </ul>
-                </body>
-                </html>
-            EOT;
-
-            $mail->Body = $messageBody;
-            $mail->send();
-        } catch (Exception $e) {
-            echo '<p style="font-size: 30px;">Oops, message could not be sent. Please try again later.</p>';
-        }
         $alert = "Booking successfully!";
 			$bookflag = true;
-			$jump = 'index.php';
+			$jump = 'booking_list.php';
     }
 
 }
