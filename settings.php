@@ -27,8 +27,8 @@ if (!isset($_SESSION['username'])) {
         .container {
             padding-top: 80px;
             position: relative !important;
-            margin-left: 500px;
-            margin-right: 500px;
+            margin-left: 0px;
+            margin-right: 550px;
             max-width: 1000px;
             width: 50%;
         }
