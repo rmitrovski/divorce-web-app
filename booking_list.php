@@ -1,24 +1,24 @@
-<?php 
+<?php
 include('server.php');
-  if (!isset($_SESSION['username'])) {
+if (!isset($_SESSION['username'])) {
     $_SESSION['msg'] = "You must log in first";
     header('location: login.php');
-  } else {
+} else {
     $username = $_SESSION['username'];
     $email = $_SESSION['email'];
     $registration_date = $_SESSION['registration_date'];
     $userid = $_SESSION['userid'];
-  }
+}
 
-  if (isset($_GET['logout'])) {
+if (isset($_GET['logout'])) {
     session_destroy();
     unset($_SESSION['username']);
     header("location: login.php");
-  }
+}
 
-  $data = booklist($db,$userid);
-  
+$data = booklist($db, $username);
 ?>
+
  <!DOCTYPE html>
 <html lang="en" >
 
@@ -54,32 +54,32 @@ include('server.php');
                         <th> Consultation Purpose </th>
                     </tr>
                 </thead>
+                <tbody>
+                    <?php
+                    if (!empty($data)):
+                        foreach ($data as $row):
+                    ?>
+                    <tr>
+                        <td><?php echo $row->name; ?></td>
+                        <td><?php echo $row->phone; ?></td>
+                        <td><?php echo $row->email; ?></td>
+                        <td><?php echo $row->type; ?></td>
+                        <td><?php echo $row->date; ?></td>
+                        <td><?php echo $row->time; ?></td>
+                        <td><?php echo $row->reason; ?></td>
+                    </tr>
+                    <?php
+                        endforeach;
+                    else:
+                    ?>
+                    <tr>
+                        <td colspan="7">No bookings found.</td>
+                    </tr>
+                    <?php
+                    endif;
+                    ?>
+                </tbody>
 
-
-             
-		
-       
-          <tbody>
-          <?php  
-          if(!empty($data)):
-          $i = 1;
-            foreach($data as $row):	
-          ?>
-          <tr>
-            <td><?php echo $row->name;?></td>
-            <td><?php echo $row->phone;?></td>
-            <td><?php echo $row->email;?></td>
-            <td><?php echo $row->type;?></td>
-            <td><?php echo $row->date;?></td>
-			      <td><?php echo $row->time;?></td>
-			      <td><?php echo $row->reason;?></td>
-          </tr>
-          <?php 
-					$i++;
-				endforeach;
-				endif;
-			?>
-          </tbody>
         </table>	
     </div>
                 
