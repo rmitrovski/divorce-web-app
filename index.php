@@ -21,29 +21,33 @@ if (isset($_GET['logout'])) {
 <?php include('header.php'); ?>
 
 <!DOCTYPE html>
-<html lang="en" title="Coding design">
+<html lang="en" >
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> CRM Website</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/booking_list.css">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Philosopher&family=Quicksand:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@200&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
-    <!-- Custom Styles -->
-    <link rel="stylesheet" type="text/css" href="css/week_difference.css">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+
 </head>
+<div class="adjust">
+<img src="images/html_index.jpeg" id="bgImage">
 
 <body>
+    <div class="cursor"></div>
 
-
-<div class="container my-custom-margin">
+    <div id="purple">
+        
+    </div>
+    <div class="main">
+        <div class="page1">
+            
+            <h1>Clean Divorce</h1>
+            <h2>CRM Website</h2>
+            <div class="container my-custom-margin">
    
     <div class="container mt-5">
       <hr id="hr1">
@@ -89,7 +93,57 @@ if (isset($_GET['logout'])) {
     `;
   }
 </script>
+            
+        </div>
 
+   
+        <div class="page4">
+            <div class="elem">
+                <img src="images/plan.jpeg"
+                    alt="">
+                <div class="text-div">
+                    <h1>Plan</h1>
+                    <h1>Plan</h1>
+                </div>
+                <img src=""
+                    alt="">
+            </div>
+            <div class="elem">
+                <img src="images/finance.jpeg"
+                    alt="">
+                <div class="text-div">
+                    <h1>Finance </h1>
+                    <h1>Finance </h1>
+                </div>
+                <img src=""
+                    alt="">
+            </div>
+            <div class="elem">
+                <img src="images/heal.jpeg"
+                    alt="">
+                <div class="text-div">
+                    <h1>Heal</h1>
+                    <h1>Heal </h1>
+                </div>
+                <img src=""
+                    alt="">
+            </div>
+
+        </div>
+
+       
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+        integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+        integrity="sha512-Ic9xkERjyZ1xgJ5svx3y0u3xrvfT/uPkV99LBwe68xjy/mGtO+4eURHZBW2xW4SZbFrF1Tf090XqB+EVgXnVjw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/index.js"></script>
 </body>
+
+</div >
 </html>
 
