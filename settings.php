@@ -25,13 +25,22 @@ if (!isset($_SESSION['username'])) {
 
     <style>
         .container {
-            padding-top: 80px;
-            position: relative !important;
-            margin-left: 0px;
-            margin-right: 550px;
-            max-width: 1000px;
-            width: 50%;
+            background-color: #fff;
+	border-radius: 10px;
+	padding: 40px; 
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	display: flex;
+	align-items: center;
+    margin-top:160px;
+    margin-left: 280px;
+  margin-right: 600px;
+  width: 650px;
+
+
+   
         }
+        
+
 
         .overlay {
             display: none;
@@ -97,7 +106,7 @@ if (!isset($_SESSION['username'])) {
     </style>
 </head>
 <img src="images/html_settings.jpeg" id="bgImage">
-
+<div class="outer">
 <body class="animsition">
     <div class="page-wrapper">
         <div class="container">
@@ -207,6 +216,7 @@ if (!isset($_SESSION['username'])) {
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <div class="overlay" id="overlay"></div>
