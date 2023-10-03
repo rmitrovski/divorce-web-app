@@ -25,7 +25,8 @@
 .btn-group .btn-primary {
     font-family: 'Sofia Sans', sans-serif;
     font-size: 25px;                
-    font-weight: bold;              
+    font-weight: bold;    
+    color: white;          
 }
 
 
@@ -67,8 +68,8 @@
 
 
 .custom-border {
-    width: 700px; 
-    height: 400px; 
+    width: 600px; 
+    height: 250px; 
     border: 1px solid #e0e0e0; 
     border-radius: 5px;  
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
@@ -118,9 +119,11 @@
     font-family: 'Philosopher', sans-serif;
     font-size: 30px;
     font-weight: bold;
-    color: #3388ff;
+    color: white;
 }
-
+p{
+    font-weight: bold;
+}
 
 
 @media (max-width: 768px) {
@@ -321,4 +324,35 @@
 
 }
 
+
+
+
+
+
+
+#week-system-content {
+    position: relative;
+    width: 700px; 
+    height: 400px; 
+}
+
+.background-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    z-index: 1;
+}
+
+.content-wrapper {
+    position: relative;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    z-index: 2;
+}
 
