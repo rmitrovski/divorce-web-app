@@ -373,7 +373,8 @@ section{position: relative;}
 
 label {
     display: inline-block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
 .login-content{ background: #fff; padding: 30px 20px 20px; 
     -webkit-border-radius: 2px;
@@ -411,82 +412,17 @@ label {
 /*-----------------------------------------------------*/
 /* ----- Buttons----- */
 .au-btn{
-    line-height: 45px;
-    padding: 0 35px ;
-    text-transform: uppercase;
-    color: #fff;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    -webkit-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-    cursor: pointer;
+    margin-top: 20px; 
+    background-color: #007bff;
+	color: #fff;
+	padding: 20px 40px; 
+	border-radius: 5px;
+	margin-right: 10px; 
 
 }
 
-.au-btn:hover{color: #fff;  background: #3868cd; }
-.au-btn--blue{    background: #4272d7;}
-.au-btn--green{      background: #63c76a;}
-.au-btn--green:hover{      background:  #59bd60;}
-.au-btn--blue2{background: #00aced;}
-.au-btn--blue2:hover{background: #00aced;}
-.au-btn--block{display: block; width: 100%;}
-.au-btn-icon i{vertical-align: baseline; margin-right: 5px;}
-.au-btn-plus{
-    position: absolute;
-    width: 45px;
-    height: 45px;
-    background: #63c76a;
-    -webkit-border-radius: 100%;
-    -moz-border-radius: 100%;
-    border-radius: 100%;
-    -webkit-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-    bottom: -22.5px;
-    right: 45px;
-    z-index: 3;
+.au-btn:hover{background-color: #0056b3; }
 
-
-}
-
-.au-btn-plus i{
-    position: absolute;
-    color: #fff;
-    font-size: 15px;
-    font-weight: 500;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-
-
-}
-.au-btn-plus:hover{      background:  #59bd60;}
-.au-btn-load{    background: #808080;     color: #fff; font-size: 15px; padding: 0 40px;}
-.au-btn-load:hover{    background: #767676;}
-.au-btn-filter{
-      font-size: 14px;
-      color: #808080;
-    background: #fff;
-    -webkit-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.03);
-    -moz-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.03);
-    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.03);
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    padding: 0 15px;
-    line-height: 40px;
-    text-transform: capitalize;
-}
-.au-btn-filter i {margin-right: 5px;}
-.au-btn--small{padding: 0 20px; line-height: 40px; font-size: 14px;}
 
 /*Page Loader*/
 
