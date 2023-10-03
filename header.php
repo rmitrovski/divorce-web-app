@@ -119,8 +119,8 @@
 					<span class="text">8 Week system </span>
 				</a>
 			</li>
-			<li <?php if ($current_page == 'profile.php') echo 'class="active"'; ?>>
-				<a href="profile.php">
+			<li <?php if ($current_page == 'settings.php') echo 'class="active"'; ?>>
+				<a href="settings.php">
 					<i class='bx bxs-face' ></i>
 					<span class="text">Profile</span>
 				</a>
@@ -145,10 +145,10 @@
 			</li>
 		</ul>
 		<ul class="side-menu">
-			<li <?php if ($current_page == 'settings.php') echo 'class="active"'; ?>>
-				<a href="settings.php">
-					<i class='bx bxs-cog' ></i>
-					<span class="text">Settings</span>
+			<li >
+				<a href="http://www.bom.gov.au/">
+					<i class='bx bxs-error-circle' ></i>
+					<span class="text">Emergency Exit</span>
 				</a>
 			</li>
 			<li>
