@@ -65,24 +65,26 @@ if (isset($_GET['logout'])) {
 <script src="WeekDifferentCalculator.js"></script>
 
 <script>
-  var registrationDate = "<?php echo $registration_date; ?>";
-  var weeksDifference = calculateWeeksDifference(registrationDate);
-  var weekSystemContent = document.getElementById('week-system-content');
+var registrationDate = "<?php echo $registration_date; ?>";
+var weeksDifference = calculateWeeksDifference(registrationDate);
+var weekSystemContent = document.getElementById('week-system-content');
 
-  if (weeksDifference < 8) {
+if (weeksDifference < 8) {
     weekSystemContent.innerHTML = `
-    <div class="custom-border">
-        <p class="custom-text">Welcome to the 8 week system,</p>
-        <p>You are currently on week: ${weeksDifference + 1}</p>
-        <p>Click the button below to view your progress!</p>
-        <div class="btn-group">
-            <a href="./week_system.php" class="btn btn-primary btn-view-progress">View Progress</a>
+        <img src="images/progress_system.png" class="background-img">
+        <div class="content-wrapper">
+            <p class="custom-text">Welcome to the 8 week system,</p>
+            <p>You are currently on week: ${weeksDifference + 1}</p>
+            <p>Click the button below to view your progress!</p>
+            <div class="btn-group">
+                <a href="./week_system.php" class="btn btn-primary btn-view-progress">View Progress</a>
+            </div>
         </div>
-    </div>
-`;
-  } else {
+    `;
+} else {
     weekSystemContent.innerHTML = `
-        <div class="custom-border">
+        <img src="images/progress_system.jpeg" class="background-img">
+        <div class="content-wrapper">
             <p>Congratulations!</p>
             <p>You have completed the 8-week system. Well done!</p>
             <p>Click the button below to review it!</p>
@@ -91,7 +93,8 @@ if (isset($_GET['logout'])) {
             </div>
         </div>
     `;
-  }
+}
+
 </script>
             
         </div>
