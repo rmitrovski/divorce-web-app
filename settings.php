@@ -32,9 +32,9 @@ if (!isset($_SESSION['username'])) {
 	display: flex;
 	align-items: center;
     margin-top:160px;
-    margin-left: 280px;
+    margin-left: 250px;
   margin-right: 600px;
-  width: 650px;
+  width: 640px;
 
 
    
@@ -105,7 +105,12 @@ if (!isset($_SESSION['username'])) {
         }
     </style>
 </head>
-<img src="images/html_settings.jpeg" id="bgImage">
+<img src="images/html_settings.webp" id="bgImage">
+<style>
+        #bgImage {
+            margin-left: 150px; 
+        }
+    </style>
 <div class="outer">
 <body class="animsition">
     <div class="page-wrapper">
