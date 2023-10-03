@@ -1,4 +1,5 @@
 <?php
+// session starts when on this page
 session_start();
 
 $response = array(
@@ -9,7 +10,7 @@ $response = array(
 );
 
 
-
+// Initialize the name, phone, email and reason session variables
 if (!isset($_SESSION['name'])) {
     $_SESSION['name'] = [];
 }
@@ -27,7 +28,7 @@ if (!isset($_SESSION['reason'])) {
 }
 
 
-// Initialize the date and time session variables
+// Initialize the date, time and type session variables
 if (!isset($_SESSION['date'])) {
     $_SESSION['date'] = [];
 }

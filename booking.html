@@ -30,6 +30,7 @@
 </head>
 
 <body>
+    <!-- The success alert if a booking was successful-->
     <div id="successAlert"
         style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000;">
         <div
@@ -39,7 +40,7 @@
             <button onclick="closeSuccessAlertAndProceed()">OK</button>
         </div>
     </div>
-
+    <!-- A custom alert message that pops up when needed -->
     <div id="customAlert"
         style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000;">
         <div
@@ -362,6 +363,7 @@
 
 
     <script>
+        // This code is used to display the consultation type in the booking form
         document.addEventListener('DOMContentLoaded', (event) => {
             const urlParams = new URLSearchParams(window.location.search);
             const type = urlParams.get('type');
@@ -382,6 +384,7 @@
             }
         });
 
+        // The available times for the booking
         document.addEventListener('DOMContentLoaded', function () {
             const availabilityData = {
                 type1: {
@@ -418,10 +421,10 @@
             };
 
             let selectedDateElement = null;
-
+            // Initialize the calendar
             const calendar = $('#calendar').fullCalendar({
                 events: [],
-
+                // Sets the booking date
                 dayClick: function (date, jsEvent, view) {
                     const today = moment().startOf('day');
                     if (date.isBefore(today)) {
@@ -545,7 +548,7 @@
         });
 
 
-
+        // This code is used to display the images in the image slider
         $(document).ready(function () {
             const imagesToPreload = [
                 'free_consultation.jpeg',
@@ -572,6 +575,7 @@
             });
         });
 
+        // This function is used to close the success alert and proceed to the booking information page
         function closeSuccessAlertAndProceed() {
             window.location.href = "bookingInformation.php";
             document.getElementById('successAlert').style.display = 'none';
@@ -601,10 +605,11 @@
                     success: function (data) {
                         var alertMessageElement = $("#alertMessage");
                         var successMessageElement = $("#successMessage");
-
+                        // If successful, display success message
                         if (data.success) {
                             successMessageElement.text(data.message);
                             $('#successAlert').show();
+                            // If unsuccessful, display error message
                         } else {
 
                             var errorMessages = [];
@@ -616,7 +621,7 @@
                             data.errors.forEach(function (error) {
                                 errorMessages.push(error.message);
 
-
+                                // Display error messages for validation errors
                                 switch (error.code) {
                                     case 'invalid_name':
                                         alertTitles += 'Name Error; ';

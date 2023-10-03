@@ -30,6 +30,7 @@
 </head>
 
 <body>
+    <!-- Success Alert if booking was successful -->
     <div id="successAlert"
         style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000;">
         <div
@@ -39,7 +40,7 @@
             <button onclick="closeSuccessAlertAndProceed()">OK</button>
         </div>
     </div>
-
+    <!-- Error Alert if booking was unsuccessful -->
     <div id="customAlert"
         style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000;">
         <div
@@ -382,6 +383,7 @@
             }
         });
 
+        // Lists the available times that a booking can be made
         document.addEventListener('DOMContentLoaded', function () {
             const availabilityData = {
                 type1: {
@@ -418,7 +420,7 @@
             };
 
             let selectedDateElement = null;
-
+            
             const calendar = $('#calendar').fullCalendar({
                 events: [],
 
@@ -443,7 +445,7 @@
             });
 
 
-
+            // Function to render the calendar
             function renderCalendar() {
                 const selectedConsultationType = $('#consultation-type-checker').val();
                 const availableDates = availabilityData[selectedConsultationType];
@@ -546,7 +548,7 @@
         });
 
 
-
+        // Carousel
         $(document).ready(function () {
             const imagesToPreload = [
                 'free_consultation.jpeg',
@@ -602,10 +604,12 @@
                     success: function (data) {
                         var alertMessageElement = $("#alertMessage");
                         var successMessageElement = $("#successMessage");
-
+                        // Check if the response is successful
                         if (data.success) {
                             successMessageElement.text(data.message);
+                            // Display success alert
                             $('#successAlert').show();
+                        // If not successful, display the custom alert
                         } else {
 
                             var errorMessages = [];
@@ -613,7 +617,7 @@
 
                             var alertTitles = '';
 
-
+                            // Loop through the errors and append the error messages to the errorMessages array
                             data.errors.forEach(function (error) {
                                 errorMessages.push(error.message);
 
@@ -635,6 +639,7 @@
                                         alertTitles += 'Unknown Error; ';
                                 }
                             });
+                            // Display the error messages
                             alertMessageElement.text(errorMessages.join(' ')).addClass("alert-danger").removeClass("alert-success");
                             $('#alertTitle').text(alertTitles);
                             $('#customAlert').show();

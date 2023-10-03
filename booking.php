@@ -1,3 +1,4 @@
+<!-- Includes the server.php file which is used to handle the interactions with the database -->
 <?php include('server.php');
 $url = $_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
 $port = $_SERVER['SERVER_PORT'];
@@ -36,8 +37,8 @@ $baseurl = 'http://'. dirname($url);
 
 
 </head>
-
 <body>
+    <!-- The success aert if a booking was successful -->
     <div id="successAlert"
         style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000;">
         <div
@@ -47,7 +48,7 @@ $baseurl = 'http://'. dirname($url);
             <button onclick="closeSuccessAlertAndProceed()">OK</button>
         </div>
     </div>
-
+    <!-- Custom alert if there was a problem -->
     <div id="customAlert"
         style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000;">
         <div
@@ -389,7 +390,7 @@ $baseurl = 'http://'. dirname($url);
                 consultationTypeSelector.value = type;
             }
         });
-
+        // This is the code for the calendar, it shows the available times
         document.addEventListener('DOMContentLoaded', function () {
             const availabilityData = {
                 type1: {
@@ -426,7 +427,7 @@ $baseurl = 'http://'. dirname($url);
             };
 
             let selectedDateElement = null;
-
+            // The calander functionality
             const calendar = $('#calendar').fullCalendar({
                 events: [],
 
@@ -451,7 +452,7 @@ $baseurl = 'http://'. dirname($url);
             });
 
 
-
+            // This function renders the calendar
             function renderCalendar() {
                 const selectedConsultationType = $('#consultation-type-checker').val();
                 const availableDates = availabilityData[selectedConsultationType];
