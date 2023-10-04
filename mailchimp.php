@@ -1,17 +1,18 @@
 
 <?php
+// Takes the api key and listID
 $apiKey='';
 $listId-'Mailchimp_List_ID';
 $serverPrefix= substr($apiKey, strpos($apiKey, '_') +1); // The last part of Mailchimp API is the data center
-
+// API endpoint
 $apiEndpoint= "https://{$serverPrefix}.api.mailchimp.com/3.0/lists/{$listId}/members";
 
-
+// Connects to the database
 $connection = new mysqli('localhost', 'root','','project');
-
+// Sends a SQL query and gets everything from project table
 $query= "SELECT * FROM project";
 $result= $connection-> query($query);
-
+// Loops through the result and gets the email and name
 while($row = $result-> fetch_assoc())
 {
     $data = [

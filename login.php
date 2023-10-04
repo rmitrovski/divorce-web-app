@@ -43,9 +43,11 @@
   <div class="header">
   	<h2>Login</h2>
   </div>
-	 
+	 <!-- Form to login -->
   <form method="post" action="login.php">
+    <!-- Display validation errors here -->
   	<?php include('errors.php'); ?>
+    <!-- Username and password input fields -->
   	<div class="input-group">
   		<label>Username</label>
   		<input type="text" name="username" >
@@ -55,9 +57,11 @@
   		<input type="password" name="password">
   	</div>
   	<div class="input-group">
+      <!-- Login button -->
   		<button type="submit" class="btn" name="login_user">Login</button>
   	</div>
   	<p>
+      <!-- Button to register page -->
   		Not yet a member? <a href="register.php">Sign up</a>
   	</p>
   </form>

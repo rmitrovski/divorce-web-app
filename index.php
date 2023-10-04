@@ -1,21 +1,23 @@
 <?php
+// session starts when on this page
 include('server.php');
+// If the user is not logged in, they cannot access the page and will be redirected to the login page
 if (!isset($_SESSION['username'])) {
     $_SESSION['msg'] = "You must log in first";
     header('location: login.php');
 } else {
+    // If the user is logged in, the user details will be assigned variables
     $username = $_SESSION['username'];
     $email = $_SESSION['email'];
     $registration_date = $_SESSION['registration_date'];
 }
 
+// If the user clicks the logout button, the session will end and the user will be redirected to the login page
 if (isset($_GET['logout'])) {
     session_destroy();
     unset($_SESSION['username']);
     header("location: login.php");
 }
-
-
 ?>
 
 <?php include('header.php'); ?>
@@ -64,11 +66,13 @@ if (isset($_GET['logout'])) {
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="WeekDifferentCalculator.js"></script>
 
+
 <script>
+// Calculating the week difference between the registration date and the current date
 var registrationDate = "<?php echo $registration_date; ?>";
 var weeksDifference = calculateWeeksDifference(registrationDate);
 var weekSystemContent = document.getElementById('week-system-content');
-
+// If the week difference is less than 8, the user will be shown the week they are on
 if (weeksDifference < 8) {
     weekSystemContent.innerHTML = `
         <img src="images/progress_system.png" class="background-img">
@@ -82,6 +86,7 @@ if (weeksDifference < 8) {
         </div>
     `;
 } else {
+    // If the week difference is greater than 8, the user will be shown that they have completed the 8 week system
     weekSystemContent.innerHTML = `
         <img src="images/progress_system.jpeg" class="background-img">
         <div class="content-wrapper">
@@ -99,7 +104,7 @@ if (weeksDifference < 8) {
             
         </div>
 
-   
+        <!-- Displays different images -->
         <div class="page4">
             <div class="elem">
                 <img src="images/plan.jpeg"

@@ -1,3 +1,4 @@
+// jest config
 module.exports = {
 
     clearMocks: true,
