@@ -6,9 +6,8 @@
 <head>
   
   <title>FAQs</title>
+<!-- CSS for FAQ page -->
 <style>
-
-
 
 body {
   font-family: Arial, sans-serif;
@@ -141,7 +140,7 @@ h1 {
 
 <img src="images/faq.png" id="bgImage">
 
-
+<!-- Frequently Asked Questions -->
 <div class="outer">
   <h1>Frequently Asked Questions</h1>
 
@@ -170,9 +169,11 @@ h1 {
 </div>
 
 <script>
+// JavaScript for FAQ page
+// Collapsible FAQ
 var coll = document.getElementsByClassName("collapsible");
 var i;
-
+// For loop to iterate through the content and change the max height
 for (i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function() {
     this.classList.toggle("active");
@@ -189,7 +190,7 @@ for (i = 0; i < coll.length; i++) {
 <br>
 <br>
 <div class="container">
-  
+    <!-- Contact form -->
     <div class="row">
         <div class="col-md-5 col-md-offset-3 well">
         <br>

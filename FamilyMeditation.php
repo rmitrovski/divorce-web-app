@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <!-- Family mediation information -->
     <div class="container mt-5">
         <h2 class="mb-3">Family Mediation Session</h2>
         <div class="d-flex align-items-center">
@@ -29,13 +30,13 @@
             <i class="fas fa-user fa-lg"></i>
             <span class="ms-2">Ottawa</span>
         </div>
-
+        <!-- Book button -->
         <div class="mt-3">
             <a href="booking.php?type=type3#booking-section" class="btn btn-primary">Book Now</a>
         </div>
 
         <hr class="custom-divide-line">
-
+        <!-- Service description -->
         <div class="row mt-3">
             <div class="col-md-6">
                 <h4>Service Description</h4>
@@ -50,7 +51,7 @@
         </div>
 
         <hr class="custom-divide-line">
-
+        <!-- Policy -->
         <div class="row mt-3">
             <div class="col-md-6">
                 <h4>Cancellation Policy</h4>
@@ -59,7 +60,7 @@
         </div>
 
         <hr class="custom-divide-line">
-
+        <!-- Contact details -->
         <div class="row mt-3">
             <div class="col-md-6">
                 <h4>Contact Details</h4>

@@ -1,3 +1,4 @@
+<!-- Footer -->
 <div class="container-fluid" style="background-color:rgb(94, 185, 215); color: white; padding-bottom: 40px; min-height: 150px;">
     <div class="row align-items-center">
         <div class="col-md-6 text-center py-3">

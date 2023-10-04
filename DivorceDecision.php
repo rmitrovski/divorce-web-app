@@ -8,7 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <title>Do I Need a Divorce or Trial Separation?</title>
 </head>
-
+<!-- Divorce decision information -->
 <body>
     <div class="container mt-5">
         <h2 class="mb-3">Do I Need a Divorce or Trial Separation?</h2>
@@ -29,13 +29,13 @@
             <i class="fas fa-user fa-lg"></i>
             <span class="ms-2">Ottawa</span>
         </div>
-
+        <!-- Book button -->
         <div class="mt-3">
             <a href="booking.php?type=type2#booking-section" class="btn btn-primary">Book Now</a>
         </div>
 
         <hr class="custom-divide-line">
-
+        <!-- Service description -->
         <div class="row mt-3">
             <div class="col-md-6">
                 <h4>Service Description</h4>
@@ -47,7 +47,7 @@
         </div>
 
         <hr class="custom-divide-line">
-
+        <!-- Policy -->
         <div class="row mt-3">
             <div class="col-md-6">
                 <h4>Cancellation Policy</h4>
@@ -56,7 +56,7 @@
         </div>
 
         <hr class="custom-divide-line">
-
+        <!-- Contact details -->
         <div class="row mt-3">
             <div class="col-md-6">
                 <h4>Contact Details</h4>

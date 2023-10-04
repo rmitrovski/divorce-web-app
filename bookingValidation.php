@@ -43,9 +43,10 @@ if (!isset($_SESSION['type'])) {
 }
 
 
+// Check if the request method is POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    
+    // Get the data
     $name = $_POST['name'];
     $phone = $_POST['phone'];
     $reason = $_POST['reason'];
@@ -54,6 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $time = $_POST['time'];
     $type = $_POST['type'];
 
+    // Validate the data
     if (!preg_match("/^[a-zA-Z\s]*$/", $name)) {
         $response['errors'][] = ['code' => 'invalid_name', 'message' => 'Name can only contain letters and spaces.'];
     }
@@ -68,8 +70,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     
-
+    // Check if there are any errors
     if (empty($response['errors'])) {
+        // Add the form data to the session
         $_SESSION['name'][] = $name;
         $_SESSION['phone'][] = $phone;
         $_SESSION['email'][] = $email;
