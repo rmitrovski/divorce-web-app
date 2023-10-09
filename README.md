@@ -40,7 +40,7 @@ Call the new database "project"
 <img src="/instructions/tables-creation.png" alt="Create tables">
 
 2.4 Now the database is up and functioning, you are now able to log in and use the website:
-<img src="/instructions/results.png" alt="Setup complete">
+<img src="/instructions/result.png" alt="Setup complete">
 
 <h3> Unit Testing </h3>
 Testing is done via GitHub workflow, for more information on how that works please have a look at the GitHub workflow documentation:
