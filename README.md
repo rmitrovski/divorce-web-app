@@ -1,10 +1,10 @@
 <h1> Clean Divorce Project </h1>
 
-<h3> 1. How to setup </h3>
+<h3> 1. Setup website </h3>
 
 1.1 Download/Install Xampp
 You need to download the latest version of Xampp from this link: https://www.apachefriends.org/download.html
-After you have download the file you will need to install it to the computer, 
+After you have downloaded the file you will need to install it on the computer, 
 this link: https://www.ionos.com/digitalguide/server/tools/xampp-tutorial-create-your-own-local-test-server/ 
 has good step-by-step instructions that will guide you through the installation process.
 
@@ -23,11 +23,25 @@ has good step-by-step instructions that will guide you through the installation 
 1.6 When the xampp control panel is opened, the Apache and MySQL need to be started:
 <img src="/instructions/xampp.png" alt="Xampp control panel">
 
-When the services have been started, you will be able to access the website, in this example it is in: http://localhost/app/login.php
+When the services have been started, you will be able to access the website, in this example, it is in: http://localhost/app/login.php
 <img src="/instructions/login.png" alt="Login page">
 
-Download the DB from github to ur local machine 
-You will need to install the CRM DB on http://localhost/phpmyadmin/ to connect to db 
+<h3> 2. Setup database </h3>
+Although the website is set up, without the database there is not much you can do, so this guide will show you how to install the database.
 
-Unit Testing requirements:
-You need to install JEST 
+2.1 In the database folder, there is a .sql file that has the code that will set up the database for you:
+<img src="/instructions/db-code.png" alt="Database code">
+
+2.2 Next, you need to go on the mySQL database which for this example is on this link: http://localhost/phpmyadmin/index.php and click on "New" on the side bar to create a new database:
+Call the new database "project"
+<img src="/instructions/db-creation.png" alt="Create new database">
+
+2.3 After the database is created, go on the database click on the SQL tab enter the code from the .sql file there, and click the "Go" button:
+<img src="/instructions/tables-creation.png" alt="Create tables">
+
+2.4 Now the database is up and functioning, you are now able to log in and use the website:
+<img src="/instructions/results.png" alt="Setup complete">
+
+<h3> Unit Testing </h3>
+Testing is done via GitHub workflow, for more information on how that works please have a look at the GitHub workflow documentation:
+https://docs.github.com/en/actions/using-workflows
