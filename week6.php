@@ -34,6 +34,7 @@
  </style>
 </head>
 <body class="slides horizontal simplifiedMobile animated">
+<!-- Start of a section with slide, fade, and Ken Burns effects -->
 	
 <!-- Slide 3 (#27) -->
 <section class="slide fade-6 kenBurns">
@@ -56,6 +57,8 @@
                   
                 </ul>
               </div>
+               <!-- link/blackqoute and form right for week6  -->
+
             </li>
             <li class="col-7-12 left">
               <h1 class="ae-2 fromRight">Week 6 - Parenting Plan Guide </h1>
@@ -78,6 +81,7 @@
       </div>
     </div>
   </div>
+  <!-- background image  -->
   <div class="background" style="background-image:url(assets/img/background/future.jpg)"></div>
 </section>
 

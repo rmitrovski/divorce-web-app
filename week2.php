@@ -30,16 +30,19 @@
 
 
 <!-- Slide 5 (#91) -->
+<!-- Start of a section with slide, fade, and Ken Burns effects -->
+
 <section class="slide fade-6 kenBurns">
   <div class="content">
     <div class="container">
       <div class="wrap">
-      
+       <!-- centing the title  form right for week2  -->
         <div class="fix-12-12 toCenter">
           <div class="fix-7-12">
               <h1 class="ae-2">Week 2 - Organise and Evaluate</h1>
             
           </div>
+           <!-- addded a grid for 3 elements and links  -->
           <ul class="grid fixedSpaces left margin-top-10">
             <li class="col-4-12 col-tablet-1-2 col-phablet-1-1 ae-4 fromLeft">
              <h3>Family Law Portal</h3>
@@ -63,6 +66,7 @@
       </div>
     </div>
   </div>
+   <!-- background image  -->
   <div class="background" style="background-image:url(assets/img/plan.jpg)"></div>
 </section>
 

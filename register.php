@@ -36,17 +36,36 @@
 
 
 </head>
+    <!-- multiple classed to style the register page -->
+
 <body class="animsition">
+        <!-- page wrapper   to style the register page -->
+
     <div class="page-wrapper">
+            <!-- background styling -->
+
       <div class="page-content--bge5">
+                    <!-- start the content of the container  -->
+
         <div class="container">
+             <!-- added another wrappaer -->
+
           <div class="login-wrap">
+             <!-- actual content  -->
+
              <div class="login-content">
              <div class="header">
+                 <!-- header for the page  -->
+
                 <h2>Register</h2>
              </div>  
+              <!-- form to post data to register.ohp -->
+
              <form method="post" action="register.php" >
+                 <!-- to display errors in registration   -->
+
              <?php include('errors.php'); ?>
+ <!-- inoput group for the user daetails  -->
 
                 <div class="input-group">
                      <label>Username</label>
@@ -64,11 +83,12 @@
   	              <label>Confirm password</label>
   	            <input type="password" name="password_2" placeholder="Re Confirm Password">
   	             </div>
-                 
+                 <!-- submit btn directs to server.php functions  -->
                  <div class="input-group">
                      
                      <button  type="submit" class="btn" name="reg_user">Register</button>
                  </div>
+                 <!-- direct to login page  -->
                  <p>
                  Already have an account?
                      <a href="login.php">Sign in</a>

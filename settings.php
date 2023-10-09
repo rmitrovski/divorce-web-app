@@ -3,11 +3,12 @@
 
 <?php include('server.php') ?>
 <?php
-
+//check if the user is logged in 
 if (!isset($_SESSION['username'])) {
     $_SESSION['msg'] = "You must log in first";
     header('location: login.php');
 } else {
+    //fetch the data from the DB 
     $username = $_SESSION['username'];
     $email = $_SESSION['email'];
 }
@@ -105,12 +106,14 @@ if (!isset($_SESSION['username'])) {
         }
     </style>
 </head>
+<!--background image -->
 <img src="images/html_settings.webp" id="bgImage">
 <style>
         #bgImage {
             margin-left: 150px; 
         }
     </style>
+    <!-- styling the conatiner  -->
 <div class="outer">
 <body class="animsition">
     <div class="page-wrapper">
@@ -120,12 +123,14 @@ if (!isset($_SESSION['username'])) {
                     <div class="login-logo">
                     </div>
                     <div class="login-form">
+                        <!--added a title  -->
                         <h2 style="text-align: center"> USER SETTINGS</h2>
                         <div class="alert-danger" role="alert" id="danger" style="display: none"></div>
                         <div class="alert-warning" role="alert" id="warning" style="display: none"></div>
                         <div class="alert-success" role="alert" id="success" style="display: none"></div>
 
                         <?php
+                        // fetch data from the DB depending on the user 
                         $select = mysqli_query($db, "SELECT * FROM users WHERE username = '$username'");
                         if (mysqli_num_rows($select) > 0) {
                             $fetch = mysqli_fetch_assoc($select);
@@ -141,6 +146,7 @@ if (!isset($_SESSION['username'])) {
                             <br>
 
                             <?php
+                            //check the image in the DB and fetch it if exsists 
                             if (!empty($fetch['image'])) {
                                 $imageData = base64_encode($fetch['image']);
                                 $imageSrc = "data:image/jpeg;base64,{$imageData}";
@@ -149,7 +155,7 @@ if (!isset($_SESSION['username'])) {
                                 echo '<img src="./images/default.png" class="profile-image" alt="Profile Image">';
                             }
                             ?>
-
+                           <!-- created a form for user detials inout  -->
                             <div class="form-group">
                                 <label>Full Name</label>
                                 <input class="au-input au-input--full" type="text" name="new_full_name" id="Full_Name" placeholder="Full Name" value="<?php echo $username; ?>">
@@ -206,10 +212,12 @@ if (!isset($_SESSION['username'])) {
                             <button class="au-btn au-btn--green m-b-20">Delete Account</button>
                         </div>
                         <br>
+                        <!--direct to deteling the password functions  -->
                         <form id="deleteAccountForm" action="" method="post" style="display: none;">
                             <span class="closeBtn" onclick="closeDeleteForm()">&times;</span>
                             <br>
                             <h5 style="text-align: center"> Enter your password</h5>
+                            <!--pop up for confimations  -->
                             <div class="form-group">
                                 <label>Warning! This action is irreversible.</label>
                                 <input class="au-input au-input--full" type="password" name="delete_password" id="delete_password" placeholder="Enter Password">

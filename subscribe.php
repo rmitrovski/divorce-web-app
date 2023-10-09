@@ -55,11 +55,12 @@
 
     <?php include('server.php') ?>
     <?php
-
+//chekc if user is loged in 
     if (!isset($_SESSION['username'])) {
         $_SESSION['msg'] = "You must log in first";
         header('location: login.php');
     } else {
+        //ftech the users info 
         $username = $_SESSION['username'];
         $email = $_SESSION['email'];
         $userid =$_SESSION['userid'];
@@ -70,7 +71,7 @@
 	<link href="css/profile_page.css" rel="stylesheet" media="all">
     <div class="profile-card">
 <div id="mc_embed_shell">
-  
+<!-- mailchimp subscription format -->
 <div id="mc_embed_signup">
  <form action="https://gmail.us10.list-manage.com/subscribe/post?u=0956ec2183806dbd2dec5dd14&amp;id=9a3e7792ef&amp;f_id=00f8cde5f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_self" novalidate="">
         <div id="mc_embed_signup_scroll"><h2>Subscribe</h2>

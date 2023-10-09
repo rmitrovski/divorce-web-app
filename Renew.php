@@ -10,17 +10,21 @@
 </head>
 
 <body>
+    <!-- styling the background conatiner  -->
+      <!-- first item  -->
     <div class="container mt-5">
         <h2 class="mb-3">Relationship Renewal</h2>
         <div class="d-flex align-items-center">
             <i class="fas fa-laptop fa-lg"></i>
             <span class="ms-2">Available Online</span>
         </div>
+            <!-- secound item /service  -->
         <h3 class="mt-3">Preventing breakdowns and planning your empowered way forward</h3>
         <div class="d-flex align-items-center mt-2">
             <i class="fas fa-clock fa-lg"></i>
             <span class="ms-2">1 hr</span>
         </div>
+          <!-- contact info placeholder -->
         <div class="d-flex align-items-center mt-2">
             <i class="fas fa-user fa-lg"></i>
             <span class="ms-2">Contact for details</span>
@@ -29,13 +33,13 @@
             <i class="fas fa-user fa-lg"></i>
             <span class="ms-2">Ottawa</span>
         </div>
-
+ <!-- navigation to the booking section-->
         <div class="mt-3">
             <a href="booking.php?type=type5#booking-section" class="btn btn-primary">Book Now</a>
         </div>
 
         <hr class="custom-divide-line">
-
+ <!--description of the services -->
         <div class="row mt-3">
             <div class="col-md-6">
                 <h4>Service Description</h4>
@@ -56,7 +60,7 @@
         </div>
 
         <hr class="custom-divide-line">
-
+ <!-- contact details -->
         <div class="row mt-3">
             <div class="col-md-6">
                 <h4>Contact Details</h4>

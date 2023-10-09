@@ -1,20 +1,20 @@
 <?php
-
+// enable error reporting 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
+//include external libraries and dependencies 
 require 'vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
+//fetch from the inputs 
 $name = $_POST["user"];
 $email = $_POST["email_id"];
 $message = $_POST["question"];
-
+//initialize a new php email insurance 
 $mail = new PHPMailer(true);
 
 try {
-    
+    // try to check the connection and send emails 
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
@@ -129,6 +129,7 @@ EOT;
 }
 	</style>
     <title>Thank You</title>
+ <!-- email body -->
 
 </head>
 <body>
@@ -142,6 +143,7 @@ EOT;
 </html>
 
 <?php
+//diaply error message if the email could not be sent 
 } catch (Exception $e) {
     echo '<p style="font-size: 30px;">Oops, message could not be sent. Please return to the previous page. </p>';
 }

@@ -30,6 +30,8 @@
 
 
 <!-- Slide 5 (#91) -->
+<!-- Start of a section with slide, fade, and Ken Burns effects -->
+
 <section class="slide fade-6 kenBurns" >
   <div class="content">
     <div class="container">
@@ -37,8 +39,11 @@
       
         <div class="fix-12-12 toCenter">
           <div class="fix-7-12">
+                   <!-- centing the title  form right for week3  -->
+
               <h1 class="ae-2">Week 3 - Money matters</h1>
-            
+                       <!-- addded a grid for 3 elements and links  -->
+
           </div>
           <ul class="grid fixedSpaces left margin-top-10">
             <li class="col-4-12 col-tablet-1-2 col-phablet-1-1 ae-4 fromLeft">
@@ -63,6 +68,8 @@
       </div>
     </div>
   </div>
+     <!-- background image  -->
+
   <div class="background" style="background-image:url(assets/img/background/budget.jpg)"></div>
 </section>
 

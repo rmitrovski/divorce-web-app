@@ -37,6 +37,8 @@
 	
 <!-- Slide 3 (#27) -->
 <section class="slide fade-6 kenBurns">
+  <!-- Start of a section with slide, fade, and Ken Burns effects -->
+
   <div class="content">
     <div class="container">
       <div class="wrap">
@@ -57,6 +59,8 @@
                 </ul>
               </div>
             </li>
+            <!-- link/blackqoute and form right for week1  -->
+
             <li class="col-7-12 left">
               <h1 class="ae-2 fromRight">Week 1 - Inital Session</h1>
               <div class="ae-3 fromRight">

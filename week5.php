@@ -25,14 +25,17 @@
 <body class="slides horizontal simplifiedMobile animated">
 		
 
+<!-- Start of a section with slide, fade, and Ken Burns effects -->
 
 <section class="slide fade-6 kenBurns" >
   <div class="content">
     <div class="container">
       <div class="wrap">
-      
+       <!-- centing the title  form right for week5  -->
+
         <div class="fix-10-12">
           <h1 class="ae-1">Week 5</h1>
+          <!-- addded a grid for 3 elements and links  -->
           <ul class="grid grid-83 noSpaces equal ae-2 fadeIn">
             <li class="col-6-12 ae-3" style="background: #F5FBFE">
               <h3>Equalization - Support and Pensions</h3>
@@ -64,6 +67,8 @@
       </div>
     </div>
   </div>
+              <!-- background iamge  -->
+
   <div class="background" style="background-image:url(assets/img/background/decide.jpg)"></div>
 </section>
 
