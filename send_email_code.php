@@ -18,8 +18,8 @@ try {
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = ''; // Email goes here
-    $mail->Password = ''; // Password goes here
+    $mail->Username = 'crm.thecleandivorce@gmail.com'; // Email goes here
+    $mail->Password = 'ssrioyggxzxpchca'; // Password goes here
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
 
@@ -28,7 +28,7 @@ try {
         throw new Exception("Invalid email address");
     }
 
-    $mail->setFrom(''); // Email that was chosen goes here
+    $mail->setFrom('crm.thecleandivorce@gmail.com'); // Email that was chosen goes here
     $mail->addAddress('str4w8erries@gmail.com', 'FAQ');
 
     $mail->isHTML(true);
