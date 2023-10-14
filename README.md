@@ -42,6 +42,15 @@ Call the new database "project"
 2.4 Now the database is up and functioning, you are now able to log in and use the website:
 <img src="/instructions/result.png" alt="Setup complete">
 
-<h3> Unit Testing </h3>
+<h3> 3. Unit Testing </h3>
 Testing is done via GitHub workflow, for more information on how that works please have a look at the GitHub workflow documentation:
 https://docs.github.com/en/actions/using-workflows
+
+<h3> 4. Sending email to the booking </h3>
+The code is pretty much setup, there is only a few lines that need to be modified:
+
+2.4 You simply need to fill in the three lines below with the login details that you wnat to use and everything will work as it should:
+<img src="/instructions/send_email.png" alt="Sent email">
+
+For more information on how it works can be found on their GitHub page:
+https://github.com/PHPMailer/PHPMailer
