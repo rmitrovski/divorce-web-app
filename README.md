@@ -1,5 +1,13 @@
 <h1> Clean Divorce Project </h1>
 
+<h3> Table of Contents </h3>
+1. Setup website
+2. Setup database
+3. Unit testing
+4. Sending email after booking
+5. ChatBot
+6. MailChimp - Subcribe to newsletter 
+
 <h3> 1. Setup website </h3>
 
 1.1 Download/Install Xampp
@@ -42,11 +50,11 @@ Call the new database "project"
 2.4 Now the database is up and functioning, you are now able to log in and use the website:
 <img src="/instructions/result.png" alt="Setup complete">
 
-<h3> 3. Unit Testing </h3>
+<h3> 3. Unit testing </h3>
 Testing is done via GitHub workflow, for more information on how that works please have a look at the GitHub workflow documentation:
 https://docs.github.com/en/actions/using-workflows
 
-<h3> 4. Sending email to the booking </h3>
+<h3> 4. Sending email after booking </h3>
 The code is pretty much setup, there is only a few lines that need to be modified:
 
 2.4 You simply need to fill in the three lines below with the login details that you wnat to use and everything will work as it should:
@@ -54,3 +62,17 @@ The code is pretty much setup, there is only a few lines that need to be modifie
 
 For more information on how it works can be found on their GitHub page:
 https://github.com/PHPMailer/PHPMailer
+
+<h3> 5. ChatBot </h3>
+Although we decided with the client not to implement a chatbot AI, if in the future it was to be implemented
+we have setup up bot.py to be the file where the AI would be run. 
+Some links you may be interested are listed below:
+https://openai.com/product
+https://bard.google.com/
+
+<h3> 6. MailChimp - Subcribe to newsletter </h3>
+MailChimp is a useful way to get people to subscribe to any newsletters like what has been done in subscribe.php.
+MailChimp has different payment plans, with the free version being quite limited. Although it is not fully implemented as 
+we only have a basic test version, it can maybe one day be implemented depending on the clients needs.
+MailChimp's website is https://mailchimp.com/?currency=CAD
+
