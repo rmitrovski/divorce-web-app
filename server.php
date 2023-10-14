@@ -295,13 +295,13 @@ if (isset($_POST['book_appointment'])) {
 			$mail->isSMTP();
 			$mail->Host = 'smtp.gmail.com';
 			$mail->SMTPAuth = true;
-			$mail->Username = ''; // Email address goes here
-			$mail->Password = ''; // Password goes here
+			$mail->Username = 'crm.thecleandivorce@gmail.com'; // Email address goes here
+			$mail->Password = 'ssrioyggxzxpchca'; // Password goes here
 			$mail->SMTPSecure = 'tls';
 			$mail->Port = 587;
 
 
-			$mail->setFrom(''); // Email address goes here again
+			$mail->setFrom('crm.thecleandivorce@gmail.com'); // Email address goes here again
 			$mail->addAddress('str4w8erries@gmail.com', 'FAQ');
 			$mail->addAddress($email, 'FAQ');
 
