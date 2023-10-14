@@ -55,9 +55,9 @@ Testing is done via GitHub workflow, for more information on how that works plea
 https://docs.github.com/en/actions/using-workflows
 
 <h3> 4. Sending email after booking </h3>
-The code is pretty much setup, there is only a few lines that need to be modified:
+The code is all set up to send an email after a booking has been placed. If in the event the code needs to be modified there is only a few lines of code that will need modifying:
 
-2.4 You simply need to fill in the three lines below with the login details that you wnat to use and everything will work as it should:
+2.4 You simply need to fill in the three lines below with the login details that you want to use and everything will work as it should:
 <img src="/instructions/send_email.png" alt="Sent email">
 
 For more information on how it works can be found on their GitHub page:
