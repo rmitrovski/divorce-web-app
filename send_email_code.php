@@ -28,7 +28,7 @@ try {
         throw new Exception("Invalid email address");
     }
 
-    $mail->setFrom('crm.thecleandivorce@gmail.com');
+    $mail->setFrom(''); // Email that was chosen goes here
     $mail->addAddress('str4w8erries@gmail.com', 'FAQ');
 
     $mail->isHTML(true);
