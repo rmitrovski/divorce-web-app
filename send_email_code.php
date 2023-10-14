@@ -18,8 +18,8 @@ try {
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'crm.thecleandivorce@gmail.com';
-    $mail->Password = 'ssrioyggxzxpchca'; // App password
+    $mail->Username = ''; // Email goes here
+    $mail->Password = ''; // Password goes here
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
 
