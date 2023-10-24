@@ -57,7 +57,7 @@ https://docs.github.com/en/actions/using-workflows
 <h3> 4. Sending email after booking </h3>
 The code is all set up to send an email after a booking has been placed, however, 2FA needs to be enabled with a valid phone number for it to be fully set up. If in the event the code needs to be modified there are only a few lines of code that will need modifying:
 
-2.4 You simply need to fill in the three lines below with the login details that you want to use and everything will work as it should:
+4.1 You simply need to fill in the three lines below with the login details that you want to use and everything will work as it should:
 <img src="/instructions/send_email.png" alt="Sent email">
 
 For more information on how it works can be found on their GitHub page:
