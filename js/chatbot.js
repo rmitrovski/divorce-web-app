@@ -6,7 +6,8 @@ const deleteButton= document.querySelector("#delete-btn");
 let userText=null;
 const API_KEY="";
 
-const loadDataFromLocalstorage=()=>{
+const initializeChat=()=>{
+    try{
     const themeColor= localStorage.getItem("themeColor");
     document.body.classList.toggle("light_mode", themeColor === "light_mode");
     themeButton.innerText= document.body.classList.contains("light_mode") ? "dark_mode":"light_mode";
@@ -17,18 +18,22 @@ const loadDataFromLocalstorage=()=>{
 </div>`
     chatContainer.innerHTML=localStorage.getItem("all-chats") || defaultText;
     chatContainer.scrollTo(0,chatContainer.scrollHeight);
+    }catch(error){
+        console.error("Error initializing chat", error);
 
+
+    }
 
 }
 
-const createChatElement=(content, className)=>{
+const createChatDiv=(content, className)=>{
     const chatDiv=document.createElement("div");
     chatDiv.classList.add("chat", className);
     chatDiv.innerHTML=content;
     return chatDiv;
 }
 
-const getChatResponse = async (incomingChatDiv) => {
+const fetchChatResponse = async (incomingChatDiv) => {
     const API_URL= "https://api.openai.com/v1/completions";
     const pElement= document.createElement("p");
 
@@ -67,14 +72,20 @@ const getChatResponse = async (incomingChatDiv) => {
 
 }
 
-const copyResponse=(copyBtn)=>{
+const copyChatText=(copyBtn)=>{
+    try{
     const responseTextElement= copyBtn.parentElement.querySelector("p");
     navigator.clipboard.writeText(responseTextElement.textContent);
     copyBtn.textContent="done";
     setTimeout(() => copyBtn.textContent = "content_copy", 1000);
+}catch (error){
+
+    console.error("Error copying texts", error);
+
+}
 }
 
-const showTypingAnimation=()=>{
+const displayTypingAnimation=()=>{
     const html= `<div class="chat-content">
     <div class="chat-details">
         <img src="images/chatbot.jpg" alt="chatbot-img">
@@ -84,17 +95,17 @@ const showTypingAnimation=()=>{
             <div class="typing-dot" style="--delay: 0.4s"></div>
         </div>
     </div>
-    <span onclick="copyResponse(this)" class="material-symbols-rounded">content_copy</span>
+    <span onclick="copyChatText(this)" class="material-symbols-rounded">content_copy</span>
 </div>`;
-    const incomingChatDiv= createChatElement(html,"incoming");
+    const incomingChatDiv= createChatDiv(html,"incoming");
     chatContainer.appendChild(incomingChatDiv);
     chatContainer.scrollTo(0,chatContainer.scrollHeight);
-    getChatResponse(incomingChatDiv);
+    fetchChatResponse(incomingChatDiv);
 
 }
 
 
-const handleOutgoingChat=()=>{
+const processOutgoingChat=()=>{
     userText = chatInput.value.trim();
     if(!userText) return;
 
@@ -107,18 +118,24 @@ const handleOutgoingChat=()=>{
         <p>${userText}</p>
     </div>
 </div>`;
-    const outgoingChatDiv=createChatElement(html,"outgoing");
+    const outgoingChatDiv=createChatDiv(html,"outgoing");
     chatContainer.querySelector(".default-text")?.remove();
     chatContainer.appendChild(outgoingChatDiv);
     chatContainer.scrollTo(0,chatContainer.scrollHeight);
-    setTimeout(showTypingAnimation, 500);
+    setTimeout(displayTypingAnimation, 500);
 
 }
 
 deleteButton.addEventListener("click", () =>{
-    if(confirm("Are u sure u want to delet all the chatsL")){
+    if(confirm("Are u sure u want to delet all the chats")){
+        try{
         localStorage.removeItem("all-chats");
-        loadDataFromLocalstorage();
+        initializeChat();
+        }catch (error){
+
+            console.error("Error deleting chats from the local storage", error);
+
+        }
     }
 });
 
@@ -140,11 +157,11 @@ chatInput.addEventListener("input",()=>{
 chatInput.addEventListener("keydown", (e)=>{
     if (e.key === "Enter" && !e.shiftKey && window.innerWidth >800){
         e.preventDefault();
-        handleOutgoingChat();
+        processOutgoingChat();
     }
 
 });
 
-loadDataFromLocalstorage();
-sendButton.addEventListener("click", handleOutgoingChat);
+initializeChat();
+sendButton.addEventListener("click", processOutgoingChat);
 
