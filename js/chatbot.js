@@ -26,14 +26,14 @@ const initializeChat=()=>{
 
 }
 
-const createChatDiv=(content, className)=>{
+const startconverDiv=(content, className)=>{
     const chatDiv=document.createElement("div");
     chatDiv.classList.add("chat", className);
     chatDiv.innerHTML=content;
     return chatDiv;
 }
 
-const fetchChatResponse = async (incomingChatDiv) => {
+const fetchConverReply = async (incomingChatDiv) => {
     const API_URL= "https://api.openai.com/v1/completions";
     const pElement= document.createElement("p");
 
@@ -72,7 +72,7 @@ const fetchChatResponse = async (incomingChatDiv) => {
 
 }
 
-const copyChatText=(copyBtn)=>{
+const copyConverText=(copyBtn)=>{
     try{
     const responseTextElement= copyBtn.parentElement.querySelector("p");
     navigator.clipboard.writeText(responseTextElement.textContent);
@@ -85,7 +85,7 @@ const copyChatText=(copyBtn)=>{
 }
 }
 
-const displayTypingAnimation=()=>{
+const displayImages=()=>{
     const html= `<div class="chat-content">
     <div class="chat-details">
         <img src="images/chatbot.jpg" alt="chatbot-img">
@@ -95,17 +95,17 @@ const displayTypingAnimation=()=>{
             <div class="typing-dot" style="--delay: 0.4s"></div>
         </div>
     </div>
-    <span onclick="copyChatText(this)" class="material-symbols-rounded">content_copy</span>
+    <span onclick="copyConverText(this)" class="material-symbols-rounded">content_copy</span>
 </div>`;
-    const incomingChatDiv= createChatDiv(html,"incoming");
+    const incomingChatDiv= startconverDiv(html,"incoming");
     chatContainer.appendChild(incomingChatDiv);
     chatContainer.scrollTo(0,chatContainer.scrollHeight);
-    fetchChatResponse(incomingChatDiv);
+    fetchConverReply(incomingChatDiv);
 
 }
 
 
-const processOutgoingChat=()=>{
+const processConver=()=>{
     userText = chatInput.value.trim();
     if(!userText) return;
 
@@ -118,11 +118,11 @@ const processOutgoingChat=()=>{
         <p>${userText}</p>
     </div>
 </div>`;
-    const outgoingChatDiv=createChatDiv(html,"outgoing");
+    const outgoingChatDiv=startconverDiv(html,"outgoing");
     chatContainer.querySelector(".default-text")?.remove();
     chatContainer.appendChild(outgoingChatDiv);
     chatContainer.scrollTo(0,chatContainer.scrollHeight);
-    setTimeout(displayTypingAnimation, 500);
+    setTimeout(displayImages, 500);
 
 }
 
@@ -157,11 +157,11 @@ chatInput.addEventListener("input",()=>{
 chatInput.addEventListener("keydown", (e)=>{
     if (e.key === "Enter" && !e.shiftKey && window.innerWidth >800){
         e.preventDefault();
-        processOutgoingChat();
+        processConver();
     }
 
 });
 
 initializeChat();
-sendButton.addEventListener("click", processOutgoingChat);
+sendButton.addEventListener("click", processConver);
 
